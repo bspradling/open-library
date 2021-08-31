@@ -1,0 +1,13 @@
+[package]
+name = "open-library"
+description = "A client to interact with the Open Library API" 
+version = "0.1.0"
+authors = ["Brett Spradling <brett@spradling.me>"]
+repository = "https://www.github.com/bspradling/open-library"
+readme = "README.md"
+edition = "2018"
+license = "MIT"
+
+
+[dependencies]
+
