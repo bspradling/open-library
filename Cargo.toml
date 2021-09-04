@@ -1,6 +1,6 @@
 [package]
-name = "open-library"
-description = "A client to interact with the Open Library API" 
+name = "open_library"
+description = "A client to interact with the Open Library API"
 version = "0.1.0"
 authors = ["Brett Spradling <brett@spradling.me>"]
 repository = "https://www.github.com/bspradling/open-library"
@@ -8,6 +8,31 @@ readme = "README.md"
 edition = "2018"
 license = "MIT"
 
-
 [dependencies]
+itertools = "0.10.1"
+serde_json = "1.0.67"
+thiserror = "1.0.28"
 
+[dependencies.reqwest]
+version = "0.11.4"
+features = ["json"]
+
+[dependencies.serde]
+version = "1.0.130"
+features = ["derive"]
+
+[dependencies.tokio]
+version = "1.11.0"
+features = ["macros"]
+
+[dependencies.tracing]
+version = "0.1.26"
+features = ["log"]
+
+[dependencies.url]
+version = "2.2.2"
+features = ["serde"]
+
+[dev-dependencies]
+test-case = "1.2.0"
+wiremock = "0.5.6"
