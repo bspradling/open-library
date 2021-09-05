@@ -11,8 +11,10 @@ pub struct BooksClient {
 impl BooksClient {
     const BASE_URL: &'static str = "https://openlibrary.org/api/books";
 
-    pub fn new(client: Client) -> Self {
-        Self { client }
+    pub fn new(client: &Client) -> Self {
+        Self {
+            client: client.clone(),
+        }
     }
 
     pub async fn search(
