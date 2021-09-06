@@ -24,6 +24,7 @@ impl BooksClient {
         let unsupported_identifier_keys = vec![
             BookIdentifierKey::GoodReads,
             BookIdentifierKey::LibraryThing,
+            BookIdentifierKey::ProjectGutenberg,
         ];
         let (supported_ids, unsupported_ids): (Vec<BookIdentifier>, Vec<BookIdentifier>) =
             identifiers.into_iter().partition_map(|id| {

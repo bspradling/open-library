@@ -8,6 +8,7 @@ use std::fmt::{Debug, Display, Formatter};
 use thiserror::Error;
 
 mod clients;
+mod format;
 pub mod models;
 #[cfg(test)]
 mod tests;
@@ -18,13 +19,12 @@ pub enum OpenLibraryError {
     ApiError { response: ErrorResponse },
     #[error("Unable to build HTTP client: {}", source)]
     ClientBuildingError { source: reqwest::Error },
+    #[error("An internal error occurred: {}", reason)]
+    InternalError { reason: String },
     #[error("An error occurred while parsing json: {}", source)]
     JsonParseError { source: reqwest::Error },
-    #[error(
-        "The operation ({}) requires authentication to be provided!",
-        operation
-    )]
-    NotAuthenticated { operation: String },
+    #[error("The operation ({}) requires authentication to be provided!", reason)]
+    NotAuthenticated { reason: String },
     #[error("An error occurred while trying to parse a value: {}", reason)]
     ParsingError { reason: String },
     #[error("An error occurred while sending HTTP request: {}", source)]
