@@ -1,7 +1,6 @@
-use crate::OpenLibraryError;
-use reqwest::Response;
+use crate::models::Identifier;
+use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
-use std::convert::TryFrom;
 
 #[derive(Serialize)]
 pub struct LoginRequest {
@@ -12,25 +11,32 @@ pub struct LoginRequest {
 #[derive(Clone, Deserialize)]
 pub struct Session {
     pub cookie: String,
+    pub username: String,
 }
 
-impl TryFrom<Response> for Session {
-    type Error = OpenLibraryError;
+#[derive(Deserialize, Serialize)]
+pub struct ReadingLogResponse {
+    pub page: i16,
+    pub reading_log_entries: Vec<ReadingLogEntry>,
+}
 
-    fn try_from(response: Response) -> Result<Self, Self::Error> {
-        let cookie = response
-            .headers()
-            .get(http::header::SET_COOKIE)
-            .ok_or(OpenLibraryError::ParsingError {
-                reason: "The API response from Open Library did not include a Set-Cookie header"
-                    .to_string(),
-            })?
-            .to_str()
-            .map_err(|_e| OpenLibraryError::ParsingError {
-                reason: "Unable to parse Set-Cookie Header Value into String".to_string(),
-            })?
-            .to_string();
+#[derive(Clone, Deserialize, Serialize)]
+pub struct ReadingLogEntry {
+    pub work: ReadingLogWork,
+    pub logged_edition: Identifier,
+    #[serde(with = "crate::format")]
+    pub logged_date: DateTime<Utc>,
+}
 
-        Ok(Self { cookie })
-    }
+#[derive(Clone, Deserialize, Serialize)]
+pub struct ReadingLogWork {
+    pub title: String,
+    pub key: Identifier,
+    pub author_keys: Vec<Identifier>,
+    pub author_names: Vec<String>,
+    pub first_publish_year: Option<i32>,
+    pub lending_edition_s: Option<String>,
+    pub edition_key: Vec<String>,
+    pub cover_id: Option<i32>,
+    pub cover_edition_key: String,
 }
