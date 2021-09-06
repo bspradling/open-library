@@ -55,26 +55,31 @@ impl<'de> Deserialize<'de> for Identifier {
     where
         D: Deserializer<'de>,
     {
-        let value: String =
-            Deserialize::deserialize(deserializer).map_err(|e| D::Error::custom(e))?;
+        let value: String = Deserialize::deserialize(deserializer).map_err(D::Error::custom)?;
 
         let chunks = value
-            .split("/")
+            .split('/')
             .filter(|str| !str.is_empty())
             .collect::<Vec<&str>>();
 
-        let resource = chunks.get(0).ok_or(D::Error::custom(format!(
-            "Supplied identifier string has improper format {}",
-            &value
-        )))?;
+        let resource = match chunks.get(0) {
+            Some(string) => Ok(*string),
+            None => Err(D::Error::custom(format!(
+                "Supplied identifier string has improper format {}",
+                &value
+            ))),
+        }?;
 
-        let identifier = chunks.get(1).ok_or(D::Error::custom(format!(
-            "Supplied identifier string has improper format {}",
-            &value
-        )))?;
+        let identifier = match chunks.get(1) {
+            Some(string) => Ok(*string),
+            None => Err(D::Error::custom(format!(
+                "Supplied identifier string has improper format {}",
+                &value
+            ))),
+        }?;
 
         Ok(Identifier {
-            resource: Resource::from(*resource),
+            resource: Resource::from(resource),
             identifier: identifier.to_string(),
         })
     }

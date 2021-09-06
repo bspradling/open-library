@@ -93,7 +93,7 @@ impl OpenLibraryClientBuilder {
     }
 
     pub fn build(self) -> Result<OpenLibraryClient, OpenLibraryError> {
-        let default_headers = match self.session.clone() {
+        let default_headers = match self.session {
             Some(session) => {
                 let mut headers = HeaderMap::new();
                 headers.insert(

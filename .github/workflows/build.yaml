@@ -1,0 +1,46 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  static-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Cargo Components
+        run: |
+          rustup component add rustfmt
+          rustup component add clippy
+      - name: Rust Format
+        run: cargo fmt --all -- --check
+      - uses: actions-rs/clippy-check@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Security Audit
+        uses: actions-rs/audit-check@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Rust Cache
+        uses: Swatinem/rust-cache@v1.2.0
+      - name: Build
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --all-targets
+      - name: Run Unit Tests
+        uses: actions-rs/cargo@v1
+        with:
+          command: test
+          args: --lib --all-features
+      - name: Documentation
+        uses: actions-rs/cargo@v1
+        with:
+          command: doc

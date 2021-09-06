@@ -59,26 +59,31 @@ impl<'de> Deserialize<'de> for BookIdentifier {
     where
         D: Deserializer<'de>,
     {
-        let value: String =
-            Deserialize::deserialize(deserializer).map_err(|e| D::Error::custom(e))?;
-        let chunks: Vec<&str> = value.split(":").collect();
+        let value: String = Deserialize::deserialize(deserializer).map_err(D::Error::custom)?;
+        let chunks: Vec<&str> = value.split(':').collect();
 
         if chunks.len() != 2 {
             return Err(D::Error::custom("The specified value {} has improper form"));
         }
 
-        let key = chunks.get(0).ok_or(D::Error::custom(format!(
-            "Supplied identifier string has improper format {}",
-            &value
-        )))?;
+        let key = match chunks.get(0) {
+            Some(string) => Ok(*string),
+            None => Err(D::Error::custom(format!(
+                "Supplied identifier string has improper format {}",
+                &value
+            ))),
+        }?;
 
-        let value = chunks.get(1).ok_or(D::Error::custom(format!(
-            "Supplied identifier string has improper format {}",
-            &value
-        )))?;
+        let value = match chunks.get(1) {
+            Some(string) => Ok(*string),
+            None => Err(D::Error::custom(format!(
+                "Supplied identifier string has improper format {}",
+                &value
+            ))),
+        }?;
 
         let identifier = BookIdentifier {
-            key: BookIdentifierKey::try_from(*key).map_err(|error| D::Error::custom(error))?,
+            key: BookIdentifierKey::try_from(key).map_err(D::Error::custom)?,
             identifier: value.to_string(),
         };
 
@@ -115,13 +120,13 @@ pub enum BookIdentifierKey {
 impl Display for BookIdentifierKey {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         match self {
-            BookIdentifierKey::ISBN => write!(f, "{}", "ISBN")?,
-            BookIdentifierKey::LCCN => write!(f, "{}", "LCCN")?,
-            BookIdentifierKey::OCLC => write!(f, "{}", "OCLC")?,
-            BookIdentifierKey::GoodReads => write!(f, "{}", "GRID")?,
-            BookIdentifierKey::OpenLibrary => write!(f, "{}", "OLID")?,
-            BookIdentifierKey::LibraryThing => write!(f, "{}", "LTID")?,
-            BookIdentifierKey::ProjectGutenberg => write!(f, "{}", "PGID")?,
+            BookIdentifierKey::ISBN => write!(f, "ISBN")?,
+            BookIdentifierKey::LCCN => write!(f, "LCCN")?,
+            BookIdentifierKey::OCLC => write!(f, "OCLC")?,
+            BookIdentifierKey::GoodReads => write!(f, "GRID")?,
+            BookIdentifierKey::OpenLibrary => write!(f, "OLID")?,
+            BookIdentifierKey::LibraryThing => write!(f, "LTID")?,
+            BookIdentifierKey::ProjectGutenberg => write!(f, "PGID")?,
         }
         Ok(())
     }
