@@ -1,51 +1,30 @@
-use crate::models::books::{Book, BookIdentifier, BookIdentifierKey};
+use crate::models::books::{BibliographyKey, Book};
 use crate::OpenLibraryError;
-use itertools::{Either, Itertools};
+use http::StatusCode;
 use reqwest::Client;
+use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
+use url::Url;
 
 pub struct BooksClient {
     client: Client,
+    host: Url,
 }
 
 impl BooksClient {
-    const BASE_URL: &'static str = "https://openlibrary.org/api/books";
-
-    pub fn new(client: &Client) -> Self {
+    pub fn new(client: &Client, host: &Url) -> Self {
         Self {
             client: client.clone(),
+            host: host.clone(),
         }
     }
 
     pub async fn search(
         self,
-        identifiers: Vec<&BookIdentifier>,
-    ) -> Result<HashMap<BookIdentifier, Book>, OpenLibraryError> {
-        let unsupported_identifier_keys = vec![
-            BookIdentifierKey::GoodReads,
-            BookIdentifierKey::LibraryThing,
-            BookIdentifierKey::ProjectGutenberg,
-        ];
-        let (supported_ids, unsupported_ids): (Vec<BookIdentifier>, Vec<BookIdentifier>) =
-            identifiers.into_iter().partition_map(|id| {
-                match unsupported_identifier_keys.contains(&id.clone().key) {
-                    true => Either::Right(id.clone()),
-                    false => Either::Left(id.clone()),
-                }
-            });
-
-        if !unsupported_ids.is_empty() {
-            println!("[WARNING] Some specified identifiers {:?} are not supported via Book Search, they will be ignored!",
-                     unsupported_ids);
-            tracing::warn!(
-                "Some specified identifiers {:?} are not supported via Book Search, they will be ignored!",
-                unsupported_ids
-            );
-        }
-
-        tracing::info!("Supported id: {:?}", &supported_ids);
-
-        let ids_filter = supported_ids
+        identifiers: Vec<&BibliographyKey>,
+    ) -> Result<HashMap<BibliographyKey, Book>, OpenLibraryError> {
+        // tracing::info!("Identifiers: {:?}", identifiers);
+        let ids_filter = identifiers
             .into_iter()
             .map(|id| id.to_string())
             .collect::<Vec<String>>()
@@ -53,21 +32,40 @@ impl BooksClient {
 
         let response = self
             .client
-            .get(BooksClient::BASE_URL)
+            .get(
+                self.host
+                    .join("/api/books")
+                    .map_err(|_e| OpenLibraryError::ParsingError {
+                        reason: "Unable to parse into valid URL".to_string(),
+                    })?,
+            )
             .query(&[
-                ("bibkeys", &ids_filter),
-                ("format", &"json".to_string()),
-                ("jscmd", &"data".to_string()),
+                (QueryParameters::BibliographyKeys, &ids_filter),
+                (QueryParameters::Format, &String::from("json")),
+                (QueryParameters::JavascriptCommand, &String::from("data")),
             ])
             .send()
             .await
             .map_err(|error| OpenLibraryError::RequestFailed { source: error })?;
 
-        let results: HashMap<BookIdentifier, Book> = response
-            .json::<HashMap<BookIdentifier, Book>>()
-            .await
-            .map_err(|error| OpenLibraryError::JsonParseError { source: error })?;
+        let results: HashMap<BibliographyKey, Book> = match response.status() {
+            StatusCode::OK => Ok(response
+                .json::<HashMap<BibliographyKey, Book>>()
+                .await
+                .map_err(|error| OpenLibraryError::JsonParseError { source: error })?),
+            _ => Err(OpenLibraryError::ApiError { response }),
+        }?;
 
         Ok(results)
     }
+}
+
+#[derive(Deserialize, Serialize)]
+enum QueryParameters {
+    #[serde(rename = "bibkeys")]
+    BibliographyKeys,
+    #[serde(rename = "format")]
+    Format,
+    #[serde(rename = "jscmd")]
+    JavascriptCommand,
 }

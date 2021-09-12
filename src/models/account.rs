@@ -1,4 +1,4 @@
-use crate::models::Identifier;
+use crate::models::{Identifier, Resource};
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 
@@ -23,7 +23,7 @@ pub struct ReadingLogResponse {
 #[derive(Clone, Deserialize, Serialize)]
 pub struct ReadingLogEntry {
     pub work: ReadingLogWork,
-    pub logged_edition: Identifier,
+    pub logged_edition: Identifier<Resource>,
     #[serde(with = "crate::format")]
     pub logged_date: DateTime<Utc>,
 }
@@ -31,12 +31,12 @@ pub struct ReadingLogEntry {
 #[derive(Clone, Deserialize, Serialize)]
 pub struct ReadingLogWork {
     pub title: String,
-    pub key: Identifier,
-    pub author_keys: Vec<Identifier>,
+    pub key: Identifier<Resource>,
+    pub author_keys: Vec<Identifier<Resource>>,
     pub author_names: Vec<String>,
     pub first_publish_year: Option<i32>,
     pub lending_edition_s: Option<String>,
     pub edition_key: Vec<String>,
     pub cover_id: Option<i32>,
-    pub cover_edition_key: String,
+    pub cover_edition_key: Option<String>,
 }

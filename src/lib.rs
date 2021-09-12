@@ -2,10 +2,10 @@ use crate::clients::account::AccountClient;
 use crate::models::account::Session;
 use clients::books::BooksClient;
 use reqwest::header::{HeaderMap, HeaderValue};
-use reqwest::ClientBuilder;
-use serde::Deserialize;
-use std::fmt::{Debug, Display, Formatter};
+use reqwest::{ClientBuilder, Response};
+use std::fmt::Debug;
 use thiserror::Error;
+use url::Url;
 
 mod clients;
 mod format;
@@ -15,8 +15,8 @@ mod tests;
 
 #[derive(Debug, Error)]
 pub enum OpenLibraryError {
-    #[error("Received an error response from the Open Library API: {}", response)]
-    ApiError { response: ErrorResponse },
+    #[error("Received an error response from the Open Library API: {:?}", response)]
+    ApiError { response: Response },
     #[error("Unable to build HTTP client: {}", source)]
     ClientBuildingError { source: reqwest::Error },
     #[error("An internal error occurred: {}", reason)]
@@ -31,17 +31,6 @@ pub enum OpenLibraryError {
     RequestFailed { source: reqwest::Error },
 }
 
-#[derive(Debug, Deserialize)]
-pub struct ErrorResponse {
-    pub error: String,
-}
-
-impl Display for ErrorResponse {
-    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", self.error)
-    }
-}
-
 pub struct OpenLibraryAuthClient {
     account: AccountClient,
 }
@@ -53,7 +42,10 @@ impl OpenLibraryAuthClient {
             .map_err(|error| OpenLibraryError::ClientBuildingError { source: error })?;
 
         Ok(Self {
-            account: AccountClient { client },
+            account: AccountClient {
+                client,
+                host: Url::parse("https://openlibrary.org/").unwrap(),
+            },
         })
     }
 
@@ -78,16 +70,28 @@ impl OpenLibraryClient {
 }
 
 pub struct OpenLibraryClientBuilder {
+    host: Url,
     session: Option<Session>,
 }
 
 impl OpenLibraryClientBuilder {
     fn new() -> OpenLibraryClientBuilder {
-        OpenLibraryClientBuilder { session: None }
+        OpenLibraryClientBuilder {
+            host: Url::parse("https://openlibrary.org/").unwrap(),
+            session: None,
+        }
+    }
+
+    pub fn with_host(self, host: Url) -> OpenLibraryClientBuilder {
+        OpenLibraryClientBuilder {
+            host,
+            session: self.session,
+        }
     }
 
     pub fn with_session(self, session: Session) -> OpenLibraryClientBuilder {
         OpenLibraryClientBuilder {
+            host: self.host,
             session: Some(session),
         }
     }
@@ -115,8 +119,8 @@ impl OpenLibraryClientBuilder {
             .map_err(|error| OpenLibraryError::ClientBuildingError { source: error })?;
 
         Ok(OpenLibraryClient {
-            books: BooksClient::new(&client),
-            account: AccountClient::new(&client),
+            books: BooksClient::new(&client, &self.host),
+            account: AccountClient::new(&client, &self.host),
         })
     }
 }

@@ -1,0 +1,20 @@
+{
+  "ISBN:0201558025": {
+    "url": "http://openlibrary.org/books/OL1429049M/Concrete_mathematics",
+    "key": "/books/OL1429049M",
+    "title": "Concrete mathematics",
+    "publish_date": "1994"
+  },
+  "LCCN:93005405": {
+    "url": "http://openlibrary.org/books/OL1397864M/Zen_speaks",
+    "key": "/books/OL1397864M",
+    "title": "Zen speaks",
+    "publish_date": "1994"
+  },
+  "OLID:OL32336498M": {
+    "url": "http://openlibrary.org/books/OL32336498M/Atomic_Habits",
+    "key": "/books/OL32336498M",
+    "title": "Atomic Habits",
+    "publish_date": "2018"
+  }
+}

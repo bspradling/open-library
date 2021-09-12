@@ -8,15 +8,13 @@ pub mod books;
 #[cfg(test)]
 mod tests;
 
-#[derive(Clone)]
-pub struct Identifier {
-    pub resource: Resource,
+#[derive(Clone, Debug)]
+pub struct Identifier<T: OpenLibraryIdentifierKey> {
+    pub resource: T,
     pub identifier: String,
 }
 
-#[derive(Clone, Deserialize, Serialize)]
-#[serde(from = "Resource")]
-#[serde(into = "Resource")]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 pub enum Resource {
     #[serde(alias = "authors")]
     Author,
@@ -25,6 +23,9 @@ pub enum Resource {
     #[serde(alias = "works")]
     Work,
 }
+
+pub trait OpenLibraryIdentifierKey {}
+impl OpenLibraryIdentifierKey for Resource {}
 
 impl From<&str> for Resource {
     fn from(value: &str) -> Self {
@@ -50,7 +51,7 @@ impl Display for Resource {
     }
 }
 
-impl<'de> Deserialize<'de> for Identifier {
+impl<'de> Deserialize<'de> for Identifier<Resource> {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
         D: Deserializer<'de>,
@@ -85,12 +86,12 @@ impl<'de> Deserialize<'de> for Identifier {
     }
 }
 
-impl Serialize for Identifier {
+impl Serialize for Identifier<Resource> {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: Serializer,
     {
-        let string = format!("/{}/{}", self.resource, self.identifier);
+        let string = format!("/{}/{}", self.resource.to_string(), self.identifier);
         serializer.serialize_str(string.as_str())
     }
 }
