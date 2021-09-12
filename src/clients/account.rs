@@ -1,18 +1,18 @@
 use crate::models::account::{LoginRequest, ReadingLogEntry, ReadingLogResponse, Session};
-use crate::{ErrorResponse, OpenLibraryError};
+use crate::OpenLibraryError;
 use reqwest::{Client, StatusCode};
 use url::Url;
 
 pub struct AccountClient {
     pub client: Client,
+    pub host: String,
 }
 
 impl AccountClient {
-    const HOST_URL: &'static str = "https://openlibrary.org";
-
-    pub fn new(client: &Client) -> Self {
+    pub fn new(client: &Client, host: &String) -> Self {
         Self {
             client: client.clone(),
+            host: host.clone(),
         }
     }
 
@@ -21,21 +21,22 @@ impl AccountClient {
         username: String,
         password: String,
     ) -> Result<Session, OpenLibraryError> {
-        let response =
-            self.client
-                .post(
-                    Url::parse(format!("{}/account/login", AccountClient::HOST_URL).as_str())
-                        .map_err(|error| OpenLibraryError::InternalError {
-                            reason: error.to_string(),
-                        })?,
-                )
-                .json(&LoginRequest {
-                    username: username.clone(),
-                    password: password.clone(),
-                })
-                .send()
-                .await
-                .map_err(|error| OpenLibraryError::RequestFailed { source: error })?;
+        let response = self
+            .client
+            .post(
+                Url::parse(format!("{}/account/login", self.host).as_str()).map_err(|error| {
+                    OpenLibraryError::InternalError {
+                        reason: error.to_string(),
+                    }
+                })?,
+            )
+            .json(&LoginRequest {
+                username: username.clone(),
+                password: password.clone(),
+            })
+            .send()
+            .await
+            .map_err(|error| OpenLibraryError::RequestFailed { source: error })?;
 
         match response.status() {
             StatusCode::OK => {
@@ -55,12 +56,7 @@ impl AccountClient {
 
                 Ok(Session { cookie, username })
             }
-            _ => Err(OpenLibraryError::ApiError {
-                response: response
-                    .json::<ErrorResponse>()
-                    .await
-                    .map_err(|err| OpenLibraryError::JsonParseError { source: err })?,
-            }),
+            _ => Err(OpenLibraryError::ApiError { response }),
         }
     }
 
@@ -72,12 +68,7 @@ impl AccountClient {
             .client
             .get(
                 Url::parse(
-                    format!(
-                        "{}/people/{}/books/want-to-read.json",
-                        AccountClient::HOST_URL,
-                        username
-                    )
-                    .as_str(),
+                    format!("{}/people/{}/books/want-to-read.json", self.host, username).as_str(),
                 )
                 .map_err(|_e| OpenLibraryError::ParsingError {
                     reason: "Unable to parse into valid URL".to_string(),

@@ -1,0 +1,220 @@
+{
+  "ISBN:0201558025": {
+    "url": "http://openlibrary.org/books/OL1429049M/Concrete_mathematics",
+    "key": "/books/OL1429049M",
+    "title": "Concrete mathematics",
+    "subtitle": "a foundation for computer science",
+    "authors": [
+      {
+        "url": "http://openlibrary.org/authors/OL720958A/Ronald_L._Graham",
+        "name": "Ronald L. Graham"
+      },
+      {
+        "url": "http://openlibrary.org/authors/OL229501A/Donald_Knuth",
+        "name": "Donald Knuth"
+      },
+      {
+        "url": "http://openlibrary.org/authors/OL2669938A/Oren_Patashnik",
+        "name": "Oren Patashnik"
+      }
+    ],
+    "number_of_pages": 657,
+    "pagination": "xiii, 657 p. :",
+    "by_statement": "Ronald L. Graham, Donald E. Knuth, Oren Patashnik.",
+    "identifiers": {
+      "librarything": [
+        "45844"
+      ],
+      "wikidata": [
+        "Q15303722"
+      ],
+      "goodreads": [
+        "112243"
+      ],
+      "isbn_10": [
+        "0201558025"
+      ],
+      "lccn": [
+        "93040325"
+      ],
+      "openlibrary": [
+        "OL1429049M"
+      ]
+    },
+    "classifications": {
+      "lc_classifications": [
+        "QA39.2 .G733 1994",
+        "QA39.2.G733 1994"
+      ],
+      "dewey_decimal_class": [
+        "510"
+      ]
+    },
+    "publishers": [
+      {
+        "name": "Addison-Wesley"
+      }
+    ],
+    "publish_places": [
+      {
+        "name": "Reading, Mass"
+      }
+    ],
+    "publish_date": "1994",
+    "subjects": [
+      {
+        "name": "Computer science",
+        "url": "https://openlibrary.org/subjects/computer_science"
+      },
+      {
+        "name": "Mathematics",
+        "url": "https://openlibrary.org/subjects/mathematics"
+      },
+      {
+        "name": "Computer science, mathematics",
+        "url": "https://openlibrary.org/subjects/computer_science,_mathematics"
+      }
+    ],
+    "notes": "Includes bibliographical references (p. 604-631) and index.",
+    "ebooks": [
+      {
+        "preview_url": "https://archive.org/details/concretemathemat00grah_444",
+        "availability": "restricted",
+        "formats": {}
+      }
+    ],
+    "cover": {
+      "small": "https://covers.openlibrary.org/b/id/135182-S.jpg",
+      "medium": "https://covers.openlibrary.org/b/id/135182-M.jpg",
+      "large": "https://covers.openlibrary.org/b/id/135182-L.jpg"
+    }
+  },
+  "LCCN:93005405": {
+    "url": "http://openlibrary.org/books/OL1397864M/Zen_speaks",
+    "key": "/books/OL1397864M",
+    "title": "Zen speaks",
+    "subtitle": "shouts of nothingness",
+    "authors": [
+      {
+        "url": "http://openlibrary.org/authors/OL223368A/Zhizhong_Cai",
+        "name": "Zhizhong Cai"
+      }
+    ],
+    "number_of_pages": 159,
+    "pagination": "159 p. :",
+    "identifiers": {
+      "librarything": [
+        "192819"
+      ],
+      "goodreads": [
+        "979250"
+      ],
+      "isbn_10": [
+        "0385472579"
+      ],
+      "lccn": [
+        "93005405"
+      ],
+      "openlibrary": [
+        "OL1397864M"
+      ]
+    },
+    "classifications": {
+      "lc_classifications": [
+        "BQ9265.6 .T7313 1994"
+      ],
+      "dewey_decimal_class": [
+        "294.3/927"
+      ]
+    },
+    "publishers": [
+      {
+        "name": "Anchor Books"
+      }
+    ],
+    "publish_places": [
+      {
+        "name": "New York"
+      }
+    ],
+    "publish_date": "1994",
+    "subjects": [
+      {
+        "name": "Caricatures and cartoons",
+        "url": "https://openlibrary.org/subjects/caricatures_and_cartoons"
+      },
+      {
+        "name": "Zen Buddhism",
+        "url": "https://openlibrary.org/subjects/zen_buddhism"
+      }
+    ],
+    "cover": {
+      "small": "https://covers.openlibrary.org/b/id/240726-S.jpg",
+      "medium": "https://covers.openlibrary.org/b/id/240726-M.jpg",
+      "large": "https://covers.openlibrary.org/b/id/240726-L.jpg"
+    }
+  },
+  "OLID:OL32336498M": {
+    "url": "http://openlibrary.org/books/OL32336498M/Atomic_Habits",
+    "key": "/books/OL32336498M",
+    "title": "Atomic Habits",
+    "authors": [
+      {
+        "url": "http://openlibrary.org/authors/OL7422948A/James_Clear",
+        "name": "James Clear"
+      }
+    ],
+    "identifiers": {
+      "isbn_13": [
+        "9780735211308"
+      ],
+      "openlibrary": [
+        "OL32336498M"
+      ]
+    },
+    "publishers": [
+      {
+        "name": "Avery"
+      }
+    ],
+    "publish_date": "2018",
+    "subjects": [
+      {
+        "name": "Habit",
+        "url": "https://openlibrary.org/subjects/habit"
+      },
+      {
+        "name": "Habit breaking",
+        "url": "https://openlibrary.org/subjects/habit_breaking"
+      },
+      {
+        "name": "Behavior modification",
+        "url": "https://openlibrary.org/subjects/behavior_modification"
+      },
+      {
+        "name": "Self-actualization (psychology)",
+        "url": "https://openlibrary.org/subjects/self-actualization_(psychology)"
+      },
+      {
+        "name": "nyt:business-books=2020-07-12",
+        "url": "https://openlibrary.org/subjects/nyt:business-books=2020-07-12"
+      },
+      {
+        "name": "New York Times bestseller",
+        "url": "https://openlibrary.org/subjects/new_york_times_bestseller"
+      }
+    ],
+    "ebooks": [
+      {
+        "preview_url": "https://archive.org/details/atomic-habits-tiny-changes-remarkable-results-by-james-clear-z-lib.org",
+        "availability": "restricted",
+        "formats": {}
+      }
+    ],
+    "cover": {
+      "small": "https://covers.openlibrary.org/b/id/10958382-S.jpg",
+      "medium": "https://covers.openlibrary.org/b/id/10958382-M.jpg",
+      "large": "https://covers.openlibrary.org/b/id/10958382-L.jpg"
+    }
+  }
+}
