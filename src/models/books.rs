@@ -143,18 +143,16 @@ impl From<Identifier<BookIdentifier>> for Result<BibliographyKey, OpenLibraryErr
     fn from(identifier: Identifier<BookIdentifier>) -> Self {
         match identifier.resource {
             BookIdentifier::InternationalStandard10 => {
-                Ok(BibliographyKey::ISBN(identifier.identifier.clone()))
+                Ok(BibliographyKey::ISBN(identifier.identifier))
             }
             BookIdentifier::InternationalStandard13 => {
-                Ok(BibliographyKey::ISBN(identifier.identifier.clone()))
+                Ok(BibliographyKey::ISBN(identifier.identifier))
             }
-            BookIdentifier::LibraryOfCongress => {
-                Ok(BibliographyKey::LCCN(identifier.identifier.clone()))
-            }
+            BookIdentifier::LibraryOfCongress => Ok(BibliographyKey::LCCN(identifier.identifier)),
             BookIdentifier::OhioCollegeLibraryCenter => {
-                Ok(BibliographyKey::OCLC(identifier.identifier.clone()))
+                Ok(BibliographyKey::OCLC(identifier.identifier))
             }
-            BookIdentifier::OpenLibrary => Ok(BibliographyKey::OLID(identifier.identifier.clone())),
+            BookIdentifier::OpenLibrary => Ok(BibliographyKey::OLID(identifier.identifier)),
             _ => Err(OpenLibraryError::ParsingError {
                 reason: format!(
                     "The identifier specified ({}) is not supported as a bibliogrpahy key!",

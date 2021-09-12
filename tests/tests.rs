@@ -1,7 +1,7 @@
 extern crate open_library;
+use open_library::models::books::BibliographyKey;
 use open_library::{OpenLibraryAuthClient, OpenLibraryClient, OpenLibraryError};
 use std::error::Error;
-use open_library::models::books::BibliographyKey;
 
 #[tokio::test]
 async fn verify_identifier_values() -> Result<(), Box<dyn Error>> {
@@ -20,8 +20,16 @@ async fn verify_identifier_values() -> Result<(), Box<dyn Error>> {
 #[tokio::test]
 async fn verify_authed_endpoint() -> Result<(), Box<dyn Error>> {
     let auth_client = OpenLibraryAuthClient::new()?;
-    let username = std::env::var("OPEN_LIBRARY_USERNAME")?;
-    let password = std::env::var("OPEN_LIBRARY_PASSWORD")?;
+    let username = std::env::var("OPEN_LIBRARY_USERNAME").map_err(|_e| {
+        OpenLibraryError::NotAuthenticated {
+            reason: "Unable to find username in environment variables!".to_string(),
+        }
+    })?;
+    let password = std::env::var("OPEN_LIBRARY_PASSWORD").map_err(|_e| {
+        OpenLibraryError::NotAuthenticated {
+            reason: "Unable to find password in environment variables!".to_string(),
+        }
+    })?;
     let session = auth_client.login(username, password).await?;
     let _client = OpenLibraryClient::builder().with_session(session).build()?;
 

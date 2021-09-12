@@ -5,6 +5,7 @@ use reqwest::header::{HeaderMap, HeaderValue};
 use reqwest::{ClientBuilder, Response};
 use std::fmt::Debug;
 use thiserror::Error;
+use url::Url;
 
 mod clients;
 mod format;
@@ -43,7 +44,7 @@ impl OpenLibraryAuthClient {
         Ok(Self {
             account: AccountClient {
                 client,
-                host: "https://openlibrary.org".to_string(),
+                host: Url::parse("https://openlibrary.org/").unwrap(),
             },
         })
     }
@@ -69,19 +70,19 @@ impl OpenLibraryClient {
 }
 
 pub struct OpenLibraryClientBuilder {
-    host: String, // TODO maybe should be URL
+    host: Url,
     session: Option<Session>,
 }
 
 impl OpenLibraryClientBuilder {
     fn new() -> OpenLibraryClientBuilder {
         OpenLibraryClientBuilder {
-            host: "https://openlibrary.org".to_string(),
+            host: Url::parse("https://openlibrary.org/").unwrap(),
             session: None,
         }
     }
 
-    pub fn with_host(self, host: String) -> OpenLibraryClientBuilder {
+    pub fn with_host(self, host: Url) -> OpenLibraryClientBuilder {
         OpenLibraryClientBuilder {
             host,
             session: self.session,

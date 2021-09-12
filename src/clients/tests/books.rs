@@ -1,6 +1,7 @@
 use crate::models::books::{BibliographyKey, Book};
 use crate::{OpenLibraryClient, OpenLibraryError};
 use http::Method;
+use reqwest::Url;
 use std::collections::HashMap;
 use std::error::Error;
 use wiremock::matchers::{method, path, query_param};
@@ -10,7 +11,7 @@ use wiremock::{Mock, MockServer, ResponseTemplate};
 async fn test_book_search_returns_success() -> Result<(), Box<dyn Error>> {
     let server = MockServer::start().await;
     let client = OpenLibraryClient::builder()
-        .with_host(server.uri())
+        .with_host(Url::parse(server.uri().as_str())?)
         .build()?;
 
     let mock_response: HashMap<BibliographyKey, Book> =
@@ -42,7 +43,7 @@ async fn test_book_search_returns_success() -> Result<(), Box<dyn Error>> {
 async fn test_book_search_returns_failure_when_request_fails() -> Result<(), Box<dyn Error>> {
     let server = MockServer::start().await;
     let client = OpenLibraryClient::builder()
-        .with_host(server.uri())
+        .with_host(Url::parse(server.uri().as_str())?)
         .build()?;
 
     let key = BibliographyKey::ISBN("0201558025".to_string());

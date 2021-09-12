@@ -5,11 +5,11 @@ use url::Url;
 
 pub struct AccountClient {
     pub client: Client,
-    pub host: String,
+    pub host: Url,
 }
 
 impl AccountClient {
-    pub fn new(client: &Client, host: &String) -> Self {
+    pub fn new(client: &Client, host: &Url) -> Self {
         Self {
             client: client.clone(),
             host: host.clone(),
@@ -23,13 +23,11 @@ impl AccountClient {
     ) -> Result<Session, OpenLibraryError> {
         let response = self
             .client
-            .post(
-                Url::parse(format!("{}/account/login", self.host).as_str()).map_err(|error| {
-                    OpenLibraryError::InternalError {
-                        reason: error.to_string(),
-                    }
-                })?,
-            )
+            .post(self.host.join("/account/login").map_err(|error| {
+                OpenLibraryError::InternalError {
+                    reason: error.to_string(),
+                }
+            })?)
             .json(&LoginRequest {
                 username: username.clone(),
                 password: password.clone(),
@@ -67,12 +65,11 @@ impl AccountClient {
         let response = self
             .client
             .get(
-                Url::parse(
-                    format!("{}/people/{}/books/want-to-read.json", self.host, username).as_str(),
-                )
-                .map_err(|_e| OpenLibraryError::ParsingError {
-                    reason: "Unable to parse into valid URL".to_string(),
-                })?,
+                self.host
+                    .join(format!("/people/{}/books/want-to-read.json", username).as_str())
+                    .map_err(|_e| OpenLibraryError::ParsingError {
+                        reason: "Unable to parse into valid URL".to_string(),
+                    })?,
             )
             .send()
             .await

@@ -4,14 +4,15 @@ use http::StatusCode;
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
+use url::Url;
 
 pub struct BooksClient {
     client: Client,
-    host: String,
+    host: Url,
 }
 
 impl BooksClient {
-    pub fn new(client: &Client, host: &String) -> Self {
+    pub fn new(client: &Client, host: &Url) -> Self {
         Self {
             client: client.clone(),
             host: host.clone(),
@@ -31,7 +32,13 @@ impl BooksClient {
 
         let response = self
             .client
-            .get(format!("{}/api/books", self.host))
+            .get(
+                self.host
+                    .join("/api/books")
+                    .map_err(|_e| OpenLibraryError::ParsingError {
+                        reason: "Unable to parse into valid URL".to_string(),
+                    })?,
+            )
             .query(&[
                 (QueryParameters::BibliographyKeys, &ids_filter),
                 (QueryParameters::Format, &String::from("json")),
