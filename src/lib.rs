@@ -36,21 +36,26 @@ pub struct OpenLibraryAuthClient {
 }
 
 impl OpenLibraryAuthClient {
-    pub fn new() -> Result<OpenLibraryAuthClient, OpenLibraryError> {
+    pub fn new(host: Option<Url>) -> Result<OpenLibraryAuthClient, OpenLibraryError> {
         let client = ClientBuilder::new()
             .build()
             .map_err(|error| OpenLibraryError::ClientBuildingError { source: error })?;
 
+        let host_url = match host {
+            Some(value) => value,
+            None => Url::parse("https://openlibrary.org/").unwrap(),
+        };
+
         Ok(Self {
             account: AccountClient {
                 client,
-                host: Url::parse("https://openlibrary.org/").unwrap(),
+                host: host_url,
             },
         })
     }
 
     pub async fn login(
-        self,
+        &self,
         username: String,
         password: String,
     ) -> Result<Session, OpenLibraryError> {
@@ -89,10 +94,10 @@ impl OpenLibraryClientBuilder {
         }
     }
 
-    pub fn with_session(self, session: Session) -> OpenLibraryClientBuilder {
+    pub fn with_session(self, session: &Session) -> OpenLibraryClientBuilder {
         OpenLibraryClientBuilder {
             host: self.host,
-            session: Some(session),
+            session: Some(session.clone()),
         }
     }
 
@@ -102,7 +107,7 @@ impl OpenLibraryClientBuilder {
                 let mut headers = HeaderMap::new();
                 headers.insert(
                     "Cookie",
-                    HeaderValue::from_str(session.cookie.as_str()).map_err(|_error| {
+                    HeaderValue::from_str(session.cookie().as_str()).map_err(|_error| {
                         OpenLibraryError::ParsingError {
                             reason: "Unable to parse session cookie into header value".to_string(),
                         }

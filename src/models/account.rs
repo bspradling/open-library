@@ -8,10 +8,24 @@ pub struct LoginRequest {
     pub password: String,
 }
 
-#[derive(Clone, Deserialize)]
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq)]
 pub struct Session {
-    pub cookie: String,
-    pub username: String,
+    cookie: String,
+    username: String,
+}
+
+impl Session {
+    pub fn from(cookie: String, username: String) -> Self {
+        Session { cookie, username }
+    }
+
+    pub fn cookie(&self) -> &String {
+        &self.cookie
+    }
+
+    pub fn username(&self) -> &String {
+        &self.username
+    }
 }
 
 #[derive(Deserialize, Serialize)]

@@ -4,7 +4,7 @@ use open_library::{OpenLibraryAuthClient, OpenLibraryClient, OpenLibraryError};
 use std::error::Error;
 
 #[tokio::test]
-async fn verify_identifier_values() -> Result<(), Box<dyn Error>> {
+async fn test_book_search() -> Result<(), Box<dyn Error>> {
     let client = OpenLibraryClient::builder().build()?;
     let identifier = BibliographyKey::ISBN("0374386137".to_string());
     let book_results = client.books.search(vec![&identifier]).await?;
@@ -18,8 +18,8 @@ async fn verify_identifier_values() -> Result<(), Box<dyn Error>> {
 }
 
 #[tokio::test]
-async fn verify_authed_endpoint() -> Result<(), Box<dyn Error>> {
-    let auth_client = OpenLibraryAuthClient::new()?;
+async fn test_login() -> Result<(), Box<dyn Error>> {
+    let auth_client = OpenLibraryAuthClient::new(None)?;
     let username = std::env::var("OPEN_LIBRARY_USERNAME").map_err(|_e| {
         OpenLibraryError::NotAuthenticated {
             reason: "Unable to find username in environment variables!".to_string(),
@@ -31,13 +31,15 @@ async fn verify_authed_endpoint() -> Result<(), Box<dyn Error>> {
         }
     })?;
     let session = auth_client.login(username, password).await?;
-    let _client = OpenLibraryClient::builder().with_session(session).build()?;
+    let _client = OpenLibraryClient::builder()
+        .with_session(&session)
+        .build()?;
 
     Ok(())
 }
 
 #[tokio::test]
-async fn verify_want_to_read() -> Result<(), Box<dyn Error>> {
+async fn test_want_to_read() -> Result<(), Box<dyn Error>> {
     let auth_client = OpenLibraryAuthClient::new()?;
     let username = std::env::var("OPEN_LIBRARY_USERNAME").map_err(|_e| {
         OpenLibraryError::NotAuthenticated {
@@ -52,7 +54,9 @@ async fn verify_want_to_read() -> Result<(), Box<dyn Error>> {
     let session = auth_client
         .login(username.clone(), password.clone())
         .await?;
-    let client = OpenLibraryClient::builder().with_session(session).build()?;
+    let client = OpenLibraryClient::builder()
+        .with_session(&session)
+        .build()?;
 
     let reading_log_entries = client.account.get_want_to_read(username).await?;
 
