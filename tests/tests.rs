@@ -40,7 +40,7 @@ async fn test_login() -> Result<(), Box<dyn Error>> {
 
 #[tokio::test]
 async fn test_want_to_read() -> Result<(), Box<dyn Error>> {
-    let auth_client = OpenLibraryAuthClient::new()?;
+    let auth_client = OpenLibraryAuthClient::new(None)?;
     let username = std::env::var("OPEN_LIBRARY_USERNAME").map_err(|_e| {
         OpenLibraryError::NotAuthenticated {
             reason: "Unable to find username in environment variables!".to_string(),
