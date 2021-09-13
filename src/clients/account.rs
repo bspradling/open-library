@@ -17,7 +17,7 @@ impl AccountClient {
     }
 
     pub async fn login(
-        self,
+        &self,
         username: String,
         password: String,
     ) -> Result<Session, OpenLibraryError> {
@@ -52,14 +52,14 @@ impl AccountClient {
                     })?
                     .to_string();
 
-                Ok(Session { cookie, username })
+                Ok(Session::from(cookie, username))
             }
             _ => Err(OpenLibraryError::ApiError { response }),
         }
     }
 
     pub async fn get_want_to_read(
-        self,
+        &self,
         username: String,
     ) -> Result<Vec<ReadingLogEntry>, OpenLibraryError> {
         let response = self

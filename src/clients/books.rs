@@ -20,7 +20,7 @@ impl BooksClient {
     }
 
     pub async fn search(
-        self,
+        &self,
         identifiers: Vec<&BibliographyKey>,
     ) -> Result<HashMap<BibliographyKey, Book>, OpenLibraryError> {
         // tracing::info!("Identifiers: {:?}", identifiers);
