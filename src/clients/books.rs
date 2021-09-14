@@ -53,7 +53,10 @@ impl BooksClient {
                 .json::<HashMap<BibliographyKey, Book>>()
                 .await
                 .map_err(|error| OpenLibraryError::JsonParseError { source: error })?),
-            _ => Err(OpenLibraryError::ApiError { response }),
+            _ => Err(OpenLibraryError::ApiError {
+                status_code: response.status(),
+                error: None,
+            }),
         }?;
 
         Ok(results)

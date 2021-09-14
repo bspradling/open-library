@@ -65,7 +65,10 @@ async fn test_book_search_returns_failure_when_request_fails() -> Result<(), Box
     let actual = client.books.search(identifiers).await;
     let error = actual.expect_err("Expected Book Search call to return an error but it didn't!");
     match &error {
-        OpenLibraryError::ApiError { response: _ } => Ok(()),
+        OpenLibraryError::ApiError {
+            status_code: _,
+            error: _,
+        } => Ok(()),
         _ => panic!(
             "Expected to received an API error, but received {:?} instead!",
             error
