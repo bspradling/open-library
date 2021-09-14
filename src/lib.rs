@@ -2,7 +2,8 @@ use crate::clients::account::AccountClient;
 use crate::models::account::Session;
 use clients::books::BooksClient;
 use reqwest::header::{HeaderMap, HeaderValue};
-use reqwest::{ClientBuilder, Response};
+use reqwest::{ClientBuilder, StatusCode};
+use serde::{Deserialize, Serialize};
 use std::fmt::Debug;
 use thiserror::Error;
 use url::Url;
@@ -15,8 +16,15 @@ mod tests;
 
 #[derive(Debug, Error)]
 pub enum OpenLibraryError {
-    #[error("Received an error response from the Open Library API: {:?}", response)]
-    ApiError { response: Response },
+    #[error(
+        "Received an {:?} response from the Open Library API: {:?}",
+        status_code,
+        error
+    )]
+    ApiError {
+        status_code: StatusCode,
+        error: Option<OpenLibraryErrorResponse>,
+    },
     #[error("Unable to build HTTP client: {}", source)]
     ClientBuildingError { source: reqwest::Error },
     #[error("An internal error occurred: {}", reason)]
@@ -29,6 +37,11 @@ pub enum OpenLibraryError {
     ParsingError { reason: String },
     #[error("An error occurred while sending HTTP request: {}", source)]
     RequestFailed { source: reqwest::Error },
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+pub struct OpenLibraryErrorResponse {
+    pub error: String,
 }
 
 pub struct OpenLibraryAuthClient {

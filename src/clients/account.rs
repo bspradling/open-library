@@ -1,4 +1,4 @@
-use crate::models::account::{LoginRequest, ReadingLogEntry, ReadingLogResponse, Session};
+use crate::models::account::{LoginRequest, ReadingLogEntry, ReadingLogResponseWrapper, Session};
 use crate::OpenLibraryError;
 use reqwest::{Client, StatusCode};
 use url::Url;
@@ -54,7 +54,10 @@ impl AccountClient {
 
                 Ok(Session::from(cookie, username))
             }
-            _ => Err(OpenLibraryError::ApiError { response }),
+            _ => Err(OpenLibraryError::ApiError {
+                status_code: response.status(),
+                error: None,
+            }),
         }
     }
 
@@ -73,11 +76,20 @@ impl AccountClient {
             )
             .send()
             .await
-            .map_err(|error| OpenLibraryError::RequestFailed { source: error })?
-            .json::<ReadingLogResponse>()
+            .map_err(|error| OpenLibraryError::RequestFailed { source: error })?;
+
+        let status_code = response.status().clone();
+        let reading_log_response = response
+            .json::<ReadingLogResponseWrapper>()
             .await
             .map_err(|error| OpenLibraryError::JsonParseError { source: error })?;
 
-        Ok(response.reading_log_entries)
+        match reading_log_response {
+            ReadingLogResponseWrapper::Success(value) => Ok(value.reading_log_entries),
+            ReadingLogResponseWrapper::Err(error) => Err(OpenLibraryError::ApiError {
+                status_code,
+                error: Some(error),
+            }),
+        }
     }
 }
