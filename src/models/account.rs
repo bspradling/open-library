@@ -1,11 +1,36 @@
 use crate::models::{Identifier, Resource};
+use crate::OpenLibraryErrorResponse;
 use chrono::{DateTime, Utc};
-use serde::{Deserialize, Serialize};
+use serde::de::Error;
+use serde::{Deserialize, Deserializer, Serialize};
 
 #[derive(Serialize)]
 pub struct LoginRequest {
     pub username: String,
     pub password: String,
+}
+
+pub enum ReadingLogResponseWrapper {
+    Success(ReadingLogResponse),
+    Err(OpenLibraryErrorResponse),
+}
+
+impl<'de> Deserialize<'de> for ReadingLogResponseWrapper {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: Deserializer<'de>,
+    {
+        let json: serde_json::Value = Deserialize::deserialize(deserializer)?;
+
+        match json.get("error") {
+            None => Ok(ReadingLogResponseWrapper::Success(
+                serde_json::from_value(json).map_err(D::Error::custom)?,
+            )),
+            Some(_) => Ok(ReadingLogResponseWrapper::Err(
+                serde_json::from_value(json).map_err(D::Error::custom)?,
+            )),
+        }
+    }
 }
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq)]
