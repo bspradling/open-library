@@ -30,13 +30,13 @@ async fn main() -> Result<()> {
         identifier: id,
     });
 
-    let identifiers = isbn
+    let identifiers: Vec<BibliographyKey> = isbn
         .chain(oclc)
         .chain(lccn)
         .chain(olid)
         .map(|id| BibliographyKey::from_identifier(id).unwrap())
-        .collect::<Vec<BibliographyKey>>();
+        .collect();
 
-    println!("{:?}", client.books.search(identifiers).await?);
+    println!("{:?}", client.books.search(&identifiers).await?);
     Ok(())
 }

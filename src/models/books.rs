@@ -110,6 +110,14 @@ impl BibliographyKey {
     }
 }
 
+// impl Deref for BibliographyKey {
+//     type Target = BibliographyKey;
+//
+//     fn deref(&self) -> &Self::Target {
+//         &self
+//     }
+// }
+
 impl Display for BibliographyKey {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         match self {
