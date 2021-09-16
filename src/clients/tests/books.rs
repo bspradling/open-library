@@ -18,7 +18,7 @@ async fn test_book_search_returns_success() -> Result<(), Box<dyn Error>> {
         serde_json::from_str(include_str!("resources/book.json"))?;
 
     let key = BibliographyKey::ISBN("0201558025".to_string());
-    let identifiers = vec![&key];
+    let identifiers = vec![key];
     let ids_filter = identifiers
         .clone()
         .into_iter()
@@ -33,7 +33,7 @@ async fn test_book_search_returns_success() -> Result<(), Box<dyn Error>> {
         .mount(&server)
         .await;
 
-    let actual = client.books.search(identifiers).await?;
+    let actual = client.books.search(&identifiers).await?;
 
     assert_eq!(actual.keys().len(), 3);
     Ok(())
@@ -47,7 +47,7 @@ async fn test_book_search_returns_failure_when_request_fails() -> Result<(), Box
         .build()?;
 
     let key = BibliographyKey::ISBN("0201558025".to_string());
-    let identifiers = vec![&key];
+    let identifiers = vec![key];
     let ids_filter = identifiers
         .clone()
         .into_iter()
@@ -62,7 +62,7 @@ async fn test_book_search_returns_failure_when_request_fails() -> Result<(), Box
         .mount(&server)
         .await;
 
-    let actual = client.books.search(identifiers).await;
+    let actual = client.books.search(&identifiers).await;
     let error = actual.expect_err("Expected Book Search call to return an error but it didn't!");
     match &error {
         OpenLibraryError::ApiError {
