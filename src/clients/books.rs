@@ -6,6 +6,7 @@ use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use url::Url;
 
+#[derive(Clone)]
 pub struct BooksClient {
     client: Client,
     host: Url,
