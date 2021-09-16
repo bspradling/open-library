@@ -76,6 +76,7 @@ impl OpenLibraryAuthClient {
     }
 }
 
+#[derive(Clone)]
 pub struct OpenLibraryClient {
     pub account: AccountClient,
     pub books: BooksClient,

@@ -1,7 +1,8 @@
-use crate::models::account::{LoginRequest, ReadingLogResponse, Session};
+use crate::models::account::{LoginRequest, ReadingLog, ReadingLogResponse, Session};
 use crate::{OpenLibraryAuthClient, OpenLibraryClient, OpenLibraryError, OpenLibraryErrorResponse};
 use http::Method;
 use std::error::Error;
+use test_case::test_case;
 use url::Url;
 use wiremock::matchers::{body_json, header, method, path};
 use wiremock::{Mock, MockServer, ResponseTemplate};
@@ -56,7 +57,6 @@ async fn test_login_returns_error_on_failure() -> Result<(), Box<dyn Error>> {
         .await;
 
     let error = actual.expect_err("Expected login to return an error!");
-
     match error {
         OpenLibraryError::ApiError {
             status_code: _,
@@ -69,8 +69,13 @@ async fn test_login_returns_error_on_failure() -> Result<(), Box<dyn Error>> {
     }
 }
 
+#[test_case(ReadingLog::AlreadyRead; "already_read")]
+#[test_case(ReadingLog::CurrentlyReading; "currently_reading")]
+#[test_case(ReadingLog::WantToRead; "want_to_read")]
 #[tokio::test]
-async fn test_want_to_read_returns_success() -> Result<(), Box<dyn Error>> {
+async fn ensure_reading_log_endpoint_returns_success(
+    reading_log: ReadingLog,
+) -> Result<(), Box<dyn Error>> {
     let server = MockServer::start().await;
 
     let mock_session = Session::from("mock_session_cookie".to_string(), "mock_user".to_string());
@@ -80,11 +85,15 @@ async fn test_want_to_read_returns_success() -> Result<(), Box<dyn Error>> {
         .with_host(Url::parse(server.uri().as_str())?)
         .build()?;
 
-    let mock_response: ReadingLogResponse =
-        serde_json::from_str(include_str!("resources/want-to-read.json"))?;
+    let mock_response: ReadingLogResponse = serde_json::from_str(
+        std::fs::read_to_string(format!("resources/{}", reading_log.url()))?.as_str(),
+    )?;
 
     Mock::given(method(Method::GET.as_str()))
-        .and(path("/people/mock_user/books/want-to-read.json"))
+        .and(path(format!(
+            "/people/mock_user/books/{}",
+            reading_log.url()
+        )))
         .and(header(
             http::header::COOKIE.as_str(),
             mock_session.cookie().as_str(),
@@ -93,17 +102,21 @@ async fn test_want_to_read_returns_success() -> Result<(), Box<dyn Error>> {
         .mount(&server)
         .await;
 
-    let actual = client
-        .account
-        .get_want_to_read("mock_user".to_string())
+    let actual = reading_log
+        .retrieve_for(&client, "mock_user".to_string())
         .await?;
 
     assert_eq!(actual.len(), 1);
     Ok(())
 }
 
+#[test_case(ReadingLog::AlreadyRead; "already_read")]
+#[test_case(ReadingLog::CurrentlyReading; "currently_reading")]
+#[test_case(ReadingLog::WantToRead; "want_to_read")]
 #[tokio::test]
-async fn test_want_to_read_returns_failure_when_error_is_returned() -> Result<(), Box<dyn Error>> {
+async fn test_reading_log_endpoints_returns_failure_when_error_is_returned(
+    reading_log: ReadingLog,
+) -> Result<(), Box<dyn Error>> {
     let server = MockServer::start().await;
 
     let mock_session = Session::from("mock_session_cookie".to_string(), "mock_user".to_string());
@@ -114,7 +127,10 @@ async fn test_want_to_read_returns_failure_when_error_is_returned() -> Result<()
         .build()?;
 
     Mock::given(method(Method::GET.as_str()))
-        .and(path("/people/mock_user/books/want-to-read.json"))
+        .and(path(format!(
+            "/people/mock_user/books/{}",
+            reading_log.url()
+        )))
         .and(header(
             http::header::COOKIE.as_str(),
             mock_session.cookie().as_str(),
@@ -127,12 +143,11 @@ async fn test_want_to_read_returns_failure_when_error_is_returned() -> Result<()
         .mount(&server)
         .await;
 
-    let actual = client
-        .account
-        .get_want_to_read("mock_user".to_string())
+    let actual = reading_log
+        .retrieve_for(&client, "mock_user".to_string())
         .await;
-
     let error = actual.err().unwrap();
+
     match error {
         OpenLibraryError::ApiError {
             status_code: _,

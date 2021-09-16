@@ -1,5 +1,5 @@
 use crate::models::{Identifier, Resource};
-use crate::OpenLibraryErrorResponse;
+use crate::{OpenLibraryClient, OpenLibraryError, OpenLibraryErrorResponse};
 use chrono::{DateTime, Utc};
 use serde::de::Error;
 use serde::{Deserialize, Deserializer, Serialize};
@@ -53,13 +53,42 @@ impl Session {
     }
 }
 
-#[derive(Deserialize, Serialize)]
+#[derive(Clone)]
+pub enum ReadingLog {
+    AlreadyRead,
+    CurrentlyReading,
+    WantToRead,
+}
+
+impl ReadingLog {
+    pub fn url(&self) -> &str {
+        match self {
+            ReadingLog::AlreadyRead => "already-read.json",
+            ReadingLog::CurrentlyReading => "currently-reading.json",
+            ReadingLog::WantToRead => "want-to-read.json",
+        }
+    }
+
+    pub async fn retrieve_for(
+        &self,
+        client: &OpenLibraryClient,
+        username: String,
+    ) -> Result<Vec<ReadingLogEntry>, OpenLibraryError> {
+        match self {
+            ReadingLog::AlreadyRead => client.account.get_already_read(username).await,
+            ReadingLog::CurrentlyReading => client.account.get_currently_reading(username).await,
+            ReadingLog::WantToRead => client.account.get_want_to_read(username).await,
+        }
+    }
+}
+
+#[derive(Debug, Deserialize, Serialize)]
 pub struct ReadingLogResponse {
     pub page: i16,
     pub reading_log_entries: Vec<ReadingLogEntry>,
 }
 
-#[derive(Clone, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct ReadingLogEntry {
     pub work: ReadingLogWork,
     pub logged_edition: Identifier<Resource>,
@@ -67,7 +96,7 @@ pub struct ReadingLogEntry {
     pub logged_date: DateTime<Utc>,
 }
 
-#[derive(Clone, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct ReadingLogWork {
     pub title: String,
     pub key: Identifier<Resource>,
