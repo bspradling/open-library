@@ -1,4 +1,3 @@
-extern crate open_library;
 use open_library::models::books::BibliographyKey;
 use open_library::{OpenLibraryAuthClient, OpenLibraryClient, OpenLibraryError};
 use std::error::Error;
