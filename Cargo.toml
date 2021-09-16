@@ -1,5 +1,5 @@
 [package]
-name = "open_library"
+name = "open-library"
 description = "A client to interact with the Open Library API"
 version = "0.2.1-alpha.0"
 authors = ["Brett Spradling <brett@spradling.me>"]
