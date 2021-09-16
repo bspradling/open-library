@@ -70,7 +70,7 @@ pub enum BibliographyKey {
 }
 
 impl BibliographyKey {
-    pub fn from((key, value): (String, String)) -> Result<Self, OpenLibraryError> {
+    pub fn from_tuple((key, value): (String, String)) -> Result<Self, OpenLibraryError> {
         match key.as_str() {
             "ISBN" => Ok(BibliographyKey::ISBN(value)),
             "LCCN" => Ok(BibliographyKey::LCCN(value)),
@@ -80,6 +80,30 @@ impl BibliographyKey {
                 reason: format!(
                     "Unable to determine bibliography key from specific value ({})",
                     value
+                ),
+            }),
+        }
+    }
+
+    pub fn from_identifier(
+        identifier: Identifier<BookIdentifier>,
+    ) -> Result<Self, OpenLibraryError> {
+        match identifier.resource {
+            BookIdentifier::InternationalStandard10 => {
+                Ok(BibliographyKey::ISBN(identifier.identifier))
+            }
+            BookIdentifier::InternationalStandard13 => {
+                Ok(BibliographyKey::ISBN(identifier.identifier))
+            }
+            BookIdentifier::LibraryOfCongress => Ok(BibliographyKey::LCCN(identifier.identifier)),
+            BookIdentifier::OhioCollegeLibraryCenter => {
+                Ok(BibliographyKey::OCLC(identifier.identifier))
+            }
+            BookIdentifier::OpenLibrary => Ok(BibliographyKey::OLID(identifier.identifier)),
+            _ => Err(OpenLibraryError::ParsingError {
+                reason: format!(
+                    "The identifier specified ({}) is not supported as a bibliogrpahy key!",
+                    identifier.resource
                 ),
             }),
         }
@@ -126,7 +150,7 @@ impl<'de> Deserialize<'de> for BibliographyKey {
             ))),
         }?;
 
-        BibliographyKey::from((key, value)).map_err(D::Error::custom)
+        BibliographyKey::from_tuple((key, value)).map_err(D::Error::custom)
     }
 }
 
@@ -136,30 +160,6 @@ impl Serialize for BibliographyKey {
         S: Serializer,
     {
         serializer.serialize_str(self.to_string().as_str())
-    }
-}
-
-impl From<Identifier<BookIdentifier>> for Result<BibliographyKey, OpenLibraryError> {
-    fn from(identifier: Identifier<BookIdentifier>) -> Self {
-        match identifier.resource {
-            BookIdentifier::InternationalStandard10 => {
-                Ok(BibliographyKey::ISBN(identifier.identifier))
-            }
-            BookIdentifier::InternationalStandard13 => {
-                Ok(BibliographyKey::ISBN(identifier.identifier))
-            }
-            BookIdentifier::LibraryOfCongress => Ok(BibliographyKey::LCCN(identifier.identifier)),
-            BookIdentifier::OhioCollegeLibraryCenter => {
-                Ok(BibliographyKey::OCLC(identifier.identifier))
-            }
-            BookIdentifier::OpenLibrary => Ok(BibliographyKey::OLID(identifier.identifier)),
-            _ => Err(OpenLibraryError::ParsingError {
-                reason: format!(
-                    "The identifier specified ({}) is not supported as a bibliogrpahy key!",
-                    identifier.resource
-                ),
-            }),
-        }
     }
 }
 
@@ -183,6 +183,18 @@ pub enum BookIdentifier {
     ProjectGutenberg,
     #[serde(alias = "wikidata")]
     WikiData,
+}
+
+impl BookIdentifier {
+    pub fn isbn_from(value: &str) -> Result<Self, OpenLibraryError> {
+        match value.len() {
+            10 => Ok(BookIdentifier::InternationalStandard10),
+            13 => Ok(BookIdentifier::InternationalStandard13),
+            _ => Err(OpenLibraryError::ParsingError {
+                reason: format!("Invalid length ({}) for ISBN", value.len()),
+            }),
+        }
+    }
 }
 
 impl OpenLibraryIdentifierKey for BookIdentifier {}

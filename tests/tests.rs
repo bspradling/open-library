@@ -6,7 +6,7 @@ use std::error::Error;
 async fn test_book_search() -> Result<(), Box<dyn Error>> {
     let client = OpenLibraryClient::builder().build()?;
     let identifier = BibliographyKey::ISBN("0374386137".to_string());
-    let book_results = client.books.search(vec![&identifier]).await?;
+    let book_results = client.books.search(vec![identifier]).await?;
     let book = book_results
         .get(&identifier)
         .ok_or(format!("No book found with identifier {}", identifier))?;
