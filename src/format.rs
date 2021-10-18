@@ -25,7 +25,7 @@ pub mod date {
     use chrono::NaiveDate;
     use serde::{Deserialize, Deserializer, Serializer};
 
-    const FORMAT: &'static str = "%d %B %Y";
+    const FORMAT: &str = "%d %B %Y";
 
     pub fn serialize<S>(date: &NaiveDate, serializer: S) -> Result<S::Ok, S::Error>
     where

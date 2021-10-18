@@ -19,7 +19,7 @@ impl AuthorClient {
         }
     }
 
-    pub async fn search(&self, author_name: &String) -> Result<AuthorResponse, OpenLibraryError> {
+    pub async fn search(&self, author_name: &str) -> Result<AuthorResponse, OpenLibraryError> {
         let response = self
             .client
             .get(self.host.join("search/authors.json").map_err(|_e| {
