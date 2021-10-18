@@ -22,11 +22,11 @@ impl BooksClient {
 
     pub async fn search(
         &self,
-        identifiers: &Vec<BibliographyKey>,
+        identifiers: &[BibliographyKey],
     ) -> Result<HashMap<BibliographyKey, Book>, OpenLibraryError> {
         // tracing::info!("Identifiers: {:?}", identifiers);
         let ids_filter = identifiers
-            .into_iter()
+            .iter()
             .map(|id| id.to_string())
             .collect::<Vec<String>>()
             .join(",");

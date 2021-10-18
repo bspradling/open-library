@@ -3,6 +3,7 @@ use serde::{Deserialize, Deserializer, Serialize, Serializer};
 use std::fmt::{Display, Formatter};
 
 pub mod account;
+pub mod authors;
 pub mod books;
 
 #[cfg(test)]

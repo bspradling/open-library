@@ -1,4 +1,4 @@
 #[cfg(test)]
 mod account;
-#[cfg(test)]
+mod author;
 mod books;

@@ -92,7 +92,7 @@ pub struct ReadingLogResponse {
 pub struct ReadingLogEntry {
     pub work: ReadingLogWork,
     pub logged_edition: Identifier<Resource>,
-    #[serde(with = "crate::format")]
+    #[serde(with = "crate::format::datetime")]
     pub logged_date: DateTime<Utc>,
 }
 
