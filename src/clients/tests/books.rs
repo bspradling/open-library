@@ -7,6 +7,8 @@ use std::error::Error;
 use wiremock::matchers::{method, path, query_param};
 use wiremock::{Mock, MockServer, ResponseTemplate};
 
+mod isbn;
+
 #[tokio::test]
 async fn test_book_search_returns_success() -> Result<(), Box<dyn Error>> {
     let server = MockServer::start().await;

@@ -5,17 +5,18 @@ use std::fmt::{Display, Formatter};
 pub mod account;
 pub mod authors;
 pub mod books;
+pub mod identifiers;
 
 #[cfg(test)]
 mod tests;
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Identifier<T: OpenLibraryIdentifierKey> {
     pub resource: T,
     pub identifier: String,
 }
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub enum Resource {
     #[serde(alias = "authors")]
     Author,
