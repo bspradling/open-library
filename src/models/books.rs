@@ -7,9 +7,10 @@ use std::fmt::{Display, Formatter};
 use std::str::FromStr;
 use url::Url;
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct Book {
-    pub url: Url,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub url: Option<Url>,
     pub key: Identifier<Resource>,
     pub title: String,
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -19,7 +20,7 @@ pub struct Book {
     pub notes: Option<String>,
     #[serde(default)]
     #[serde(skip_serializing_if = "Vec::is_empty")]
-    pub authors: Vec<Entity>,
+    pub authors: Vec<Author>,
     #[serde(default)]
     pub identifiers: HashMap<BookIdentifier, Vec<String>>,
     #[serde(default)]
@@ -38,8 +39,9 @@ pub struct Book {
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub subject_times: Vec<Entity>,
     #[serde(default)]
+    #[serde(deserialize_with = "strings_or_entities")]
     #[serde(skip_serializing_if = "Vec::is_empty")]
-    pub publishers: Vec<Entity>,
+    pub publishers: Vec<String>,
     #[serde(default)]
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub publish_places: Vec<Entity>,
@@ -52,11 +54,11 @@ pub struct Book {
     pub links: Vec<String>,
     #[serde(default)]
     #[serde(rename = "covers")]
-    pub cover_images: CoverImages,
+    pub cover_images: Vec<u32>,
     #[serde(default)]
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub ebooks: Vec<ElectronicBook>,
-    pub number_of_pages: Option<i32>,
+    pub number_of_pages: Option<u32>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub weight: Option<String>,
 }
@@ -109,14 +111,6 @@ impl BibliographyKey {
         }
     }
 }
-
-// impl Deref for BibliographyKey {
-//     type Target = BibliographyKey;
-//
-//     fn deref(&self) -> &Self::Target {
-//         &self
-//     }
-// }
 
 impl Display for BibliographyKey {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
@@ -247,13 +241,17 @@ impl FromStr for BookIdentifier {
     }
 }
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct Author {
-    key: Identifier<Resource>,
-    name: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    key: Option<Identifier<Resource>>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    name: Option<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    url: Option<String>,
 }
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct Entity {
     #[serde(skip_serializing_if = "String::is_empty")]
     pub name: String,
@@ -261,14 +259,7 @@ pub struct Entity {
     pub url: Option<String>,
 }
 
-#[derive(Clone, Debug, Default, Deserialize, Serialize)]
-pub struct CoverImages {
-    pub small: Option<Url>,
-    pub medium: Option<Url>,
-    pub large: Option<Url>,
-}
-
-#[derive(Clone, Debug, Default, Deserialize, Serialize)]
+#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize)]
 pub struct Classifications {
     #[serde(default)]
     #[serde(rename(deserialize = "dewey_decimal_class"))]
@@ -284,23 +275,51 @@ impl Classifications {
     }
 }
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct ElectronicBook {
     preview_url: String,
     availability: String, //Should be enum but don't know possible values ("restricted",...)
                           // formats: ?  //Don't know the form of the struct yet
 }
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct Excerpt {
     comment: String,
     text: String,
 }
 
-#[derive(Clone, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct Link {
     #[serde(skip_serializing_if = "String::is_empty")]
     url: String,
     #[serde(skip_serializing_if = "String::is_empty")]
     title: String,
+}
+
+// Necessary since the `publishers` field can either be Vec<String> or Vec<Entity> based on the endpoint
+// Book Search:
+//    "publishers": [
+//       {
+//         "name": "Anchor Books"
+//       }
+//     ]
+// By ISBN:
+//    "publishers": [
+//      "Addison-Wesley"
+//     ]
+fn strings_or_entities<'de, D>(deserializer: D) -> Result<Vec<String>, D::Error>
+where
+    D: Deserializer<'de>,
+{
+    #[derive(Deserialize)]
+    #[serde(untagged)]
+    enum StrOrEntity {
+        Str(Vec<String>),
+        Entity(Vec<Entity>),
+    }
+
+    Ok(match StrOrEntity::deserialize(deserializer)? {
+        StrOrEntity::Str(v) => v,
+        StrOrEntity::Entity(v) => v.into_iter().map(|x| x.name).collect(),
+    })
 }
