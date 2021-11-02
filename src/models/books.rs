@@ -1,4 +1,4 @@
-use crate::models::{Identifier, OpenLibraryIdentifierKey, Resource};
+use crate::models::{Identifier, OpenLibraryIdentifierKey, OpenLibraryModel, Resource};
 use crate::OpenLibraryError;
 use serde::de::Error;
 use serde::{Deserialize, Deserializer, Serialize, Serializer};
@@ -62,6 +62,8 @@ pub struct Book {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub weight: Option<String>,
 }
+
+impl OpenLibraryModel for Book {}
 
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
 pub enum BibliographyKey {

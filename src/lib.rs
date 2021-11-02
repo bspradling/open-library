@@ -1,5 +1,6 @@
 use crate::clients::account::AccountClient;
 use crate::clients::author::AuthorClient;
+use crate::clients::works::WorksClient;
 use crate::models::account::Session;
 use clients::books::BooksClient;
 use reqwest::header::{HeaderMap, HeaderValue};
@@ -82,6 +83,7 @@ pub struct OpenLibraryClient {
     pub account: AccountClient,
     pub author: AuthorClient,
     pub books: BooksClient,
+    pub works: WorksClient,
 }
 
 impl OpenLibraryClient {
@@ -143,6 +145,7 @@ impl OpenLibraryClientBuilder {
             books: BooksClient::new(&client, &self.host),
             account: AccountClient::new(&client, &self.host),
             author: AuthorClient::new(&client, &self.host),
+            works: WorksClient::new(&client, &self.host),
         })
     }
 }
