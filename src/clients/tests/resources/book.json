@@ -1,92 +1,544 @@
 {
-  "ISBN:0201558025": {
-    "url": "http://openlibrary.org/books/OL1429049M/Concrete_mathematics",
-    "key": "/books/OL1429049M",
-    "title": "Concrete mathematics",
-    "subtitle": "a foundation for computer science",
+  "ISBN:0439064872": {
+    "url": "http://openlibrary.org/books/OL32784120M/Harry_Potter_and_the_Chamber_of_Secrets",
+    "key": "/books/OL32784120M",
+    "title": "Harry Potter and the Chamber of Secrets",
     "authors": [
       {
-        "url": "http://openlibrary.org/authors/OL720958A/Ronald_L._Graham",
-        "name": "Ronald L. Graham"
-      },
-      {
-        "url": "http://openlibrary.org/authors/OL229501A/Donald_Knuth",
-        "name": "Donald Knuth"
-      },
-      {
-        "url": "http://openlibrary.org/authors/OL2669938A/Oren_Patashnik",
-        "name": "Oren Patashnik"
+        "url": "http://openlibrary.org/authors/OL23919A/J._K._Rowling",
+        "name": "J. K. Rowling"
       }
     ],
-    "number_of_pages": 657,
-    "pagination": "xiii, 657 p. :",
-    "by_statement": "Ronald L. Graham, Donald E. Knuth, Oren Patashnik.",
+    "number_of_pages": 344,
+    "pagination": "vi, 341p.",
     "identifiers": {
-      "librarything": [
-        "45844"
-      ],
-      "wikidata": [
-        "Q15303722"
-      ],
       "goodreads": [
-        "112243"
+        "50968"
       ],
       "isbn_10": [
-        "0201558025"
+        "0439064872"
+      ],
+      "isbn_13": [
+        "9780439064873"
       ],
       "lccn": [
-        "93040325"
+        "98046370"
+      ],
+      "oclc": [
+        "1003236736"
       ],
       "openlibrary": [
-        "OL1429049M"
+        "OL32784120M"
       ]
     },
     "classifications": {
       "lc_classifications": [
-        "QA39.2 .G733 1994",
-        "QA39.2.G733 1994"
-      ],
-      "dewey_decimal_class": [
-        "510"
+        "PZ7.R79835 Haj 1999"
       ]
     },
     "publishers": [
       {
-        "name": "Addison-Wesley"
+        "name": "Scholastic Inc."
       }
     ],
     "publish_places": [
       {
-        "name": "Reading, Mass"
+        "name": "New York"
       }
     ],
-    "publish_date": "1994",
+    "publish_date": "2000-09",
     "subjects": [
       {
-        "name": "Computer science",
-        "url": "https://openlibrary.org/subjects/computer_science"
+        "name": "Fantasy fiction",
+        "url": "https://openlibrary.org/subjects/fantasy_fiction"
       },
       {
-        "name": "Mathematics",
-        "url": "https://openlibrary.org/subjects/mathematics"
+        "name": "school stories",
+        "url": "https://openlibrary.org/subjects/school_stories"
       },
       {
-        "name": "Computer science, mathematics",
-        "url": "https://openlibrary.org/subjects/computer_science,_mathematics"
+        "name": "Fiction",
+        "url": "https://openlibrary.org/subjects/fiction"
+      },
+      {
+        "name": "Fantasy",
+        "url": "https://openlibrary.org/subjects/fantasy"
+      },
+      {
+        "name": "Nestlé Smarties Book Prize winner",
+        "url": "https://openlibrary.org/subjects/nestlé_smarties_book_prize_winner"
+      },
+      {
+        "name": "Juvenile fiction",
+        "url": "https://openlibrary.org/subjects/juvenile_fiction"
+      },
+      {
+        "name": "Wizards",
+        "url": "https://openlibrary.org/subjects/wizards"
+      },
+      {
+        "name": "Magic",
+        "url": "https://openlibrary.org/subjects/magic"
+      },
+      {
+        "name": "Schools",
+        "url": "https://openlibrary.org/subjects/schools"
+      },
+      {
+        "name": "Spanish language materials",
+        "url": "https://openlibrary.org/subjects/spanish_language_materials"
+      },
+      {
+        "name": "Magia",
+        "url": "https://openlibrary.org/subjects/magia"
+      },
+      {
+        "name": "Escuelas",
+        "url": "https://openlibrary.org/subjects/escuelas"
+      },
+      {
+        "name": "Ficción juvenil",
+        "url": "https://openlibrary.org/subjects/ficción_juvenil"
+      },
+      {
+        "name": "Novela fantástica",
+        "url": "https://openlibrary.org/subjects/novela_fantástica"
+      },
+      {
+        "name": "Hogwarts School of Witchcraft and Wizardry (Imaginary place)",
+        "url": "https://openlibrary.org/subjects/hogwarts_school_of_witchcraft_and_wizardry_(imaginary_place)"
+      },
+      {
+        "name": "Harry Potter (Fictitious character)",
+        "url": "https://openlibrary.org/subjects/harry_potter_(fictitious_character)"
+      },
+      {
+        "name": "Wizards -- Juvenile fiction",
+        "url": "https://openlibrary.org/subjects/wizards_--_juvenile_fiction"
+      },
+      {
+        "name": "Witches",
+        "url": "https://openlibrary.org/subjects/witches"
+      },
+      {
+        "name": "Hogwarts School of Witchcraft and Wizardry (Imaginary organization)",
+        "url": "https://openlibrary.org/subjects/hogwarts_school_of_witchcraft_and_wizardry_(imaginary_organization)"
+      },
+      {
+        "name": "Magos",
+        "url": "https://openlibrary.org/subjects/magos"
+      },
+      {
+        "name": "Translations from English",
+        "url": "https://openlibrary.org/subjects/translations_from_english"
+      },
+      {
+        "name": "Chinese fiction",
+        "url": "https://openlibrary.org/subjects/chinese_fiction"
+      },
+      {
+        "name": "Orphans",
+        "url": "https://openlibrary.org/subjects/orphans"
+      },
+      {
+        "name": "Aunts",
+        "url": "https://openlibrary.org/subjects/aunts"
+      },
+      {
+        "name": "Uncles",
+        "url": "https://openlibrary.org/subjects/uncles"
+      },
+      {
+        "name": "Cousins",
+        "url": "https://openlibrary.org/subjects/cousins"
+      },
+      {
+        "name": "Determination (Personality trait) in children",
+        "url": "https://openlibrary.org/subjects/determination_(personality_trait)_in_children"
+      },
+      {
+        "name": "Friendship",
+        "url": "https://openlibrary.org/subjects/friendship"
+      },
+      {
+        "name": "Potter, Harry (Fictitious character)",
+        "url": "https://openlibrary.org/subjects/potter,_harry_(fictitious_character)"
+      },
+      {
+        "name": "Witches Fiction",
+        "url": "https://openlibrary.org/subjects/witches_fiction"
+      },
+      {
+        "name": "Wizards Fiction",
+        "url": "https://openlibrary.org/subjects/wizards_fiction"
+      },
+      {
+        "name": "Schools Fiction",
+        "url": "https://openlibrary.org/subjects/schools_fiction"
+      },
+      {
+        "name": "England Fiction",
+        "url": "https://openlibrary.org/subjects/england_fiction"
+      },
+      {
+        "name": "Magic -- Juvenile fiction",
+        "url": "https://openlibrary.org/subjects/magic_--_juvenile_fiction"
+      },
+      {
+        "name": "Hogwarts School of Witchcraft and Wizardry (Imaginary place) -- Juvenile fiction",
+        "url": "https://openlibrary.org/subjects/hogwarts_school_of_witchcraft_and_wizardry_(imaginary_place)_--_juvenile_fiction"
+      },
+      {
+        "name": "Schools -- Juvenile fiction",
+        "url": "https://openlibrary.org/subjects/schools_--_juvenile_fiction"
+      },
+      {
+        "name": "Wizards -- Fiction",
+        "url": "https://openlibrary.org/subjects/wizards_--_fiction"
+      },
+      {
+        "name": "Magic -- Fiction",
+        "url": "https://openlibrary.org/subjects/magic_--_fiction"
+      },
+      {
+        "name": "Schools -- Fiction",
+        "url": "https://openlibrary.org/subjects/schools_--_fiction"
+      },
+      {
+        "name": "England -- Juvenile fiction",
+        "url": "https://openlibrary.org/subjects/england_--_juvenile_fiction"
+      },
+      {
+        "name": "England -- Fiction",
+        "url": "https://openlibrary.org/subjects/england_--_fiction"
+      },
+      {
+        "name": "Fantasy & Magic",
+        "url": "https://openlibrary.org/subjects/fantasy_&_magic"
+      },
+      {
+        "name": "Action & Adventure",
+        "url": "https://openlibrary.org/subjects/action_&_adventure"
+      },
+      {
+        "name": "Witchcraft",
+        "url": "https://openlibrary.org/subjects/witchcraft"
+      },
+      {
+        "name": "Harry Potter (Fictional character)",
+        "url": "https://openlibrary.org/subjects/harry_potter_(fictional_character)"
+      },
+      {
+        "name": "Engels",
+        "url": "https://openlibrary.org/subjects/engels"
+      },
+      {
+        "name": "Social Themes",
+        "url": "https://openlibrary.org/subjects/social_themes"
+      },
+      {
+        "name": "Reading Level-Grade 11",
+        "url": "https://openlibrary.org/subjects/reading_level-grade_11"
+      },
+      {
+        "name": "Reading Level-Grade 12",
+        "url": "https://openlibrary.org/subjects/reading_level-grade_12"
+      },
+      {
+        "name": "Schools, fiction",
+        "url": "https://openlibrary.org/subjects/schools,_fiction"
+      },
+      {
+        "name": "England, fiction",
+        "url": "https://openlibrary.org/subjects/england,_fiction"
+      },
+      {
+        "name": "Potter, harry (fictitious character), fiction",
+        "url": "https://openlibrary.org/subjects/potter,_harry_(fictitious_character),_fiction"
+      },
+      {
+        "name": "Hogwarts school of witchcraft and wizardry (imaginary organization), fiction",
+        "url": "https://openlibrary.org/subjects/hogwarts_school_of_witchcraft_and_wizardry_(imaginary_organization),_fiction"
+      },
+      {
+        "name": "Wizards, fiction",
+        "url": "https://openlibrary.org/subjects/wizards,_fiction"
+      },
+      {
+        "name": "Magic, fiction",
+        "url": "https://openlibrary.org/subjects/magic,_fiction"
+      },
+      {
+        "name": "Children's fiction",
+        "url": "https://openlibrary.org/subjects/children's_fiction"
+      },
+      {
+        "name": "Adventure and adventurers, fiction",
+        "url": "https://openlibrary.org/subjects/adventure_and_adventurers,_fiction"
+      },
+      {
+        "name": "English literature",
+        "url": "https://openlibrary.org/subjects/english_literature"
+      },
+      {
+        "name": "Fiction, fantasy, general",
+        "url": "https://openlibrary.org/subjects/fiction,_fantasy,_general"
+      },
+      {
+        "name": "Large type books",
+        "url": "https://openlibrary.org/subjects/large_type_books"
+      },
+      {
+        "name": "Hermione Granger (Fictitious character)",
+        "url": "https://openlibrary.org/subjects/hermione_granger_(fictitious_character)"
+      },
+      {
+        "name": "Ron Weasley (Fictitious character)",
+        "url": "https://openlibrary.org/subjects/ron_weasley_(fictitious_character)"
+      },
+      {
+        "name": "Latin language materials",
+        "url": "https://openlibrary.org/subjects/latin_language_materials"
+      },
+      {
+        "name": "Children's stories",
+        "url": "https://openlibrary.org/subjects/children's_stories"
+      },
+      {
+        "name": "Magiciens",
+        "url": "https://openlibrary.org/subjects/magiciens"
+      },
+      {
+        "name": "Romans, nouvelles, etc. pour la jeunesse",
+        "url": "https://openlibrary.org/subjects/romans,_nouvelles,_etc._pour_la_jeunesse"
+      },
+      {
+        "name": "Nécromancie",
+        "url": "https://openlibrary.org/subjects/nécromancie"
+      },
+      {
+        "name": "Écoles",
+        "url": "https://openlibrary.org/subjects/écoles"
+      },
+      {
+        "name": "Potter, Harry (Personnage fictif)",
+        "url": "https://openlibrary.org/subjects/potter,_harry_(personnage_fictif)"
+      },
+      {
+        "name": "Romans, nouvelles",
+        "url": "https://openlibrary.org/subjects/romans,_nouvelles"
+      },
+      {
+        "name": "Magie",
+        "url": "https://openlibrary.org/subjects/magie"
+      },
+      {
+        "name": "Family",
+        "url": "https://openlibrary.org/subjects/family"
+      },
+      {
+        "name": "Orphans & Foster Homes",
+        "url": "https://openlibrary.org/subjects/orphans_&_foster_homes"
+      },
+      {
+        "name": "Magía",
+        "url": "https://openlibrary.org/subjects/magía"
+      },
+      {
+        "name": "Novela juvenil",
+        "url": "https://openlibrary.org/subjects/novela_juvenil"
+      },
+      {
+        "name": "Juvenile",
+        "url": "https://openlibrary.org/subjects/juvenile"
+      },
+      {
+        "name": "Children's stories, English",
+        "url": "https://openlibrary.org/subjects/children's_stories,_english"
+      },
+      {
+        "name": "Sieg",
+        "url": "https://openlibrary.org/subjects/sieg"
+      },
+      {
+        "name": "Basilisk",
+        "url": "https://openlibrary.org/subjects/basilisk"
+      },
+      {
+        "name": "Das Böse",
+        "url": "https://openlibrary.org/subjects/das_böse"
+      },
+      {
+        "name": "Das Gute",
+        "url": "https://openlibrary.org/subjects/das_gute"
+      },
+      {
+        "name": "Internat",
+        "url": "https://openlibrary.org/subjects/internat"
+      },
+      {
+        "name": "Lebensgefahr",
+        "url": "https://openlibrary.org/subjects/lebensgefahr"
+      },
+      {
+        "name": "Lebensrettung",
+        "url": "https://openlibrary.org/subjects/lebensrettung"
+      },
+      {
+        "name": "List",
+        "url": "https://openlibrary.org/subjects/list"
+      },
+      {
+        "name": "Magier",
+        "url": "https://openlibrary.org/subjects/magier"
+      },
+      {
+        "name": "Jugendbuch",
+        "url": "https://openlibrary.org/subjects/jugendbuch"
+      },
+      {
+        "name": "Kampf",
+        "url": "https://openlibrary.org/subjects/kampf"
+      },
+      {
+        "name": "Schule",
+        "url": "https://openlibrary.org/subjects/schule"
+      },
+      {
+        "name": "Basilisk (Fabeltier)",
+        "url": "https://openlibrary.org/subjects/basilisk_(fabeltier)"
+      },
+      {
+        "name": "Junge",
+        "url": "https://openlibrary.org/subjects/junge"
+      },
+      {
+        "name": "Phönix",
+        "url": "https://openlibrary.org/subjects/phönix"
+      },
+      {
+        "name": "Deutschland Grenzschutzkommando Mitte Schule",
+        "url": "https://openlibrary.org/subjects/deutschland_grenzschutzkommando_mitte_schule"
+      },
+      {
+        "name": "Deutschland",
+        "url": "https://openlibrary.org/subjects/deutschland"
       }
     ],
-    "notes": "Includes bibliographical references (p. 604-631) and index.",
+    "subject_places": [
+      {
+        "name": "England",
+        "url": "https://openlibrary.org/subjects/place:england"
+      },
+      {
+        "name": "London",
+        "url": "https://openlibrary.org/subjects/place:london"
+      },
+      {
+        "name": "Hogwarts School of Witchcraft and Wizardry",
+        "url": "https://openlibrary.org/subjects/place:hogwarts_school_of_witchcraft_and_wizardry"
+      },
+      {
+        "name": "Inglaterra",
+        "url": "https://openlibrary.org/subjects/place:inglaterra"
+      },
+      {
+        "name": "Privet Drive",
+        "url": "https://openlibrary.org/subjects/place:privet_drive"
+      }
+    ],
+    "subject_people": [
+      {
+        "name": "Harry Potter",
+        "url": "https://openlibrary.org/subjects/person:harry_potter"
+      },
+      {
+        "name": "Hermione Granger",
+        "url": "https://openlibrary.org/subjects/person:hermione_granger"
+      },
+      {
+        "name": "Ron Weasley",
+        "url": "https://openlibrary.org/subjects/person:ron_weasley"
+      },
+      {
+        "name": "Albus Dumbledore",
+        "url": "https://openlibrary.org/subjects/person:albus_dumbledore"
+      },
+      {
+        "name": "Hagrid",
+        "url": "https://openlibrary.org/subjects/person:hagrid"
+      },
+      {
+        "name": "The Dursleys",
+        "url": "https://openlibrary.org/subjects/person:the_dursleys"
+      },
+      {
+        "name": "Gilderoy Lockhart",
+        "url": "https://openlibrary.org/subjects/person:gilderoy_lockhart"
+      },
+      {
+        "name": "Dobby",
+        "url": "https://openlibrary.org/subjects/person:dobby"
+      },
+      {
+        "name": "Moaning Myrtle",
+        "url": "https://openlibrary.org/subjects/person:moaning_myrtle"
+      },
+      {
+        "name": "Ginny Weasley",
+        "url": "https://openlibrary.org/subjects/person:ginny_weasley"
+      },
+      {
+        "name": "Draco Malfoy",
+        "url": "https://openlibrary.org/subjects/person:draco_malfoy"
+      },
+      {
+        "name": "Hermine Granger",
+        "url": "https://openlibrary.org/subjects/person:hermine_granger"
+      },
+      {
+        "name": "Ron Weasly",
+        "url": "https://openlibrary.org/subjects/person:ron_weasly"
+      }
+    ],
+    "excerpts": [
+      {
+        "text": "Not for the first time, an argument had broken out over breakfast at number four, Privet Drive.",
+        "comment": "first sentence"
+      }
+    ],
+    "notes": "US",
+    "links": [
+      {
+        "title": "Author's book page",
+        "url": "https://www.jkrowling.com/book/harry-potter-chamber-secrets/"
+      },
+      {
+        "title": "Wikipedia entry",
+        "url": "https://en.wikipedia.org/wiki/Harry_Potter_and_the_Chamber_of_Secrets"
+      },
+      {
+        "title": "Harry Potter and the Chamber of Secrets by J.K. Rowling - review | Children's books | The Guardian",
+        "url": "https://www.theguardian.com/childrens-books-site/2015/mar/02/review-j-k-rowling-harry-potter-chamber-secrets"
+      },
+      {
+        "title": "Harry Potter and the Chamber of Secrets by J.K. Rowling - review 2 | Children's books | The Guardian",
+        "url": "https://www.theguardian.com/childrens-books-site/2016/may/26/harry-potter-and-the-chamber-of-secrets-jk-rowling-review"
+      }
+    ],
     "ebooks": [
       {
-        "preview_url": "https://archive.org/details/concretemathemat00grah_444",
-        "availability": "restricted",
-        "formats": {}
+        "preview_url": "https://archive.org/details/harrypotterchamb0000rowl_e1h5",
+        "availability": "borrow",
+        "formats": {},
+        "borrow_url": "https://openlibrary.org/books/OL32784120M/Harry_Potter_and_the_Chamber_of_Secrets/borrow",
+        "checkedout": false
       }
     ],
     "cover": {
-      "small": "https://covers.openlibrary.org/b/id/135182-S.jpg",
-      "medium": "https://covers.openlibrary.org/b/id/135182-M.jpg",
-      "large": "https://covers.openlibrary.org/b/id/135182-L.jpg"
+      "small": "https://covers.openlibrary.org/b/id/11416356-S.jpg",
+      "medium": "https://covers.openlibrary.org/b/id/11416356-M.jpg",
+      "large": "https://covers.openlibrary.org/b/id/11416356-L.jpg"
     }
   },
   "LCCN:93005405": {

@@ -1,4 +1,5 @@
 use open_library::models::books::BibliographyKey;
+use open_library::models::identifiers::{InternationalStandardBookNumber, OpenLibraryIdentifer};
 use open_library::{OpenLibraryAuthClient, OpenLibraryClient, OpenLibraryError};
 use std::error::Error;
 
@@ -13,6 +14,28 @@ async fn test_book_search() -> Result<(), Box<dyn Error>> {
         .ok_or(format!("No book found with identifier {}", identifier))?;
 
     assert_eq!(book.title, "A Wrinkle in Time");
+
+    Ok(())
+}
+
+#[tokio::test]
+async fn test_book_by_isbn() -> Result<(), Box<dyn Error>> {
+    let client = OpenLibraryClient::builder().build()?;
+    let isbn = InternationalStandardBookNumber::from("0374386137")?;
+    let book = client.books.by_isbn(isbn).await?;
+
+    assert_eq!(book.title, "A Wrinkle in Time");
+
+    Ok(())
+}
+
+#[tokio::test]
+async fn test_works_get() -> Result<(), Box<dyn Error>> {
+    let client = OpenLibraryClient::builder().build()?;
+    let works_id = OpenLibraryIdentifer::from("OL7353617M")?;
+    let work = client.works.get(&works_id).await?;
+
+    assert_eq!(work.title, "Fantastic Mr. Fox");
 
     Ok(())
 }
