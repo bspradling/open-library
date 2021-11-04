@@ -6,6 +6,7 @@ pub mod account;
 pub mod authors;
 pub mod books;
 pub mod identifiers;
+pub mod works;
 
 #[cfg(test)]
 mod tests;
@@ -26,6 +27,7 @@ pub enum Resource {
     Work,
 }
 
+pub trait OpenLibraryModel {}
 pub trait OpenLibraryIdentifierKey {}
 impl OpenLibraryIdentifierKey for Resource {}
 

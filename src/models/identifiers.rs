@@ -5,7 +5,7 @@ pub trait Identifier: Display {
     fn value(&self) -> &str;
 }
 
-macro_rules! identifer {
+macro_rules! identifier {
     ($name:ident) => {
         #[derive(serde::Serialize, serde::Deserialize, Debug, Eq, PartialEq, Hash, Clone)]
         #[serde(transparent)]
@@ -58,8 +58,9 @@ macro_rules! identifer {
     };
 }
 
-identifer!(InternationalStandardBookNumber);
+identifier!(InternationalStandardBookNumber);
+identifier!(OpenLibraryIdentifer);
 
 pub trait BibliographyKeyTrait: Identifier {}
-
 impl BibliographyKeyTrait for InternationalStandardBookNumber {}
+impl BibliographyKeyTrait for OpenLibraryIdentifer {}

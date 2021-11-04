@@ -1,4 +1,4 @@
-use crate::models::{Identifier, OpenLibraryIdentifierKey, Resource};
+use crate::models::{Identifier, OpenLibraryIdentifierKey, OpenLibraryModel, Resource};
 use crate::OpenLibraryError;
 use serde::de::Error;
 use serde::{Deserialize, Deserializer, Serialize, Serializer};
@@ -9,8 +9,10 @@ use url::Url;
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct Book {
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub url: Option<Url>,
+    #[serde(default)]
+    #[serde(deserialize_with = "url_or_list")]
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub url: Vec<Url>,
     pub key: Identifier<Resource>,
     pub title: String,
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -27,8 +29,9 @@ pub struct Book {
     #[serde(skip_serializing_if = "Classifications::is_default")]
     pub classifications: Classifications,
     #[serde(default)]
+    #[serde(deserialize_with = "strings_or_entities")]
     #[serde(skip_serializing_if = "Vec::is_empty")]
-    pub subjects: Vec<Entity>,
+    pub subjects: Vec<String>,
     #[serde(default)]
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub subject_places: Vec<Entity>,
@@ -43,15 +46,16 @@ pub struct Book {
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub publishers: Vec<String>,
     #[serde(default)]
+    #[serde(deserialize_with = "strings_or_entities")]
     #[serde(skip_serializing_if = "Vec::is_empty")]
-    pub publish_places: Vec<Entity>,
+    pub publish_places: Vec<String>,
     pub publish_date: String,
     #[serde(default)]
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub excerpts: Vec<Excerpt>,
     #[serde(default)]
     #[serde(skip_serializing_if = "Vec::is_empty")]
-    pub links: Vec<String>,
+    pub links: Vec<Link>,
     #[serde(default)]
     #[serde(rename = "covers")]
     pub cover_images: Vec<u32>,
@@ -62,6 +66,8 @@ pub struct Book {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub weight: Option<String>,
 }
+
+impl OpenLibraryModel for Book {}
 
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
 pub enum BibliographyKey {
@@ -321,5 +327,33 @@ where
     Ok(match StrOrEntity::deserialize(deserializer)? {
         StrOrEntity::Str(v) => v,
         StrOrEntity::Entity(v) => v.into_iter().map(|x| x.name).collect(),
+    })
+}
+
+// Necessary since the `url` field can either be a String or Vec<Url> based on the endpoint
+// Book Search:
+//    "publishers": [
+//       {
+//         "name": "Anchor Books"
+//       }
+//     ]
+// By ISBN:
+//    "publishers": [
+//      "Addison-Wesley"
+//     ]
+fn url_or_list<'de, D>(deserializer: D) -> Result<Vec<Url>, D::Error>
+where
+    D: Deserializer<'de>,
+{
+    #[derive(Deserialize)]
+    #[serde(untagged)]
+    enum UrlOrVector {
+        Url(Url),
+        Vector(Vec<Url>),
+    }
+
+    Ok(match UrlOrVector::deserialize(deserializer)? {
+        UrlOrVector::Url(value) => vec![value],
+        UrlOrVector::Vector(values) => values,
     })
 }
