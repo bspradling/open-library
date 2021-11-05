@@ -273,14 +273,6 @@ pub struct Excerpt {
     text: String,
 }
 
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
-pub struct Link {
-    #[serde(skip_serializing_if = "String::is_empty")]
-    url: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
-    title: String,
-}
-
 // Necessary since the `publishers` field can either be Vec<String> or Vec<Entity> based on the endpoint
 // Book Search:
 //    "publishers": [

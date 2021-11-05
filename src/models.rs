@@ -80,3 +80,11 @@ impl Serialize for Resource {
         serializer.serialize_str(self.to_string().as_str())
     }
 }
+
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+pub struct Link {
+    #[serde(skip_serializing_if = "String::is_empty")]
+    url: String,
+    #[serde(skip_serializing_if = "String::is_empty")]
+    title: String,
+}

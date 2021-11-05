@@ -19,6 +19,17 @@ impl AuthorClient {
         }
     }
 
+    pub async fn get(
+        &self,
+        identifier: OpenLibraryIdentifer,
+    ) -> Result<AuthorDetails, OpenLibraryError> {
+        let url = self
+            .host
+            .join(format!("/authors/{}.json", identifier.value()).as_str())?;
+
+        get(&self.client, url).await
+    }
+
     pub async fn search(&self, author_name: &str) -> Result<AuthorResponse, OpenLibraryError> {
         handle(
             self.client

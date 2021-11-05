@@ -1,0 +1,41 @@
+{
+  "title": "OBE",
+  "source_records": ["amazon:8893817055", "amazon:4863895666", "amazon:1526618249", "amazon:8862561512", "amazon:1526618230", "amazon:6073193009", "amazon:0747574286", "amazon:8327158775", "amazon:841810791X", "amazon:2246810663"],
+  "key": "/authors/OL23919A",
+  "bio": {
+    "type": "/type/text",
+    "value": "Joanne \"Jo\" Murray, OBE (n\u00e9e Rowling), better known under the pen name J. K. Rowling, is a British author best known as the creator of the Harry Potter fantasy series, the idea for which was conceived whilst on a train trip from Manchester to London in 1990. The Potter books have gained worldwide attention, won multiple awards, sold more than 400 million copies, and been the basis for a popular series of films."
+  },
+  "photos": [5543033, -1],
+  "birth_date": "31 July 1965",
+  "personal_name": "J. K. Rowling",
+  "remote_ids": {
+    "viaf": "116796842",
+    "wikidata": "Q34660",
+    "isni": "000000012148628X"
+  },
+  "type": {
+    "key": "/type/author"
+  },
+  "entity_type": "person",
+  "links": [{
+    "url": "http://www.jkrowling.com/",
+    "type": {
+      "key": "/type/link"
+    },
+    "title": "Official Site"
+  }],
+  "name": "J. K. Rowling",
+  "alternate_names": ["Joanne Rowling", "Joanne K. Rowling", "J.K.Rowling", "Rowling, J.K.", "J. Rowling", "Rowling, Joanne K.", "Jo Murray", "J K Rowling", "Rowling J.K.", "J.K. Rowling (author)", "Rowling Joanne", "J.K. Rowling", "J.K. ROWLING", "Rowling J K", "J K ROWLING", "Newt Scamander", "JOANNE K. ROWLING", "Kennilworthy Whisp", "JK Rowling", "JK Rowlings", "jk rowling", "R.K Rowling", "J. K Rowling", "J.K Rowling", "Rowling J. K.", "J. K. Rowling (Auteur)", "J.k. Rowling", "Rowling, J. K.", "ROWLING J.K. -", "J. K. ROWLING", "Rowling,J.K.", "J. K. Rowling", "Robert Galbraith", "Robert Galbraith (J.K. Rowling)"],
+  "wikipedia": "http://en.wikipedia.org/wiki/J._K._Rowling",
+  "latest_revision": 51,
+  "revision": 51,
+  "created": {
+    "type": "/type/datetime",
+    "value": "2008-04-01T03:28:50.625462"
+  },
+  "last_modified": {
+    "type": "/type/datetime",
+    "value": "2021-10-28T17:46:20.916897"
+  }
+}
