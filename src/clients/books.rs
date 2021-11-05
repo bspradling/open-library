@@ -1,5 +1,8 @@
+use crate::clients::get;
 use crate::models::books::{BibliographyKey, Book};
-use crate::models::identifiers::{Identifier, InternationalStandardBookNumber};
+use crate::models::identifiers::{
+    Identifier, InternationalStandardBookNumber, OpenLibraryIdentifer,
+};
 use crate::OpenLibraryError;
 use http::StatusCode;
 use reqwest::Client;
@@ -26,19 +29,11 @@ impl BooksClient {
         isbn: InternationalStandardBookNumber,
     ) -> Result<Book, OpenLibraryError> {
         let path = format!("/isbn/{}.json", isbn.value());
-        let response =
-            self.client
-                .get(self.host.join(path.as_str()).map_err(|error| {
-                    OpenLibraryError::ParsingError {
-                        reason: format!(
-                            "Invalid URL from base url ({}) and path ({}): {}",
-                            self.host, path, error
-                        ),
-                    }
-                })?)
-                .send()
-                .await
-                .map_err(|error| OpenLibraryError::RequestFailed { source: error })?;
+        let response = self
+            .client
+            .get(self.host.join(path.as_str())?)
+            .send()
+            .await?;
 
         return match response.status() {
             StatusCode::OK => Ok(response
@@ -50,6 +45,14 @@ impl BooksClient {
                 error: None,
             }),
         };
+    }
+
+    pub async fn get(&self, identifier: OpenLibraryIdentifer) -> Result<Book, OpenLibraryError> {
+        let url = self
+            .host
+            .join(format!("/books/{}.json", identifier.value()).as_str())?;
+
+        get(&self.client, url).await
     }
 
     pub async fn search(
@@ -66,24 +69,14 @@ impl BooksClient {
         let path = "/api/books";
         let response = self
             .client
-            .get(
-                self.host
-                    .join(path)
-                    .map_err(|_error| OpenLibraryError::ParsingError {
-                        reason: format!(
-                            "Invalid URL from base url ({}) and path ({}).",
-                            self.host, path
-                        ),
-                    })?,
-            )
+            .get(self.host.join(path)?)
             .query(&[
                 (QueryParameters::BibliographyKeys, &ids_filter),
                 (QueryParameters::Format, &String::from("json")),
                 (QueryParameters::JavascriptCommand, &String::from("data")),
             ])
             .send()
-            .await
-            .map_err(|error| OpenLibraryError::RequestFailed { source: error })?;
+            .await?;
 
         let results: HashMap<BibliographyKey, Book> = match response.status() {
             StatusCode::OK => Ok(response

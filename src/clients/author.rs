@@ -22,15 +22,10 @@ impl AuthorClient {
     pub async fn search(&self, author_name: &str) -> Result<AuthorResponse, OpenLibraryError> {
         let response = self
             .client
-            .get(self.host.join("search/authors.json").map_err(|_e| {
-                OpenLibraryError::ParsingError {
-                    reason: "Unable to parse into valid URL".to_string(),
-                }
-            })?)
+            .get(self.host.join("search/authors.json")?)
             .query(&[(QueryParameters::AuthorQuery, author_name)])
             .send()
-            .await
-            .map_err(|error| OpenLibraryError::RequestFailed { source: error })?;
+            .await?;
 
         let results: AuthorResponse = match response.status() {
             StatusCode::OK => Ok(response

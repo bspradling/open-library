@@ -7,6 +7,7 @@ use std::error::Error;
 use wiremock::matchers::{method, path, query_param};
 use wiremock::{Mock, MockServer, ResponseTemplate};
 
+mod get;
 mod isbn;
 
 #[tokio::test]

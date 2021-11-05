@@ -4,11 +4,11 @@ use crate::clients::works::WorksClient;
 use crate::models::account::Session;
 use clients::books::BooksClient;
 use reqwest::header::{HeaderMap, HeaderValue};
-use reqwest::{ClientBuilder, StatusCode};
+use reqwest::{ClientBuilder, Error, StatusCode};
 use serde::{Deserialize, Serialize};
 use std::fmt::Debug;
 use thiserror::Error;
-use url::Url;
+use url::{ParseError, Url};
 
 mod clients;
 mod format;
@@ -39,6 +39,20 @@ pub enum OpenLibraryError {
     ParsingError { reason: String },
     #[error("An error occurred while sending HTTP request: {}", source)]
     RequestFailed { source: reqwest::Error },
+}
+
+impl From<reqwest::Error> for OpenLibraryError {
+    fn from(error: Error) -> Self {
+        OpenLibraryError::RequestFailed { source: error }
+    }
+}
+
+impl From<ParseError> for OpenLibraryError {
+    fn from(error: ParseError) -> Self {
+        OpenLibraryError::ParsingError {
+            reason: error.to_string(),
+        }
+    }
 }
 
 #[derive(Debug, Deserialize, Serialize)]

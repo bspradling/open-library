@@ -4,6 +4,28 @@ use open_library::{OpenLibraryAuthClient, OpenLibraryClient, OpenLibraryError};
 use std::error::Error;
 
 #[tokio::test]
+async fn test_book_by_isbn() -> Result<(), Box<dyn Error>> {
+    let client = OpenLibraryClient::builder().build()?;
+    let isbn = InternationalStandardBookNumber::from("0374386137")?;
+    let book = client.books.by_isbn(isbn).await?;
+
+    assert_eq!(book.title, "A Wrinkle in Time");
+
+    Ok(())
+}
+
+#[tokio::test]
+async fn test_book_get() -> Result<(), Box<dyn Error>> {
+    let client = OpenLibraryClient::builder().build()?;
+    let olid = OpenLibraryIdentifer::from("OL8458764M")?;
+    let book = client.books.get(olid).await?;
+
+    assert_eq!(book.title, "Hatchet");
+
+    Ok(())
+}
+
+#[tokio::test]
 async fn test_book_search() -> Result<(), Box<dyn Error>> {
     let client = OpenLibraryClient::builder().build()?;
     let identifier = BibliographyKey::ISBN("0374386137".to_string());
@@ -12,17 +34,6 @@ async fn test_book_search() -> Result<(), Box<dyn Error>> {
     let book = book_results
         .get(&identifier)
         .ok_or(format!("No book found with identifier {}", identifier))?;
-
-    assert_eq!(book.title, "A Wrinkle in Time");
-
-    Ok(())
-}
-
-#[tokio::test]
-async fn test_book_by_isbn() -> Result<(), Box<dyn Error>> {
-    let client = OpenLibraryClient::builder().build()?;
-    let isbn = InternationalStandardBookNumber::from("0374386137")?;
-    let book = client.books.by_isbn(isbn).await?;
 
     assert_eq!(book.title, "A Wrinkle in Time");
 

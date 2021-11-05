@@ -34,8 +34,7 @@ impl AccountClient {
                 password: password.clone(),
             })
             .send()
-            .await
-            .map_err(|error| OpenLibraryError::RequestFailed { source: error })?;
+            .await?;
 
         match response.status() {
             StatusCode::OK => {
@@ -105,12 +104,7 @@ impl AccountClient {
     }
 
     async fn get_reading_log(&self, url: Url) -> Result<Vec<ReadingLogEntry>, OpenLibraryError> {
-        let response = self
-            .client
-            .get(url)
-            .send()
-            .await
-            .map_err(|error| OpenLibraryError::RequestFailed { source: error })?;
+        let response = self.client.get(url).send().await?;
 
         let status_code = response.status();
         let reading_log_response = response

@@ -19,17 +19,10 @@ impl WorksClient {
     }
 
     pub async fn get(&self, identifier: &OpenLibraryIdentifer) -> Result<Work, OpenLibraryError> {
-        let path = format!("/works/{}.json", identifier.value());
-        let url =
-            self.host
-                .join(path.as_str())
-                .map_err(|error| OpenLibraryError::ParsingError {
-                    reason: format!(
-                        "Invalid URL from base url ({}) and path ({}): {}",
-                        self.host, path, error
-                    ),
-                })?;
+        let url = self
+            .host
+            .join(format!("/works/{}.json", identifier.value()).as_str())?;
 
-        get(self.client.clone(), url).await
+        get(&self.client, url).await
     }
 }

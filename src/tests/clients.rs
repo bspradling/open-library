@@ -31,7 +31,7 @@ pub async fn test_get_returns_successfully() -> Result<(), Box<dyn Error>> {
         .mount(&server)
         .await;
 
-    let actual: FakeResponse = get(Client::new(), base_url.join(url_path)?).await?;
+    let actual: FakeResponse = get(&Client::new(), base_url.join(url_path)?).await?;
 
     assert_eq!(actual, expected);
     Ok(())
@@ -49,7 +49,7 @@ pub async fn test_get_returns_error_when_receives_invalid_json() -> Result<(), B
         .mount(&server)
         .await;
 
-    let response = get::<FakeResponse>(Client::new(), base_url.join(url_path)?).await;
+    let response = get::<FakeResponse>(&Client::new(), base_url.join(url_path)?).await;
     let actual =
         response.expect_err("Expected call to return error but it completed successfully!");
 
@@ -71,7 +71,7 @@ pub async fn test_get_returns_error_when_api_responds_with_error() -> Result<(),
         .mount(&server)
         .await;
 
-    let response = get::<FakeResponse>(Client::new(), base_url.join(url_path)?).await;
+    let response = get::<FakeResponse>(&Client::new(), base_url.join(url_path)?).await;
     let actual =
         response.expect_err("Expected call to return error but it completed successfully!");
 
