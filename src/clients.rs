@@ -13,15 +13,11 @@ pub mod works;
 #[cfg(test)]
 mod tests;
 
-pub async fn get<T>(client: Client, url: Url) -> Result<T, OpenLibraryError>
+pub async fn get<T>(client: &Client, url: Url) -> Result<T, OpenLibraryError>
 where
     T: for<'de> Deserialize<'de> + OpenLibraryModel,
 {
-    let response = client
-        .get(url)
-        .send()
-        .await
-        .map_err(|error| OpenLibraryError::RequestFailed { source: error })?;
+    let response = client.get(url).send().await?;
 
     return match response.status() {
         StatusCode::OK => Ok(response
