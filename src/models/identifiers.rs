@@ -1,52 +1,34 @@
 use crate::OpenLibraryError;
+use serde;
 use std::fmt::Display;
+use std::str::FromStr;
 
 pub trait Identifier: Display {
+    fn acronym(&self) -> &'static str;
     fn value(&self) -> &str;
 }
 
 macro_rules! identifier {
-    ($name:ident) => {
+    ($name:ident, $acy: literal) => {
         #[derive(serde::Serialize, serde::Deserialize, Debug, Eq, PartialEq, Hash, Clone)]
         #[serde(transparent)]
         pub struct $name(String);
 
-        impl $name {
-            pub fn from(identifier: &str) -> Result<$name, OpenLibraryError> {
-                return Ok($name(identifier.to_string()));
-            }
-        }
-
         impl Identifier for $name {
+            fn acronym(&self) -> &'static str {
+                $acy
+            }
+
             fn value(&self) -> &str {
                 &self.0.as_str()
             }
         }
 
-        impl std::fmt::Display for $name {
-            fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-                self.0.fmt(f)
-            }
-        }
-    };
-    ($name:ident, $validation: expr) => {
-        #[derive(serde::Serialize, serde::Deserialize, Debug, Eq, PartialEq, Hash, Clone)]
-        #[serde(transparent)]
-        pub struct $name(String);
+        impl FromStr for $name {
+            type Err = OpenLibraryError;
 
-        impl $name {
-            pub fn from(identifier: &str) -> Result<$name, OpenLibraryError> {
-                return match $validation {
-                    true => Ok($name(identifier.to_string())),
-                    false => Err(OpenLibraryError::ParsingError {
-                        reason: format!("{} is not a valid {}", identifier, $name),
-                    }),
-                };
-            }
-        }
-        impl Identifier for $name {
-            fn value(&self) -> &str {
-                &self.0.as_str()
+            fn from_str(s: &str) -> Result<Self, Self::Err> {
+                Ok($name(s.to_string()))
             }
         }
 
@@ -58,9 +40,5 @@ macro_rules! identifier {
     };
 }
 
-identifier!(InternationalStandardBookNumber);
-identifier!(OpenLibraryIdentifer);
-
-pub trait BibliographyKeyTrait: Identifier {}
-impl BibliographyKeyTrait for InternationalStandardBookNumber {}
-impl BibliographyKeyTrait for OpenLibraryIdentifer {}
+identifier!(InternationalStandardBookNumber, "ISBN");
+identifier!(OpenLibraryIdentifer, "OLID");

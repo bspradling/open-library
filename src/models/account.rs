@@ -1,4 +1,4 @@
-use crate::models::{Identifier, Resource};
+use crate::models::Resource;
 use crate::{OpenLibraryClient, OpenLibraryError, OpenLibraryErrorResponse};
 use chrono::{DateTime, Utc};
 use serde::de::Error;
@@ -91,7 +91,7 @@ pub struct ReadingLogResponse {
 #[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct ReadingLogEntry {
     pub work: ReadingLogWork,
-    pub logged_edition: Identifier<Resource>,
+    pub logged_edition: Resource,
     #[serde(with = "crate::format::datetime")]
     pub logged_date: DateTime<Utc>,
 }
@@ -99,8 +99,8 @@ pub struct ReadingLogEntry {
 #[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct ReadingLogWork {
     pub title: String,
-    pub key: Identifier<Resource>,
-    pub author_keys: Vec<Identifier<Resource>>,
+    pub key: Resource,
+    pub author_keys: Vec<Resource>,
     pub author_names: Vec<String>,
     pub first_publish_year: Option<i32>,
     pub lending_edition_s: Option<String>,
