@@ -1,7 +1,7 @@
-use crate::models::{Identifier, OpenLibraryIdentifierKey, OpenLibraryModel, Resource};
+use crate::models::{OpenLibraryIdentifierKey, OpenLibraryModel, Resource};
 use crate::OpenLibraryError;
 use serde::de::Error;
-use serde::{Deserialize, Deserializer, Serialize, Serializer};
+use serde::{Deserialize, Deserializer, Serialize};
 use std::collections::HashMap;
 use std::fmt::{Display, Formatter};
 use std::str::FromStr;
@@ -13,7 +13,7 @@ pub struct Book {
     #[serde(deserialize_with = "url_or_list")]
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub url: Vec<Url>,
-    pub key: Identifier<Resource>,
+    pub key: Resource,
     pub title: String,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subtitle: Option<String>,
@@ -24,7 +24,7 @@ pub struct Book {
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub authors: Vec<Author>,
     #[serde(default)]
-    pub identifiers: HashMap<BookIdentifier, Vec<String>>,
+    pub identifiers: HashMap<BookIdentifierKey, Vec<String>>,
     #[serde(default)]
     #[serde(skip_serializing_if = "Classifications::is_default")]
     pub classifications: Classifications,
@@ -92,30 +92,6 @@ impl BibliographyKey {
             }),
         }
     }
-
-    pub fn from_identifier(
-        identifier: Identifier<BookIdentifier>,
-    ) -> Result<Self, OpenLibraryError> {
-        match identifier.resource {
-            BookIdentifier::InternationalStandard10 => {
-                Ok(BibliographyKey::ISBN(identifier.identifier))
-            }
-            BookIdentifier::InternationalStandard13 => {
-                Ok(BibliographyKey::ISBN(identifier.identifier))
-            }
-            BookIdentifier::LibraryOfCongress => Ok(BibliographyKey::LCCN(identifier.identifier)),
-            BookIdentifier::OhioCollegeLibraryCenter => {
-                Ok(BibliographyKey::OCLC(identifier.identifier))
-            }
-            BookIdentifier::OpenLibrary => Ok(BibliographyKey::OLID(identifier.identifier)),
-            _ => Err(OpenLibraryError::ParsingError {
-                reason: format!(
-                    "The identifier specified ({}) is not supported as a bibliogrpahy key!",
-                    identifier.resource
-                ),
-            }),
-        }
-    }
 }
 
 impl Display for BibliographyKey {
@@ -130,12 +106,13 @@ impl Display for BibliographyKey {
     }
 }
 
-impl<'de> Deserialize<'de> for BibliographyKey {
+impl<'de> serde::Deserialize<'de> for BibliographyKey {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
         D: Deserializer<'de>,
     {
-        let value: String = Deserialize::deserialize(deserializer).map_err(D::Error::custom)?;
+        let value: String =
+            serde::Deserialize::deserialize(deserializer).map_err(D::Error::custom)?;
         let chunks: Vec<&str> = value.split(':').collect();
 
         if chunks.len() != 2 {
@@ -143,36 +120,38 @@ impl<'de> Deserialize<'de> for BibliographyKey {
         }
 
         let key = match chunks.get(0) {
-            Some(string) => Ok(String::from(*string)),
+            Some(value) => Ok(*value),
             None => Err(D::Error::custom(format!(
                 "Supplied identifier string has improper format {}",
                 &value
             ))),
-        }?;
+        }?
+        .to_string();
 
         let value = match chunks.get(1) {
-            Some(string) => Ok(String::from(*string)),
+            Some(string) => Ok(*string),
             None => Err(D::Error::custom(format!(
                 "Supplied identifier string has improper format {}",
                 &value
             ))),
-        }?;
+        }?
+        .to_string();
 
-        BibliographyKey::from_tuple((key, value)).map_err(D::Error::custom)
+        BibliographyKey::from_tuple((key, value)).map_err(|error| D::Error::custom(error))
     }
 }
 
-impl Serialize for BibliographyKey {
+impl serde::Serialize for BibliographyKey {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
-        S: Serializer,
+        S: serde::Serializer,
     {
-        serializer.serialize_str(self.to_string().as_str())
+        serializer.serialize_str(format!("{}", self).as_str())
     }
 }
 
 #[derive(Clone, Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
-pub enum BookIdentifier {
+pub enum BookIdentifierKey {
     #[serde(alias = "isbn_10")]
     InternationalStandard10, // International Standard Book Number - 10 Digits
     #[serde(alias = "isbn_13")]
@@ -193,11 +172,11 @@ pub enum BookIdentifier {
     WikiData,
 }
 
-impl BookIdentifier {
-    pub fn isbn_from(value: &str) -> Result<Self, OpenLibraryError> {
+impl BookIdentifierKey {
+    pub fn from_isbn(value: &str) -> Result<Self, OpenLibraryError> {
         match value.len() {
-            10 => Ok(BookIdentifier::InternationalStandard10),
-            13 => Ok(BookIdentifier::InternationalStandard13),
+            10 => Ok(BookIdentifierKey::InternationalStandard10),
+            13 => Ok(BookIdentifierKey::InternationalStandard13),
             _ => Err(OpenLibraryError::ParsingError {
                 reason: format!("Invalid length ({}) for ISBN", value.len()),
             }),
@@ -205,38 +184,38 @@ impl BookIdentifier {
     }
 }
 
-impl OpenLibraryIdentifierKey for BookIdentifier {}
+impl OpenLibraryIdentifierKey for BookIdentifierKey {}
 
-impl Display for BookIdentifier {
+impl Display for BookIdentifierKey {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         match self {
-            BookIdentifier::InternationalStandard10 => Ok(write!(f, "isbn_10")?),
-            BookIdentifier::InternationalStandard13 => Ok(write!(f, "isbn_13")?),
-            BookIdentifier::LibraryOfCongress => Ok(write!(f, "lccn")?),
-            BookIdentifier::OhioCollegeLibraryCenter => Ok(write!(f, "oclc")?),
-            BookIdentifier::GoodReads => Ok(write!(f, "goodreads")?),
-            BookIdentifier::OpenLibrary => Ok(write!(f, "openlibrary")?),
-            BookIdentifier::LibraryThing => Ok(write!(f, "librarything")?),
-            BookIdentifier::ProjectGutenberg => Ok(write!(f, "project_gutenberg")?),
-            BookIdentifier::WikiData => Ok(write!(f, "wikidata")?),
+            BookIdentifierKey::InternationalStandard10 => Ok(write!(f, "isbn_10")?),
+            BookIdentifierKey::InternationalStandard13 => Ok(write!(f, "isbn_13")?),
+            BookIdentifierKey::LibraryOfCongress => Ok(write!(f, "lccn")?),
+            BookIdentifierKey::OhioCollegeLibraryCenter => Ok(write!(f, "oclc")?),
+            BookIdentifierKey::GoodReads => Ok(write!(f, "goodreads")?),
+            BookIdentifierKey::OpenLibrary => Ok(write!(f, "openlibrary")?),
+            BookIdentifierKey::LibraryThing => Ok(write!(f, "librarything")?),
+            BookIdentifierKey::ProjectGutenberg => Ok(write!(f, "project_gutenberg")?),
+            BookIdentifierKey::WikiData => Ok(write!(f, "wikidata")?),
         }
     }
 }
 
-impl FromStr for BookIdentifier {
+impl FromStr for BookIdentifierKey {
     type Err = OpenLibraryError;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         match s {
-            "isbn_10" => Ok(BookIdentifier::InternationalStandard10),
-            "isbn_13" => Ok(BookIdentifier::InternationalStandard13),
-            "lccn" => Ok(BookIdentifier::LibraryOfCongress),
-            "oclc" => Ok(BookIdentifier::OhioCollegeLibraryCenter),
-            "goodreads" => Ok(BookIdentifier::GoodReads),
-            "openlibrary" => Ok(BookIdentifier::OpenLibrary),
-            "librarything" => Ok(BookIdentifier::LibraryThing),
-            "project_gutenberg" => Ok(BookIdentifier::ProjectGutenberg),
-            "wikidata" => Ok(BookIdentifier::WikiData),
+            "isbn_10" => Ok(BookIdentifierKey::InternationalStandard10),
+            "isbn_13" => Ok(BookIdentifierKey::InternationalStandard13),
+            "lccn" => Ok(BookIdentifierKey::LibraryOfCongress),
+            "oclc" => Ok(BookIdentifierKey::OhioCollegeLibraryCenter),
+            "goodreads" => Ok(BookIdentifierKey::GoodReads),
+            "openlibrary" => Ok(BookIdentifierKey::OpenLibrary),
+            "librarything" => Ok(BookIdentifierKey::LibraryThing),
+            "project_gutenberg" => Ok(BookIdentifierKey::ProjectGutenberg),
+            "wikidata" => Ok(BookIdentifierKey::WikiData),
             _ => Err(OpenLibraryError::ParsingError {
                 reason: format!(
                     "Unable to parse supplied value ({}) into a book identifier!",
@@ -250,7 +229,7 @@ impl FromStr for BookIdentifier {
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct Author {
     #[serde(skip_serializing_if = "Option::is_none")]
-    key: Option<Identifier<Resource>>,
+    key: Option<Resource>,
     #[serde(skip_serializing_if = "Option::is_none")]
     name: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]

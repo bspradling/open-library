@@ -14,7 +14,7 @@ async fn main() -> Result<()> {
     let client = OpenLibraryClient::builder().build()?;
 
     let isbn = arguments.isbn().into_iter().map(|id| Identifier {
-        resource: BookIdentifier::isbn_from(&id).unwrap(),
+        resource: BookIdentifier::from_isbn(&id).unwrap(),
         identifier: id,
     });
     let oclc = arguments.oclc().into_iter().map(|id| Identifier {

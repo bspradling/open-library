@@ -4,6 +4,7 @@ use crate::OpenLibraryClient;
 use http::Method;
 use reqwest::Url;
 use std::error::Error;
+use std::str::FromStr;
 use wiremock::matchers::{method, path};
 use wiremock::{Mock, MockServer, ResponseTemplate};
 
@@ -16,7 +17,7 @@ async fn test_get_returns_success() -> Result<(), Box<dyn Error>> {
 
     let mock_response: Book = serde_json::from_str(include_str!("resources/edition.json"))?;
 
-    let olid = OpenLibraryIdentifer::from("OL7353617M")?;
+    let olid = OpenLibraryIdentifer::from_str("OL7353617M")?;
 
     Mock::given(method(Method::GET.as_str()))
         .and(path(format!("/books/{}.json", olid.value()).as_str()))

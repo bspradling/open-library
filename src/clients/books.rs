@@ -55,21 +55,23 @@ impl BooksClient {
         get(&self.client, url).await
     }
 
-    pub async fn search(
+    pub async fn search<T>(
         &self,
-        identifiers: &[BibliographyKey],
-    ) -> Result<HashMap<BibliographyKey, Book>, OpenLibraryError> {
-        // tracing::info!("Identifiers: {:?}", identifiers);
+        identifiers: T,
+    ) -> Result<HashMap<BibliographyKey, Book>, OpenLibraryError>
+    where
+        T: Into<Vec<BibliographyKey>>,
+    {
         let ids_filter = identifiers
+            .into()
             .iter()
             .map(|id| id.to_string())
             .collect::<Vec<String>>()
             .join(",");
 
-        let path = "/api/books";
         let response = self
             .client
-            .get(self.host.join(path)?)
+            .get(self.host.join("/api/books")?)
             .query(&[
                 (QueryParameters::BibliographyKeys, &ids_filter),
                 (QueryParameters::Format, &String::from("json")),

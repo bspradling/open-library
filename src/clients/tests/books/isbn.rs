@@ -4,6 +4,7 @@ use crate::{OpenLibraryClient, OpenLibraryError};
 use http::Method;
 use reqwest::Url;
 use std::error::Error;
+use std::str::FromStr;
 use wiremock::matchers::{method, path};
 use wiremock::{Mock, MockServer, ResponseTemplate};
 
@@ -16,7 +17,7 @@ async fn test_get_isbn_returns_success() -> Result<(), Box<dyn Error>> {
 
     let mock_response: Book = serde_json::from_str(include_str!("resources/isbn.json"))?;
 
-    let isbn = InternationalStandardBookNumber::from("0201558025")?;
+    let isbn = InternationalStandardBookNumber::from_str("0201558025")?;
 
     Mock::given(method(Method::GET.as_str()))
         .and(path(format!("/isbn/{}.json", isbn.value()).as_str()))
@@ -36,7 +37,7 @@ async fn test_get_isbn_returns_error_when_invalid_json_returned() -> Result<(), 
         .with_host(Url::parse(server.uri().as_str())?)
         .build()?;
 
-    let isbn = InternationalStandardBookNumber::from("0201558025")?;
+    let isbn = InternationalStandardBookNumber::from_str("0201558025")?;
 
     Mock::given(method(Method::GET.as_str()))
         .and(path(format!("/isbn/{}.json", isbn.value()).as_str()))
@@ -64,7 +65,7 @@ async fn test_get_isbn_returns_error_when_book_does_not_exist() -> Result<(), Bo
         .with_host(Url::parse(server.uri().as_str())?)
         .build()?;
 
-    let isbn = InternationalStandardBookNumber::from("_doesnotexist")?;
+    let isbn = InternationalStandardBookNumber::from_str("_doesnotexist")?;
 
     Mock::given(method(Method::GET.as_str()))
         .and(path(format!("/isbn/{}.json", isbn.value()).as_str()))

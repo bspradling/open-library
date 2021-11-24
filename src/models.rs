@@ -12,42 +12,22 @@ pub mod works;
 mod tests;
 
 #[derive(Clone, Debug, Eq, PartialEq)]
-pub struct Identifier<T: OpenLibraryIdentifierKey> {
-    pub resource: T,
-    pub identifier: String,
-}
-
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub enum Resource {
-    #[serde(alias = "authors")]
-    Author,
-    #[serde(alias = "books")]
-    Book,
-    #[serde(alias = "works")]
-    Work,
+    Author(String),
+    Book(String),
+    Work(String),
 }
-
+//
 pub trait OpenLibraryModel {}
 pub trait OpenLibraryIdentifierKey {}
 impl OpenLibraryIdentifierKey for Resource {}
 
-impl From<&str> for Resource {
-    fn from(value: &str) -> Self {
-        match value {
-            "authors" => Resource::Author,
-            "books" => Resource::Book,
-            "works" => Resource::Work,
-            _ => panic!("for now: {}", value),
-        }
-    }
-}
-
 impl Display for Resource {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         let x = match self {
-            Resource::Author => "authors",
-            Resource::Book => "books",
-            Resource::Work => "works",
+            Resource::Author(value) => format!("/authors/{}", value),
+            Resource::Book(value) => format!("/books/{}", value),
+            Resource::Work(value) => format!("/works/{}", value),
         };
 
         write!(f, "{}", x)?;
@@ -55,7 +35,7 @@ impl Display for Resource {
     }
 }
 
-impl<'de> Deserialize<'de> for Identifier<Resource> {
+impl<'de> Deserialize<'de> for Resource {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
         D: Deserializer<'de>,
@@ -83,19 +63,20 @@ impl<'de> Deserialize<'de> for Identifier<Resource> {
             ))),
         }?;
 
-        Ok(Identifier {
-            resource: Resource::from(resource),
-            identifier: identifier.to_string(),
-        })
+        return match resource {
+            "authors" => Ok(Resource::Author(identifier.to_string())),
+            "books" => Ok(Resource::Book(identifier.to_string())),
+            "works" => Ok(Resource::Work(identifier.to_string())),
+            _ => Err(D::Error::custom("Could not parse into Resource")),
+        };
     }
 }
 
-impl Serialize for Identifier<Resource> {
+impl Serialize for Resource {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: Serializer,
     {
-        let string = format!("/{}/{}", self.resource.to_string(), self.identifier);
-        serializer.serialize_str(string.as_str())
+        serializer.serialize_str(self.to_string().as_str())
     }
 }
