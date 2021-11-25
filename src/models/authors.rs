@@ -1,5 +1,5 @@
-use crate::models::OpenLibraryModel;
-use chrono::NaiveDate;
+use crate::models::{Link, OpenLibraryModel, Resource};
+use chrono::NaiveDateTime;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use url::Url;
@@ -31,7 +31,7 @@ pub struct AuthorDetails {
     #[serde(default)]
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub source_records: Vec<String>, //TODO parse records
-    pub key: Identifier<Resource>,
+    pub key: Resource,
     #[serde(default)]
     #[serde(with = "crate::format::value")]
     #[serde(skip_serializing_if = "Option::is_none")]

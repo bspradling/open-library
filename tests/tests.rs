@@ -7,7 +7,7 @@ use std::str::FromStr;
 #[tokio::test]
 async fn test_author_get() -> Result<(), Box<dyn Error>> {
     let client = OpenLibraryClient::builder().build()?;
-    let identifier = OpenLibraryIdentifer::from("OL4452558A")?;
+    let identifier = OpenLibraryIdentifer::from_str("OL4452558A")?;
     let author = client.author.get(identifier).await?;
 
     assert_eq!(author.name, "Gary Paulsen");

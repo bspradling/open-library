@@ -1,4 +1,4 @@
-use crate::models::{OpenLibraryIdentifierKey, OpenLibraryModel, Resource};
+use crate::models::{Link, OpenLibraryIdentifierKey, OpenLibraryModel, Resource};
 use crate::OpenLibraryError;
 use serde::de::Error;
 use serde::{Deserialize, Deserializer, Serialize};

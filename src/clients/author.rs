@@ -1,5 +1,6 @@
 use crate::clients::handle;
-use crate::models::authors::AuthorResponse;
+use crate::models::authors::{AuthorDetails, AuthorResponse};
+use crate::models::identifiers::OpenLibraryIdentifer;
 use crate::OpenLibraryError;
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
@@ -25,15 +26,17 @@ impl AuthorClient {
     ) -> Result<AuthorDetails, OpenLibraryError> {
         let url = self
             .host
-            .join(format!("/authors/{}.json", identifier.value()).as_str())?;
+            .join(format!("/authors/{}.json", identifier).as_str())?;
 
-        get(&self.client, url).await
+        handle(self.client.get(url)).await
     }
 
     pub async fn search(&self, author_name: &str) -> Result<AuthorResponse, OpenLibraryError> {
+        let url = self.host.join("search/authors.json")?;
+
         handle(
             self.client
-                .get(self.host.join("search/authors.json")?)
+                .get(url)
                 .query(&[(QueryParameters::AuthorQuery, author_name)]),
         )
         .await
