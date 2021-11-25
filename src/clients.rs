@@ -1,9 +1,8 @@
 use crate::models::OpenLibraryModel;
 use crate::OpenLibraryError;
 use http::StatusCode;
-use reqwest::Client;
+use reqwest::RequestBuilder;
 use serde::Deserialize;
-use url::Url;
 
 pub mod account;
 pub mod author;
@@ -13,11 +12,11 @@ pub mod works;
 #[cfg(test)]
 mod tests;
 
-pub async fn get<T>(client: &Client, url: Url) -> Result<T, OpenLibraryError>
+pub async fn handle<T>(request: RequestBuilder) -> Result<T, OpenLibraryError>
 where
     T: for<'de> Deserialize<'de> + OpenLibraryModel,
 {
-    let response = client.get(url).send().await?;
+    let response = request.send().await?;
 
     return match response.status() {
         StatusCode::OK => Ok(response
