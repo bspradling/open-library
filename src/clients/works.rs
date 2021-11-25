@@ -1,4 +1,4 @@
-use crate::clients::get;
+use crate::clients::handle;
 use crate::models::identifiers::{Identifier, OpenLibraryIdentifer};
 use crate::models::works::Work;
 use crate::OpenLibraryError;
@@ -23,6 +23,6 @@ impl WorksClient {
             .host
             .join(format!("/works/{}.json", identifier.value()).as_str())?;
 
-        get(&self.client, url).await
+        handle(self.client.get(url)).await
     }
 }

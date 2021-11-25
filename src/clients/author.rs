@@ -1,6 +1,6 @@
+use crate::clients::handle;
 use crate::models::authors::AuthorResponse;
 use crate::OpenLibraryError;
-use http::StatusCode;
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
 use url::Url;
@@ -20,25 +20,12 @@ impl AuthorClient {
     }
 
     pub async fn search(&self, author_name: &str) -> Result<AuthorResponse, OpenLibraryError> {
-        let response = self
-            .client
-            .get(self.host.join("search/authors.json")?)
-            .query(&[(QueryParameters::AuthorQuery, author_name)])
-            .send()
-            .await?;
-
-        let results: AuthorResponse = match response.status() {
-            StatusCode::OK => Ok(response
-                .json::<AuthorResponse>()
-                .await
-                .map_err(|error| OpenLibraryError::JsonParseError { source: error })?),
-            _ => Err(OpenLibraryError::ApiError {
-                status_code: response.status(),
-                error: None,
-            }),
-        }?;
-
-        Ok(results)
+        handle(
+            self.client
+                .get(self.host.join("search/authors.json")?)
+                .query(&[(QueryParameters::AuthorQuery, author_name)]),
+        )
+        .await
     }
 }
 

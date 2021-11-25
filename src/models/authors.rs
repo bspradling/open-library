@@ -1,3 +1,4 @@
+use crate::models::OpenLibraryModel;
 use chrono::NaiveDate;
 use serde::{Deserialize, Serialize};
 
@@ -26,3 +27,5 @@ pub struct AuthorResponse {
     pub num_found_exact: bool,
     pub docs: Vec<Author>,
 }
+
+impl OpenLibraryModel for AuthorResponse {}

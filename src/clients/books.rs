@@ -1,10 +1,10 @@
-use crate::clients::get;
+use crate::clients::handle;
 use crate::models::books::{BibliographyKey, Book};
 use crate::models::identifiers::{
     Identifier, InternationalStandardBookNumber, OpenLibraryIdentifer,
 };
+use crate::models::OpenLibraryModel;
 use crate::OpenLibraryError;
-use http::StatusCode;
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
@@ -15,6 +15,9 @@ pub struct BooksClient {
     client: Client,
     host: Url,
 }
+
+type BookSearchResponse = HashMap<BibliographyKey, Book>;
+impl OpenLibraryModel for BookSearchResponse {}
 
 impl BooksClient {
     pub fn new(client: &Client, host: &Url) -> Self {
@@ -28,23 +31,11 @@ impl BooksClient {
         &self,
         isbn: InternationalStandardBookNumber,
     ) -> Result<Book, OpenLibraryError> {
-        let path = format!("/isbn/{}.json", isbn.value());
-        let response = self
-            .client
-            .get(self.host.join(path.as_str())?)
-            .send()
-            .await?;
+        let url = self
+            .host
+            .join(format!("/isbn/{}.json", isbn.value()).as_str())?;
 
-        return match response.status() {
-            StatusCode::OK => Ok(response
-                .json::<Book>()
-                .await
-                .map_err(|error| OpenLibraryError::JsonParseError { source: error })?),
-            _ => Err(OpenLibraryError::ApiError {
-                status_code: response.status(),
-                error: None,
-            }),
-        };
+        handle(self.client.get(url)).await
     }
 
     pub async fn get(&self, identifier: OpenLibraryIdentifer) -> Result<Book, OpenLibraryError> {
@@ -52,13 +43,10 @@ impl BooksClient {
             .host
             .join(format!("/books/{}.json", identifier.value()).as_str())?;
 
-        get(&self.client, url).await
+        handle(self.client.get(url)).await
     }
 
-    pub async fn search<T>(
-        &self,
-        identifiers: T,
-    ) -> Result<HashMap<BibliographyKey, Book>, OpenLibraryError>
+    pub async fn search<T>(&self, identifiers: T) -> Result<BookSearchResponse, OpenLibraryError>
     where
         T: Into<Vec<BibliographyKey>>,
     {
@@ -69,29 +57,12 @@ impl BooksClient {
             .collect::<Vec<String>>()
             .join(",");
 
-        let response = self
-            .client
-            .get(self.host.join("/api/books")?)
-            .query(&[
-                (QueryParameters::BibliographyKeys, &ids_filter),
-                (QueryParameters::Format, &String::from("json")),
-                (QueryParameters::JavascriptCommand, &String::from("data")),
-            ])
-            .send()
-            .await?;
-
-        let results: HashMap<BibliographyKey, Book> = match response.status() {
-            StatusCode::OK => Ok(response
-                .json::<HashMap<BibliographyKey, Book>>()
-                .await
-                .map_err(|error| OpenLibraryError::JsonParseError { source: error })?),
-            _ => Err(OpenLibraryError::ApiError {
-                status_code: response.status(),
-                error: None,
-            }),
-        }?;
-
-        Ok(results)
+        handle(self.client.get(self.host.join("/api/books")?).query(&[
+            (QueryParameters::BibliographyKeys, &ids_filter),
+            (QueryParameters::Format, &String::from("json")),
+            (QueryParameters::JavascriptCommand, &String::from("data")),
+        ]))
+        .await
     }
 }
 
