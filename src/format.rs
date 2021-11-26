@@ -100,13 +100,13 @@ pub mod keyed_list {
     use crate::format::KeyedValue;
     use serde::{Deserialize, Deserializer, Serialize, Serializer};
 
-    pub fn serialize<S, T>(values: &Vec<T>, serializer: S) -> Result<S::Ok, S::Error>
+    pub fn serialize<S, T>(values: &[T], serializer: S) -> Result<S::Ok, S::Error>
     where
         S: Serializer,
         T: Serialize,
     {
         values
-            .into_iter()
+            .iter()
             .map(|x| KeyedValue { key: x })
             .collect::<Vec<KeyedValue<&T>>>()
             .serialize(serializer)

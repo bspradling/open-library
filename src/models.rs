@@ -63,12 +63,12 @@ impl<'de> Deserialize<'de> for Resource {
             ))),
         }?;
 
-        return match resource {
+        match resource {
             "authors" => Ok(Resource::Author(identifier.to_string())),
             "books" => Ok(Resource::Book(identifier.to_string())),
             "works" => Ok(Resource::Work(identifier.to_string())),
             _ => Err(D::Error::custom("Could not parse into Resource")),
-        };
+        }
     }
 }
 
