@@ -11,22 +11,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Generate Changelog
-        id: changelog
-        uses: metcalfc/changelog-generator@v1.0.0
-        with:
-          myToken: ${{ secrets.GITHUB_TOKEN }}
       - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ github.ref }}
-          release_name: ${{ github.ref }}
-          body: ${{ steps.changelog.outputs.changelog }}
-    outputs:
-      upload_url: ${{ steps.create_release.outputs.upload_url }}
+          generate_release_notes: true
 
   build-release:
     name: Release Build
