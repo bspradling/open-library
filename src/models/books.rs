@@ -137,7 +137,7 @@ impl<'de> serde::Deserialize<'de> for BibliographyKey {
         }?
         .to_string();
 
-        BibliographyKey::from_tuple((key, value)).map_err(|error| D::Error::custom(error))
+        BibliographyKey::from_tuple((key, value)).map_err(D::Error::custom)
     }
 }
 
