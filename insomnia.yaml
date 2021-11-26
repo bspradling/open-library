@@ -1,0 +1,553 @@
+_type: export
+__export_format: 4
+__export_date: 2021-11-26T16:59:36.872Z
+__export_source: insomnia.desktop.app:v2021.6.0
+resources:
+  - _id: req_c17afa8601c548f48eba4415307f509a
+    parentId: fld_ca9d693188144fe7baa360a513f7ed9d
+    modified: 1637942296041
+    created: 1630796372211
+    url: https://openlibrary.org/account/login
+    name: Login
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"username": "{{ _.username }}", 
+        	"password": "{% prompt 'Password', 'Password', '', '', true, true %}"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_b581db8ddf524f889843b5fcfd133749
+    authentication: {}
+    metaSortKey: -1630796372212
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_ca9d693188144fe7baa360a513f7ed9d
+    parentId: wrk_85e2f1f34a1841808236920f127dff63
+    modified: 1637942525678
+    created: 1630796379525
+    name: Account
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1637942505418
+    _type: request_group
+  - _id: wrk_85e2f1f34a1841808236920f127dff63
+    parentId: null
+    modified: 1630792312076
+    created: 1630792303987
+    name: Open Library
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_170d4adda71b4990a6683758be58bb27
+    parentId: fld_ca9d693188144fe7baa360a513f7ed9d
+    modified: 1630885098057
+    created: 1630793591267
+    url: https://openlibrary.org/people/{{ _.username }}/books/already-read.json
+    name: Already Read
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1630796372162
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_25b32378a9fc4f5db07aae0530c53335
+    parentId: fld_ca9d693188144fe7baa360a513f7ed9d
+    modified: 1630885101588
+    created: 1630793554324
+    url: https://openlibrary.org/people/{{ _.username
+      }}/books/currently-reading.json
+    name: Currently Reading
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1630796372112
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_004739205e88471d9ff1d2169e5bcc84
+    parentId: fld_ca9d693188144fe7baa360a513f7ed9d
+    modified: 1631545322489
+    created: 1630792343540
+    url: https://openlibrary.org/people/{{ _.username }}/books/want-to-read.json
+    name: Want to Read
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1630796372062
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_172e3c86f9a140b9a54cd85786b2b7f8
+    parentId: fld_7e7d087865f446be876f2f9fa833cca9
+    modified: 1637942280434
+    created: 1630884977841
+    url: https://openlibrary.org/authors/{% prompt 'Author Identifier', 'Author
+      Identifier', 'OL719788A', '', false, true %}.json
+    name: By Identifier
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1630884977841
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_7e7d087865f446be876f2f9fa833cca9
+    parentId: wrk_85e2f1f34a1841808236920f127dff63
+    modified: 1637942541065
+    created: 1630884799793
+    name: Author
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1637942505405.5
+    _type: request_group
+  - _id: req_675e73c3e0bb4f91a83c79fbdb426b4b
+    parentId: fld_7e7d087865f446be876f2f9fa833cca9
+    modified: 1637942269835
+    created: 1630884808022
+    url: https://openlibrary.org/search/authors.json?q={% prompt 'Author Name',
+      'Author Name', 'J.K Rowling', '', false, true %}
+    name: Search
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1630884808023
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_bc6e53787e014432a47c4c003a39bd2a
+    parentId: fld_7e7d087865f446be876f2f9fa833cca9
+    modified: 1637942398203
+    created: 1637942339460
+    url: https://openlibrary.org/authors/{% prompt 'Identifier', 'OpenLibrary
+      Identifier', 'OL719788A', '', false, true %}/works.json
+    name: List Works
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1630840590117.5
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_d2c95c0f877344c99a4c4863608f0587
+    parentId: fld_95eaa5bc0cb042acb7342ec7ededbd92
+    modified: 1637942025836
+    created: 1631250003842
+    url: https://openlibrary.org/books/{% prompt 'Edition\'s Identifier',
+      'OpenLibrary Identifier', 'OL23919A', '', false, true %}.json
+    name: Editions
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1631250003842
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_95eaa5bc0cb042acb7342ec7ededbd92
+    parentId: wrk_85e2f1f34a1841808236920f127dff63
+    modified: 1637942530745
+    created: 1630794243949
+    name: Books
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1637942505393
+    _type: request_group
+  - _id: req_029fd7e380084b6dbefbe1c1c859e4f6
+    parentId: fld_95eaa5bc0cb042acb7342ec7ededbd92
+    modified: 1637944042040
+    created: 1631249999052
+    url: https://openlibrary.org/isbn/{% prompt 'Book By International Standard Book
+      Number', 'ISBN', '0140328726', '', false, true %}.json
+    name: ISBN
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1631249999052
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_831e0e0923884a8f99c1242d86567226
+    parentId: fld_95eaa5bc0cb042acb7342ec7ededbd92
+    modified: 1637944285884
+    created: 1630794248812
+    url: https://openlibrary.org/api/books?bibkeys={% prompt 'Book Search', 'Comma
+      Separated List of Bibliography Keys', 'ISBN:0140328726,OLID:OL23919A', '',
+      false, true %}&format=json&jscmd=details
+    name: Search
+    description: "A generic, flexible configurable endpoint which allows requesting
+      information on one or more books using ISBNs, OCLC, LCCN, or OLID
+      identifiers. "
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1630794248812
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_d9b9c759ffc946aa84f3bd397d62c176
+    parentId: fld_95eaa5bc0cb042acb7342ec7ededbd92
+    modified: 1637942243338
+    created: 1631250007247
+    url: https://openlibrary.org/works/{% prompt 'Work\'s Identifier', 'OpenLibrary
+      Identifier', 'OL45883W', '', false, true %}.json
+    name: Works
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1630794248762
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_c3e0e66a8bf14f9e9a7f9aa6a62fad8d
+    parentId: fld_b2b8e44398fd4a6890bf27765f7b5c10
+    modified: 1637944017225
+    created: 1637942683309
+    url: https://covers.openlibrary.org/b/{% prompt 'Cover\'s Identifier Type',
+      'Type', 'id', '', false, true %}/{% prompt 'Cover\'s Identifier Value',
+      'Value', '240727', '', false, true %}-{% prompt 'Cover\'s Size', 'Small
+      (S), Medium (M), or Large (L)?', 'S', '', false, true %}.jpg
+    name: Get
+    description: >-
+      ### Description
+
+      Retrieves cover image for particular identifier and size.
+
+
+      **NOTE:** The Cover's API is exposed on a different host: `covers.openlibrary.org`
+
+
+      [Covers API Documentation](https://openlibrary.org/dev/docs/api/covers)
+
+
+      ### Format
+
+      You can retrieve covers based on any identifier with the URI format of `/b/$key/$value-$size.jpg`
+
+
+      | Type                               | Key          |
+
+      |------------------------------------|--------------|
+
+      | Cover ID                           | id           |
+
+      | OpenLibrary                        | olid         |
+
+      | International Standard Book Number | isbn         |
+
+      | Library of Congress Control Number | lccn         |
+
+      | Online Computer Library Center     | oclc         |
+
+      | Good Reads                         | goodreads    |
+
+      | Library Thing                      | librarything |
+
+
+      Valid sizes are Small (**S**), Medium (**M**), and Large (**L**)
+
+
+      ### Examples
+
+
+      1. https://covers.openlibrary.org/b/id/240727-S.jpg
+
+      2. https://covers.openlibrary.org/b/olid/OL7440033M-S.jpg
+
+      3. https://covers.openlibrary.org/b/isbn/0385472579-S.jpg
+
+      4. https://covers.openlibrary.org/b/isbn/9780385472579-S.jpg
+
+      5. https://covers.openlibrary.org/b/lccn/93005405-S.jpg
+
+      6. https://covers.openlibrary.org/b/oclc/28419896-S.jpg
+
+      7. https://covers.openlibrary.org/b/goodreads/979250-S.jpg
+
+      8. https://covers.openlibrary.org/b/librarything/192819-S.jpg
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1637942683309
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_b2b8e44398fd4a6890bf27765f7b5c10
+    parentId: wrk_85e2f1f34a1841808236920f127dff63
+    modified: 1637942545234
+    created: 1637942498479
+    name: Covers
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1637942505380.5
+    _type: request_group
+  - _id: req_e777f35067254ddfac47c2766c934ca0
+    parentId: fld_f1cf5b07d2ab4513be8637c02584a458
+    modified: 1637944092788
+    created: 1637943761454
+    url: https://openlibrary.org/api/volumes/brief/{% prompt 'Partner\'s Identifier
+      Type', 'Value (isbn, lccn, oclc, olid)', 'isbn', '', false, true %}/{%
+      prompt 'Partner\'s Identifier Value', 'Value', '0140328726', '', false,
+      true %}.json
+    name: Get
+    description: |-
+      [Partner Documentation](https://openlibrary.org/dev/docs/api/read)
+
+      _This was formally the Read API_
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1637943761454
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_f1cf5b07d2ab4513be8637c02584a458
+    parentId: wrk_85e2f1f34a1841808236920f127dff63
+    modified: 1637942554282
+    created: 1637942494122
+    name: Partner
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1637942505374.25
+    _type: request_group
+  - _id: req_1141bd00af8748138349a630b8b56046
+    parentId: fld_830d6151e3094fc7bea05888b0f46613
+    modified: 1637945917313
+    created: 1637945897068
+    url: https://openlibrary.org/recentchanges.json
+    name: List
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1637945897069
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_830d6151e3094fc7bea05888b0f46613
+    parentId: wrk_85e2f1f34a1841808236920f127dff63
+    modified: 1637942505368
+    created: 1637942505368
+    name: Recent Changes
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1637942505368
+    _type: request_group
+  - _id: req_b75f31143f804c8db95462eec6aaa3df
+    parentId: fld_c226913f33464205a953aaecd86fcae3
+    modified: 1637944661151
+    created: 1637944268635
+    url: https://openlibrary.org/search.json?q={% prompt 'Search Text', 'Value',
+      'harry potter', '', false, true %}
+    name: Search
+    description: "[Search Documentation](https://openlibrary.org/dev/docs/api/search)"
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1637944268635
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_c226913f33464205a953aaecd86fcae3
+    parentId: wrk_85e2f1f34a1841808236920f127dff63
+    modified: 1637942480217
+    created: 1637942480217
+    name: Search
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1637942480217
+    _type: request_group
+  - _id: req_d51b2e46acd142e1a516f4fd739d8310
+    parentId: fld_245b4a4e8ab94211af3185567ff9106e
+    modified: 1637945822453
+    created: 1637944705093
+    url: https://openlibrary.org/subjects/{% prompt 'Subject Text', 'Value', 'love',
+      '', false, true %}.json?details=true
+    name: List Works
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1637944705093
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_245b4a4e8ab94211af3185567ff9106e
+    parentId: wrk_85e2f1f34a1841808236920f127dff63
+    modified: 1637942470194
+    created: 1637942429331
+    name: Subjects
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1630884799893
+    _type: request_group
+  - _id: env_6f397646707e498e8e2473744a09fe820d60b73c
+    parentId: wrk_85e2f1f34a1841808236920f127dff63
+    modified: 1630888990712
+    created: 1630792304118
+    name: Base Environment
+    data:
+      username: openlibrary-rust
+    dataPropertyOrder:
+      "&":
+        - username
+    color: null
+    isPrivate: false
+    metaSortKey: 1630792304118
+    _type: environment
+  - _id: jar_6f397646707e498e8e2473744a09fe820d60b73c
+    parentId: wrk_85e2f1f34a1841808236920f127dff63
+    modified: 1631505560676
+    created: 1630792304119
+    name: Default Jar
+    cookies:
+      - key: session
+        value: /people/openlibrary-rust%2C2021-09-13T03%3A59%3A20%2Cff3d4%244a739b035217d161517e31a8ce15d44b
+        domain: openlibrary.org
+        path: /
+        hostOnly: true
+        creation: 2021-09-13T03:59:20.675Z
+        lastAccessed: 2021-09-13T03:59:20.675Z
+        id: "6854426558194477"
+    _type: cookie_jar
+  - _id: spc_c3ce2a8b17c34b03b06f0d2b2bacab8b
+    parentId: wrk_85e2f1f34a1841808236920f127dff63
+    modified: 1630792304029
+    created: 1630792304029
+    fileName: OpenLibrary
+    contents: ""
+    contentType: yaml
+    _type: api_spec
