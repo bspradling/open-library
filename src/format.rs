@@ -122,3 +122,28 @@ pub mod keyed_list {
         Ok(x1)
     }
 }
+
+pub mod value {
+    use serde::{Deserialize, Deserializer, Serialize, Serializer};
+
+    #[derive(Deserialize, Serialize)]
+    struct TypedValue<T> {
+        value: T,
+    }
+
+    pub fn serialize<S, T>(value: T, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: Serializer,
+        T: Serialize,
+    {
+        TypedValue { value }.serialize(serializer)
+    }
+
+    pub fn deserialize<'de, D, T>(deserializer: D) -> Result<Option<T>, D::Error>
+    where
+        D: Deserializer<'de>,
+        T: Deserialize<'de>,
+    {
+        Ok(Some(TypedValue::deserialize(deserializer)?.value))
+    }
+}

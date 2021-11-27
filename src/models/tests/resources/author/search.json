@@ -1,0 +1,67 @@
+{
+  "numFound": 3,
+  "start": 0,
+  "numFoundExact": true,
+  "docs": [
+    {
+      "key": "OL1425869A",
+      "type": "author",
+      "name": "Markus Zusak",
+      "alternate_names": [
+        "Mark Zusak",
+        "Zusak Markus",
+        "MARKUS ZUSAK",
+        "Markus Zusack"
+      ],
+      "birth_date": "1975",
+      "top_work": "The Book Thief",
+      "work_count": 12,
+      "top_subjects": [
+        "Protected DAISY",
+        "Accessible book",
+        "Fiction",
+        "Juvenile fiction",
+        "Brothers",
+        "Young adult fiction",
+        "New York Times bestseller",
+        "Interpersonal relations",
+        "Children's fiction",
+        "Teenagers"
+      ],
+      "_version_": 1715102857187819539
+    },
+    {
+      "key": "OL9352434A",
+      "type": "author",
+      "name": "Markus Zusak",
+      "top_work": "Bridge of Clay TR 9-Copy Floor Display",
+      "work_count": 3,
+      "top_subjects": [
+        "Fiction, family life",
+        "Fiction, coming of age",
+        "Brothers, fiction"
+      ],
+      "_version_": 1715131700865925136
+    },
+    {
+      "key": "OL9835746A",
+      "type": "author",
+      "name": "Markus Zusak",
+      "top_work": "I am the messenger",
+      "work_count": 1,
+      "top_subjects": [
+        "Änderung",
+        "nyt:young-adult-e-book=2016-07-10",
+        "Young adult fiction",
+        "Verhinderung",
+        "Taxis",
+        "Taxicab drivers",
+        "Spanish language materials",
+        "Self-esteem, fiction",
+        "Self-esteem",
+        "Respeto de sí mismo"
+      ],
+      "_version_": 1715133169225695240
+    }
+  ]
+}

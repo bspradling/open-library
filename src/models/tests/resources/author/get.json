@@ -1,0 +1,43 @@
+{
+  "photos": [
+    7277185
+  ],
+  "birth_date": "1939",
+  "alternate_names": [
+    "gary paulsen",
+    "GARY PAULSEN",
+    "Gary, Paulsen",
+    "Paulsen Gary"
+  ],
+  "personal_name": "Gary Paulsen",
+  "website": "http://",
+  "type": {
+    "key": "/type/author"
+  },
+  "links": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Gary_Paulsen",
+      "type": {
+        "key": "/type/link"
+      },
+      "title": "Wikipedia"
+    }
+  ],
+  "remote_ids": {
+    "viaf": "85394550",
+    "wikidata": "Q718463",
+    "isni": "0000000083983698"
+  },
+  "key": "/authors/OL4452558A",
+  "name": "Gary Paulsen",
+  "latest_revision": 8,
+  "revision": 8,
+  "created": {
+    "type": "/type/datetime",
+    "value": "2008-09-02T04:46:39.872386"
+  },
+  "last_modified": {
+    "type": "/type/datetime",
+    "value": "2021-09-14T01:28:16.284638"
+  }
+}

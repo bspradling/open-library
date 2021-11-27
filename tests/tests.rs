@@ -5,13 +5,31 @@ use std::error::Error;
 use std::str::FromStr;
 
 #[tokio::test]
+async fn test_author_get() -> Result<(), Box<dyn Error>> {
+    let client = OpenLibraryClient::builder().build()?;
+    let identifier = OpenLibraryIdentifer::from_str("OL4452558A")?;
+    let author = client.author.get(identifier).await?;
+
+    assert_eq!(author.name, "Gary Paulsen");
+    Ok(())
+}
+
+#[tokio::test]
+async fn test_author_search() -> Result<(), Box<dyn Error>> {
+    let client = OpenLibraryClient::builder().build()?;
+    let author = client.author.search("Markus Zusak").await?;
+
+    assert!(author.docs.len() >= 1);
+    Ok(())
+}
+
+#[tokio::test]
 async fn test_book_by_isbn() -> Result<(), Box<dyn Error>> {
     let client = OpenLibraryClient::builder().build()?;
     let isbn = InternationalStandardBookNumber::from_str("0374386137")?;
     let book = client.books.by_isbn(isbn).await?;
 
     assert_eq!(book.title, "A Wrinkle in Time");
-
     Ok(())
 }
 

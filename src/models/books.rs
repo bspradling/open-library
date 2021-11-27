@@ -1,4 +1,4 @@
-use crate::models::{OpenLibraryIdentifierKey, OpenLibraryModel, Resource};
+use crate::models::{Link, OpenLibraryIdentifierKey, OpenLibraryModel, Resource};
 use crate::OpenLibraryError;
 use serde::de::Error;
 use serde::{Deserialize, Deserializer, Serialize};
@@ -271,14 +271,6 @@ pub struct ElectronicBook {
 pub struct Excerpt {
     comment: String,
     text: String,
-}
-
-#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
-pub struct Link {
-    #[serde(skip_serializing_if = "String::is_empty")]
-    url: String,
-    #[serde(skip_serializing_if = "String::is_empty")]
-    title: String,
 }
 
 // Necessary since the `publishers` field can either be Vec<String> or Vec<Entity> based on the endpoint
