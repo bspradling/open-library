@@ -15,15 +15,16 @@ on:
           - major
 name: Create Release
 
-create-release:
-  name: Create Release
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions-rs/cargo@v1
-      with:
-        command: install
-        args: cargo-release
-    - uses: actions-rs/cargo@v1
-      with:
-        command: release
-        args: ${{ github.event.inputs.level }} --execute
+jobs:
+  create-release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions-rs/cargo@v1
+        with:
+          command: install
+          args: cargo-release
+      - uses: actions-rs/cargo@v1
+        with:
+          command: release
+          args: ${{ github.event.inputs.level }} --execute
