@@ -1,0 +1,30 @@
+on:
+  workflow_dispatch:
+    inputs:
+      level:
+        description: 'The level of versioning for the release'
+        required: true
+        default: 'beta'
+        type: choice
+        options:
+          - alpha
+          - beta
+          - rc
+          - patch
+          - minor
+          - major
+name: Create Release
+
+jobs:
+  create-release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions-rs/cargo@v1
+        with:
+          command: install
+          args: cargo-release
+      - uses: actions-rs/cargo@v1
+        with:
+          command: release
+          args: ${{ github.event.inputs.level }} --execute
