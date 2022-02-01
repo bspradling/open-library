@@ -24,6 +24,6 @@ create-release:
         command: install
         args: cargo-release
     - uses: actions-rs/cargo@v1
-        with:
-          command: release
-          args: ${{ github.event.inputs.level }} --execute
+      with:
+        command: release
+        args: ${{ github.event.inputs.level }} --execute
