@@ -1,9 +1,12 @@
 use crate::clients::handle;
-use crate::models::authors::{AuthorDetails, AuthorResponse};
+use crate::models::authors::{
+    AuthorDetails, AuthorResponse, AuthorWorksRequest, AuthorWorksResponse,
+};
 use crate::models::identifiers::OpenLibraryIdentifer;
 use crate::OpenLibraryError;
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
+use std::convert::TryInto;
 use url::Url;
 
 #[derive(Clone)]
@@ -27,6 +30,29 @@ impl AuthorClient {
         let url = self
             .host
             .join(format!("/authors/{}.json", identifier).as_str())?;
+
+        handle(self.client.get(url)).await
+    }
+
+    pub async fn get_works<T>(&self, request: T) -> Result<AuthorWorksResponse, OpenLibraryError>
+    where
+        T: TryInto<AuthorWorksRequest>,
+    {
+        let parameters: AuthorWorksRequest =
+            request
+                .try_into()
+                .map_err(|_e| OpenLibraryError::ParsingError {
+                    reason: "haha".to_string(),
+                })?;
+        let limit = parameters.limit.unwrap_or(50);
+        let offset = parameters.offset.unwrap_or(0);
+        let url = self.host.join(
+            format!(
+                "/authors/{}/works.json?limit={}&offset={}",
+                parameters.identifier, limit, offset
+            )
+            .as_str(),
+        )?;
 
         handle(self.client.get(url)).await
     }

@@ -1,0 +1,2994 @@
+{
+  "links": {
+    "self": "/authors/OL4452558A/works.json",
+    "author": "/authors/OL4452558A",
+    "next": "/authors/OL4452558A/works.json?offset=50"
+  },
+  "size": 303,
+  "entries": [
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Dancing Carl",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "key": "/works/OL25366407W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-09-29T09:02:34.240420"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Family Ties",
+      "subjects": [
+        "Children's fiction",
+        "Family life, fiction",
+        "Interpersonal relations, fiction",
+        "Marriage, fiction",
+        "Humorous stories"
+      ],
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "key": "/works/OL25856649W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-10-08T22:09:15.197580"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "How to Train Your Dad",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "key": "/works/OL25321525W",
+      "covers": [
+        12553292
+      ],
+      "latest_revision": 3,
+      "revision": 3,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-09-28T09:17:52.893724"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Tennis",
+      "subjects": [
+        "Tennis for children"
+      ],
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "covers": [
+        12585270
+      ],
+      "key": "/works/OL27063354W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2022-01-26T18:57:31.189369"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "White Fox Chronicles, The",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL1304980A"
+          }
+        }
+      ],
+      "covers": [
+        12100460
+      ],
+      "key": "/works/OL26144152W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-10-17T01:49:42.974698"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Tiltawhirl John",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL9111558A"
+          }
+        }
+      ],
+      "covers": [
+        12016531
+      ],
+      "key": "/works/OL25351342W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-09-29T00:09:12.544865"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Father Water, Mother Woods",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL2943278A"
+          }
+        }
+      ],
+      "covers": [
+        12098108
+      ],
+      "key": "/works/OL26142275W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-10-16T15:00:14.898480"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Dogsong",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "key": "/works/OL25369506W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-09-29T10:14:52.358702"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Island",
+      "subjects": [
+        "Children's fiction",
+        "Identity, fiction",
+        "Nature, fiction",
+        "Islands, fiction",
+        "Wisconsin, fiction"
+      ],
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "key": "/works/OL25378855W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-09-29T14:02:09.745212"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Northwind",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "key": "/works/OL25346685W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-09-28T16:22:02.739187"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Hatchet 30th Anniversary Edition Signed Counter Display Prepack 6",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "key": "/works/OL25407773W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-09-29T23:31:52.214373"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Gary Paulsen Collection",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "key": "/works/OL25371667W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-09-29T11:04:34.891232"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Tracker",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "key": "/works/OL25374270W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-09-29T12:06:03.011646"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Six Kids and a Stuffed Cat",
+      "subjects": [
+        "Children's fiction",
+        "Schools, fiction",
+        "Friendship, fiction",
+        "Humorous stories"
+      ],
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "key": "/works/OL25185116W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-09-19T02:47:41.605720"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Sentries",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "key": "/works/OL25367992W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-09-29T09:38:58.512460"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Woodsong",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "key": "/works/OL25374269W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-09-29T12:06:02.278435"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Brian's Hunt",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "covers": [
+        12564837
+      ],
+      "key": "/works/OL27052642W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2022-01-19T15:07:43.704605"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Vote",
+      "subjects": [
+        "Children's fiction",
+        "Politics, practical, fiction",
+        "Schools, fiction",
+        "Interpersonal relations, fiction",
+        "Humorous stories"
+      ],
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "key": "/works/OL25374425W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-09-29T12:10:09.490742"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Brian's Return",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "covers": [
+        12371424
+      ],
+      "key": "/works/OL26416538W",
+      "subjects": [
+        "Children's fiction",
+        "Self-reliance, fiction",
+        "Survival, fiction"
+      ],
+      "latest_revision": 3,
+      "revision": 3,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-11-14T22:33:43.345361"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Skiing",
+      "subjects": [
+        "Skiing for children"
+      ],
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "covers": [
+        12585918
+      ],
+      "key": "/works/OL27063636W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2022-01-26T20:13:07.413327"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "This Side of Wild",
+      "subjects": [
+        "Authors, american",
+        "Authors, juvenile literature",
+        "Human-animal relationships"
+      ],
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL452398A"
+          }
+        }
+      ],
+      "key": "/works/OL25184676W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-09-19T02:26:19.429709"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "El Hacha",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "covers": [
+        12563611
+      ],
+      "key": "/works/OL27051670W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2022-01-18T13:06:57.923265"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Lawn Boy",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL619876A"
+          }
+        }
+      ],
+      "covers": [
+        11954425
+      ],
+      "key": "/works/OL25066586W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-09-14T19:31:52.705947"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Beet Fields",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "key": "/works/OL27065215W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2022-01-27T00:48:03.282465"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Hatchet",
+      "subjects": [
+        "Canada, fiction",
+        "Divorce, fiction",
+        "Children's fiction"
+      ],
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "key": "/works/OL25361679W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-09-29T06:53:00.319764"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Fishbone's Song",
+      "subjects": [
+        "Children's fiction",
+        "Nature, fiction",
+        "Self-reliance, fiction",
+        "Country life, fiction",
+        "Storytelling, fiction",
+        "Old age, fiction"
+      ],
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "key": "/works/OL25380197W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-09-29T14:33:54.505264"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Amazing Life of Birds, The",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL3080128A"
+          }
+        }
+      ],
+      "covers": [
+        12022858
+      ],
+      "key": "/works/OL25422925W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-09-30T03:53:46.225276"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "How Angel Peterson Got His Name",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "key": "/works/OL27066247W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2022-01-27T01:29:34.060896"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "River",
+      "subjects": [
+        "Children's fiction",
+        "Survival, fiction",
+        "Self-reliance, fiction"
+      ],
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "key": "/works/OL25360191W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-09-29T06:03:37.129686"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-29T23:20:36.495095"
+      }
+    },
+    {
+      "title": "Hatchet and related readings",
+      "covers": [
+        10761285
+      ],
+      "key": "/works/OL26432891W",
+      "type": {
+        "key": "/type/work"
+      },
+      "authors": [
+        {
+          "author": {
+            "key": "/authors/OL4452558A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL30012A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL22132A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL114093A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL888044A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL389980A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL42119A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL951924A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        }
+      ],
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-12-15T13:08:40.125676"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-12-15T13:13:21.562063"
+      }
+    },
+    {
+      "title": "Prentice Hall Literature - Timeless Voices, Timeless Themes - Silver Level",
+      "subjects": [
+        "amorality",
+        "Anglo-Saxons",
+        "aristocracy",
+        "detective fiction",
+        "Fiction",
+        "Juvenile audience",
+        "locked-room mysteries",
+        "Mystery and detective stories",
+        "Drama",
+        "Private investigators",
+        "Children's fiction",
+        "Readers (Secondary)",
+        "English literature",
+        "American literature",
+        "Study and teaching (Middle school)",
+        "Elementary and junior high school",
+        "study and teaching",
+        "Literary Criticism & Collections",
+        "Juvenile Nonfiction",
+        "Children: Young Adult (Gr. 7-9)"
+      ],
+      "key": "/works/OL16823929W",
+      "type": {
+        "key": "/type/work"
+      },
+      "authors": [
+        {
+          "author": {
+            "key": "/authors/OL2652589A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL3366571A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL3366572A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL580004A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL2650195A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL24137A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL24527A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL507165A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL28885A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL114093A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL113574A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL1910551A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL26331A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL192566A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL1013232A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL272057A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL26783A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL30664A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL26459A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL23178A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL19725A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL18319A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL2623461A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL2632739A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL2852525A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL25965A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL9253103A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL44633A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL4452558A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL35895A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL1872493A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL20168A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL2101175A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL31754A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL9253104A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL29421A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL23074A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL33009A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL1746874A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL2629195A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL117830A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL25788A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL2629213A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL19158A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL2686676A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL259765A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL221493A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL237131A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL9253106A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL891539A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL643352A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL159570A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL2032489A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL20925A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL6697089A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL399090A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL3058646A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL1189398A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL2623297A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL3285771A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL4327652A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL233569A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL894149A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL1192742A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL28127A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL137147A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL27318A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL215841A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL381188A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL591204A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL447564A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL223189A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL2643944A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL19471A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL577685A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL32584A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL913606A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL394640A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL402238A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL30885A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL25699A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL233499A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL39329A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL9253107A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL1189154A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL2310837A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL54628A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL762152A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL2007008A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL1605750A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL9388A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL27078A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL221159A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL89930A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL9253108A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL9253109A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL22872A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL548174A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL584947A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL19512A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL26069A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL9253110A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL115504A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL5875874A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL1655179A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL22134A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL404429A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL233050A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL768231A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL6841734A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL897573A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL477861A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL230834A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL2652536A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL9254665A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL1480038A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL9254664A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL26411A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL27074A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL3290310A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL2072538A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL9257254A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL3221616A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "author": {
+            "key": "/authors/OL68083A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        }
+      ],
+      "covers": [
+        -1,
+        11221189
+      ],
+      "subject_people": [
+        "Sherlock Holmes",
+        "John H. Watson",
+        "Stroke Moran",
+        "Helen Stoner",
+        "Grimesby Roylott"
+      ],
+      "subject_places": [
+        "England",
+        "Calcutta",
+        "India",
+        "Surrey"
+      ],
+      "latest_revision": 8,
+      "revision": 8,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2014-07-23T13:27:56.990361"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-10-23T12:15:47.795599"
+      }
+    },
+    {
+      "title": "Brian's Hunt",
+      "key": "/works/OL5721834W",
+      "authors": [
+        {
+          "author": {
+            "key": "/authors/OL4452558A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        }
+      ],
+      "type": {
+        "key": "/type/work"
+      },
+      "first_publish_date": "2003",
+      "description": "Millions of readers of Hatchet, The River, Brian's Winter, and Brian's Return know that Brian Robeson is at home in the Canadian wilderness. He has stood up to the challenge of surviving alone in the woods. He prefers being on his own in the natural world to civilization. When Brian finds a dog one night, a dog that is wounded and whimpering, he senses danger. The dog is badly hurt, and as Brian cares for it, he worries about his Cree friends who live north of his camp. His instincts tell him to head north, quickly. With his new companion at his side, and with a terrible, growing sense of unease, he sets out to learn what happened. He sets out on the hunt.From the Hardcover edition.",
+      "covers": [
+        9391128
+      ],
+      "lc_classifications": [
+        "PZ7.P2843 Bof 2003"
+      ],
+      "dewey_number": [
+        "[Fic]"
+      ],
+      "subjects": [
+        "Hunting",
+        "Bears",
+        "Juvenile Fiction",
+        "Fiction",
+        "Dogs"
+      ],
+      "latest_revision": 5,
+      "revision": 5,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2009-12-10T11:08:58.244762"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-10-10T20:45:44.235854"
+      }
+    },
+    {
+      "subtitle": "my life on boats",
+      "description": {
+        "type": "/type/text",
+        "value": "Another such wave could easily be the end of us. I had to do something, fix something, save the boat, save myself.But what?Gary Paulsen takes readers along on his maiden voyage, proving that ignorance can be bliss. Also really stupid and incredibly dangerous. He tells of boats that have owned him--good, bad, and beloved--and how they got him through terrifying storms that he survived by sheer luck. His spare prose conjures up shark surprises and killer waves as well as moonlight on the sea, and makes readers feel what it's like to sail under the stars or to lie at anchor in a tropical lagoon where dolphins leap, bathed in silver. Falling in love with the ocean set Gary Paulsen on a lifelong learning curve and readers will understand why his passion has lasted to this day.From the Hardcover edition."
+      },
+      "title": "Caught by the Sea",
+      "dewey_number": [
+        "818/.5403",
+        "B"
+      ],
+      "covers": [
+        4288535,
+        11515195
+      ],
+      "first_sentence": {
+        "type": "/type/text",
+        "value": "I was discharged from the army after nearly four years, most of it spent at Fort Bliss, Texas, in May of 1962."
+      },
+      "first_publish_date": "2001",
+      "subject_people": [
+        "Gary Paulsen"
+      ],
+      "key": "/works/OL14850199W",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL2943278A"
+          }
+        }
+      ],
+      "subject_times": [
+        "20th century"
+      ],
+      "type": {
+        "key": "/type/work"
+      },
+      "subjects": [
+        "Juvenile Nonfiction",
+        "Ocean travel",
+        "Sailing",
+        "Boats and boating",
+        "Travel",
+        "American Authors",
+        "Nonfiction",
+        "Biography & Autobiography",
+        "Juvenile literature",
+        "Biography",
+        "Large type books"
+      ],
+      "latest_revision": 11,
+      "revision": 11,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2009-12-07T20:37:53.082150"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-09-14T01:31:09.920643"
+      }
+    },
+    {
+      "description": {
+        "type": "/type/text",
+        "value": "When you grow up in a small town in the north woods, you have to make your own excitement. High spirits, idiocy, and showing off for the girls inspire Gary Paulsen and his friends to attempt:\r\n\r\n - Shooting waterfalls in a barrel \r\n - The first skateboarding \r\n - Jumping three barrels like motorcycle daredevil Evel Knievel–except they only have bikes\r\n - Hangliding with an Army surplus target kite \r\n - Bungee jumping \r\n - Wrestling... a bear?\r\n\r\nExtreme sports lead to extreme fun in new tales from Gary's boyhood."
+      },
+      "covers": [
+        9391925,
+        11129755
+      ],
+      "key": "/works/OL8940045W",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL2943278A"
+          }
+        }
+      ],
+      "title": "How Angel Peterson Got His Name",
+      "subjects": [
+        "American Authors",
+        "Juvenile literature",
+        "Childhood and youth",
+        "Biography",
+        "Extreme sports",
+        "Children's fiction",
+        "Social life and customs",
+        "Paulsen, Gary -- Childhood and youth -- Juvenile literature.",
+        "Paulsen, Gary -- Childhood and youth.",
+        "Authors, American -- 20th century -- Biography -- Juvenile literature.",
+        "Authors, American."
+      ],
+      "type": {
+        "key": "/type/work"
+      },
+      "latest_revision": 13,
+      "revision": 13,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2009-12-10T23:33:52.932081"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-09-14T01:30:59.884112"
+      }
+    },
+    {
+      "description": {
+        "type": "/type/text",
+        "value": "Born into slavery, Bass Reeves became the most successful US Marshal of the Wild West.\r\nMany \"heroic lawmen\" of the Wild West, familiar to us through television and film, were actually violent scoundrels and outlaws themselves. But of all the sheriffs of the frontier, one man stands out as a true hero: Bass Reeves.\r\n\r\nHe was the most successful Federal Marshal in the US in his day. True to the mythical code of the West, he never drew his gun first. He brought hundreds of fugitives to justice, was shot at countless times, and never hit.\r\n\r\nBass Reeves was a black man, born into slavery. And though the laws of his country enslaved him and his mother, when he became a free man he served the law, with such courage and honor that he became a legend."
+      },
+      "title": "The Legend of Bass Reeves",
+      "covers": [
+        7069476,
+        11214631
+      ],
+      "subject_places": [
+        "Oklahoma",
+        "Texas"
+      ],
+      "subjects": [
+        "United States marshals",
+        "Juvenile fiction",
+        "Fiction",
+        "Slaves",
+        "African Americans",
+        "History",
+        "Adventure and adventurers, fiction",
+        "Oklahoma, fiction",
+        "Slavery, fiction",
+        "Texas, fiction",
+        "Children's fiction",
+        "African americans, fiction"
+      ],
+      "subject_people": [
+        "Bass Reeves"
+      ],
+      "key": "/works/OL11892672W",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL3301133A"
+          }
+        }
+      ],
+      "subject_times": [
+        "19th century"
+      ],
+      "type": {
+        "key": "/type/work"
+      },
+      "latest_revision": 14,
+      "revision": 14,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2009-12-11T05:37:30.156063"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-10-08T09:08:21.348570"
+      }
+    },
+    {
+      "first_publish_date": "1997",
+      "description": {
+        "type": "/type/text",
+        "value": "Harold Schernoff, 14-year-old science whiz and social nerd, has a theory for every problem, from dating, to bullies, to making money, to sports, to how to buy a car when you're underage. When he and his buddy team up to put his theories to the test, nothing goes according to plan. A ski lesson becomes: Mass x Acceleration x Slope of hill = eeeAAGGHHH. As for first dates, only Harold could mastermind such disaster. Only Harold could go fishing and get caught by the fish. And only Gary Paulsen could write such a wonderfully funny story of friendship."
+      },
+      "title": "The Schernoff discoveries",
+      "covers": [
+        9395508,
+        11263781,
+        11753966
+      ],
+      "lc_classifications": [
+        "PZ7.P2843 Sc 1997"
+      ],
+      "key": "/works/OL14850091W",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL7340421A"
+          }
+        }
+      ],
+      "dewey_number": [
+        "[Fic]"
+      ],
+      "type": {
+        "key": "/type/work"
+      },
+      "subjects": [
+        "Fiction",
+        "Schools",
+        "Humorous stories",
+        "Friendship",
+        "Juvenile fiction",
+        "Children's fiction",
+        "Adventure and adventurers, fiction",
+        "Schools, fiction",
+        "Friendship, fiction",
+        "Family, fiction"
+      ],
+      "latest_revision": 14,
+      "revision": 14,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2009-12-07T20:36:25.401943"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-09-14T01:30:52.007738"
+      }
+    },
+    {
+      "subtitle": "Essays on Fishing and Hunting in the North Woods",
+      "description": "Survival in the wilderness--Gary Paulsen writes about it so powerfully in his novels Hatchet and The River because he's lived it. These essays recount his adventures alone and with friends, along the rivers and in the woods of northern Minnesota. There, fishing and hunting are serious business, requiring skill, secrets, and inspiration. Luck, too--not every big one gets away.\r\n\r\nThis book takes readers through the seasons, from the incredible taste of a spring fish fresh from the smokehouse, to the first sight of the first deer, to the peace of the winter days spent dreaming by the stove in a fishhouse on the ice. In Paulsen's north country, every expedition is a major one, and often hilarious.\r\n\r\nOnce again Gary Paulsen demonstrates why he is one of America's most beloved writers, for he shows us fishing and hunting as pleasure, as art, as companionship, and as sources of life's deepest lessons.",
+      "title": "Father Water, Mother Woods",
+      "covers": [
+        9385159,
+        10754587
+      ],
+      "first_publish_date": "March 1995",
+      "subject_people": [
+        "Minnesota"
+      ],
+      "key": "/works/OL14850020W",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL5150478A"
+          }
+        }
+      ],
+      "type": {
+        "key": "/type/work"
+      },
+      "subjects": [
+        "Fishing",
+        "Hunting",
+        "Fishing, minnesota"
+      ],
+      "latest_revision": 7,
+      "revision": 7,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2009-12-07T20:35:46.590779"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-09-14T01:30:48.064169"
+      }
+    },
+    {
+      "first_publish_date": "2000",
+      "subtitle": "Memories of a Sixteenth Summer",
+      "description": {
+        "type": "/type/text",
+        "value": "For a 16-year-old boy out in the world alone for the first time, every day’s an education in the hard work and boredom of migrant labor; every day teaches him something more about friendship, or hunger, or profanity, or lust—always lust. He learns how a poker game, or hitching a ride, can turn deadly. He discovers the secret sadness and generosity to be found on a lonely farm in the middle of nowhere. Then he joins up with a carnival and becomes a grunt, running a ride and shilling for the geek show. He’s living the hard carny life and beginning to see the world through carny eyes. He’s tough. Cynical. By the end of the summer he’s pretty sure he knows it all. Until he meets Ruby."
+      },
+      "title": "The Beet Fields",
+      "covers": [
+        9395296,
+        11318090
+      ],
+      "first_sentence": {
+        "type": "/type/text",
+        "value": "THE NORTH DAKOTA SUN CAME UP LATE."
+      },
+      "subject_places": [
+        "United States"
+      ],
+      "lc_classifications": [
+        "PS3566.A834 Z4633 2000"
+      ],
+      "subject_people": [
+        "Gary Paulsen"
+      ],
+      "key": "/works/OL14850185W",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL7340421A"
+          }
+        }
+      ],
+      "subject_times": [
+        "20th century"
+      ],
+      "subjects": [
+        "Teenage boys",
+        "American Authors",
+        "Juvenile literature",
+        "Childhood and youth",
+        "Biography",
+        "Authors, juvenile literature",
+        "Authors, american",
+        "Adolescence",
+        "Carnivals",
+        "Homeless teenagers",
+        "Gary Paulsen"
+      ],
+      "type": {
+        "key": "/type/work"
+      },
+      "dewey_number": [
+        "813/.54",
+        "B"
+      ],
+      "latest_revision": 15,
+      "revision": 15,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2009-12-07T20:37:31.861133"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-09-14T01:30:41.080370"
+      }
+    },
+    {
+      "first_publish_date": "2010",
+      "description": {
+        "type": "/type/text",
+        "value": "Samuel, 13, spends his days in the forest, hunting for food for his family. He has grown up on the frontier of a British colony, America. Far from any town, or news of the war against the King that American patriots have begun near Boston.But the war comes to them. British soldiers and Iroquois attack. Samuel's parents are taken away, prisoners. Samuel follows, hiding, moving silently, determined to find a way to rescue them. Each day he confronts the enemy, and the tragedy and horror of this war. But he also discovers allies, men and women working secretly for the patriot cause. And he learns that he must go deep into enemy territory to find his parents: all the way to the British headquarters, New York City.From the Hardcover edition."
+      },
+      "title": "Woods Runner",
+      "covers": [
+        9395707,
+        10096679,
+        10846192
+      ],
+      "subject_places": [
+        "Pennsylvania",
+        "United States"
+      ],
+      "lc_classifications": [
+        "PZ7.P2843 Woo 2010"
+      ],
+      "key": "/works/OL14850166W",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL36428A"
+          }
+        }
+      ],
+      "dewey_number": [
+        "[Fic]"
+      ],
+      "subjects": [
+        "Fiction",
+        "History",
+        "Frontier and pioneer life",
+        "Kidnapping",
+        "Indians of North America",
+        "Soldiers",
+        "Espionage",
+        "Spies",
+        "Historical Fiction",
+        "Juvenile Fiction",
+        "Children's fiction",
+        "Kidnapping, fiction",
+        "Frontier and pioneer life, fiction",
+        "Soldiers, fiction",
+        "Spies, fiction",
+        "Indians of north america, fiction",
+        "Pennsylvania, fiction",
+        "United states, history, revolution, 1775-1783, fiction"
+      ],
+      "type": {
+        "key": "/type/work"
+      },
+      "subject_times": [
+        "Revolution, 1775-1783"
+      ],
+      "latest_revision": 12,
+      "revision": 12,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2009-12-07T20:37:12.072023"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-09-14T01:30:04.349194"
+      }
+    },
+    {
+      "covers": [
+        5019713,
+        10518797
+      ],
+      "first_publish_date": "October 1999",
+      "key": "/works/OL14850016W",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "subjects": [
+        "Fiction",
+        "Ficción juvenil",
+        "Divorcio",
+        "Supervivencia",
+        "Divorce",
+        "Survival"
+      ],
+      "title": "El hacha",
+      "type": {
+        "key": "/type/work"
+      },
+      "latest_revision": 8,
+      "revision": 8,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2009-12-07T20:35:44.217258"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-09-14T01:30:02.214938"
+      }
+    },
+    {
+      "subjects": [
+        "Humorous stories",
+        "Love",
+        "Fiction",
+        "Interpersonal relations",
+        "Dating (Social customs)",
+        "Romance fiction",
+        "Juvenile fiction",
+        "Humorous fiction",
+        "Love stories",
+        "Children's fiction",
+        "Dating (social customs), fiction",
+        "Love, fiction",
+        "Interpersonal relations, fiction"
+      ],
+      "key": "/works/OL16175845W",
+      "title": "Crush",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL8590738A"
+          }
+        }
+      ],
+      "type": {
+        "key": "/type/work"
+      },
+      "covers": [
+        9391209,
+        11240411
+      ],
+      "latest_revision": 11,
+      "revision": 11,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2011-10-23T11:18:50.074384"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-10-08T18:55:47.086371"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "The sweeper",
+      "key": "/works/OL24060061W",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2020-12-17T02:30:07.938013"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-09-14T01:28:16.284638"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "The Amazing Life of Birds : The Twenty-Day Puberty Journal of Duane Homer Leech",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL3080128A"
+          }
+        }
+      ],
+      "covers": [
+        11395102
+      ],
+      "key": "/works/OL24687591W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-07-09T11:22:41.218995"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-09-14T01:28:16.284638"
+      }
+    },
+    {
+      "description": {
+        "type": "/type/text",
+        "value": "For a rugged outdoor man and his family, life in northern Minnesota is a wild experience involving wolves, deer, and the sled dogs that make their way of life possible.  Includes an account of the author's first Iditarod, a dogsled race across Alaska."
+      },
+      "title": "Woodsong",
+      "covers": [
+        9395724,
+        10415651
+      ],
+      "first_sentence": {
+        "type": "/type/text",
+        "value": "I UNDERSTOOD almost nothing about the woods until it was nearly too late."
+      },
+      "subject_places": [
+        "Minnesota"
+      ],
+      "first_publish_date": "1990",
+      "subject_people": [
+        "Gary Paulsen"
+      ],
+      "key": "/works/OL14850222W",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "dewey_number": [
+        "796.5/092"
+      ],
+      "type": {
+        "key": "/type/work"
+      },
+      "subjects": [
+        "Social life and customs",
+        "Iditarod (Race)",
+        "Dogsledding",
+        "Sled dog racing",
+        "Homes and haunts",
+        "Outdoor life",
+        "Sled dogs",
+        "Juvenile literature",
+        "Biography",
+        "Reading Level-Grade 11",
+        "Reading Level-Grade 12",
+        "Outdoor life, juvenile literature",
+        "Sled dogs, juvenile literature",
+        "Dogs",
+        "Minnesota",
+        "Minnesota, juvenile literature",
+        "United states, biography",
+        "United states, biography, juvenile literature"
+      ],
+      "latest_revision": 17,
+      "revision": 17,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2009-12-07T20:38:36.285893"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-09-29T06:38:05.751813"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "How to Train Your Dad",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "covers": [
+        11240580
+      ],
+      "key": "/works/OL24583619W",
+      "subjects": [
+        "Children's fiction"
+      ],
+      "latest_revision": 3,
+      "revision": 3,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-06-09T18:29:07.660797"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-09-30T20:07:19.525148"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Smash au pays des pharaons",
+      "subjects": [
+        "Roman pour la jeunesse",
+        "Science-fiction",
+        "Romans",
+        "Voyages dans le temps"
+      ],
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "covers": [
+        11715230
+      ],
+      "key": "/works/OL24851492W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-08-20T00:30:55.363306"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-09-14T01:28:16.284638"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Northwind",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "covers": [
+        11129265
+      ],
+      "key": "/works/OL24505514W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-05-20T02:24:52.937495"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-09-14T01:28:16.284638"
+      }
+    },
+    {
+      "title": "Transall Saga",
+      "subjects": [
+        "Fiction, science fiction, general"
+      ],
+      "key": "/works/OL21027525W",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "type": {
+        "key": "/type/work"
+      },
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2020-08-02T13:48:36.582799"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-09-14T01:28:16.284638"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Brian's Winter(J)",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "covers": [
+        10590349
+      ],
+      "key": "/works/OL24173169W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-02-02T06:18:58.867040"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-09-14T01:28:16.284638"
+      }
+    },
+    {
+      "title": "Tent",
+      "key": "/works/OL21764657W",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL4452558A"
+          }
+        }
+      ],
+      "type": {
+        "key": "/type/work"
+      },
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2020-08-29T04:38:59.167419"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-09-14T01:28:16.284638"
+      }
+    }
+  ]
+}

@@ -1,0 +1,2342 @@
+{
+  "links": {
+    "self": "/authors/OL23919A/works.json",
+    "author": "/authors/OL23919A",
+    "next": "/authors/OL23919A/works.json?offset=50"
+  },
+  "size": 296,
+  "entries": [
+    {
+      "description": "The Eighth Story. Nineteen Years Later. Based on an original new story by J.K. Rowling, John Tiffany, and Jack Thorne, a new play by Jack Thorne, \"Harry Potter and the Cursed Child\" is the eighth story in the Harry Potter series and the first official Harry Potter story to be presented on stage. The play will receive its world premiere in London's West End on July 30, 2016. It was always difficult being Harry Potter and it isn't much easier now that he is an overworked employee of the Ministry of Magic, a husband and father of three school-age children. While Harry grapples with a past that refuses to stay where it belongs, his youngest son Albus must struggle with the weight of a family legacy he never wanted. As past and present fuse ominously, both father and son learn the uncomfortable truth: sometimes, darkness comes from unexpected places.",
+      "title": "Harry Potter and the Cursed Child",
+      "covers": [
+        8763851,
+        9326661,
+        10551120
+      ],
+      "subject_places": [
+        "London"
+      ],
+      "subjects": [
+        "Drama",
+        "Fantasy",
+        "Magic",
+        "Juvenile Drama",
+        "Good and evil",
+        "Literature",
+        "Fantasiewelt",
+        "Diskontinuität",
+        "Zeitreise",
+        "Auferstehung",
+        "British and irish drama (dramatic works by one author)",
+        "Wizards",
+        "Drama, collections",
+        "Art"
+      ],
+      "subject_people": [
+        "Harry Potter",
+        "Hermine Granger",
+        "Ron Weasly"
+      ],
+      "key": "/works/OL17360811W",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL5231739A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL7294929A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "subject_times": [
+        "1996"
+      ],
+      "type": {
+        "key": "/type/work"
+      },
+      "latest_revision": 26,
+      "revision": 26,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2016-08-11T18:54:46.688344"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-20T23:00:57.123004"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Garri Potter I Prokliatoe Ditia",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL5231739A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL7294929A"
+          }
+        }
+      ],
+      "key": "/works/OL25352276W",
+      "latest_revision": 3,
+      "revision": 3,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-09-29T00:46:55.304886"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-20T23:00:57.123004"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Harry Potter et l'Enfant Maudit",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL7294929A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL5231739A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL3114120A"
+          }
+        }
+      ],
+      "covers": [
+        12023661
+      ],
+      "key": "/works/OL25434568W",
+      "latest_revision": 3,
+      "revision": 3,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-09-30T07:26:12.434275"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-20T23:00:57.123004"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Harry Potter and the Cursed Child, Parts 1 & 2 and Harry Potter and the Philosopher's Stone 2 Books Bundle Collection",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL5231739A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL7294929A"
+          }
+        }
+      ],
+      "covers": [
+        11535975
+      ],
+      "key": "/works/OL24779727W",
+      "latest_revision": 3,
+      "revision": 3,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-07-31T13:16:12.242640"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-20T23:00:57.123004"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Harry Potter y el prisionero de Azkaban",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12547787
+      ],
+      "key": "/works/OL27038761W",
+      "latest_revision": 1,
+      "revision": 1,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2022-01-12T04:47:05.180255"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-12T04:47:05.180255"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Harry Potter a l'ecole des sorciers",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12023652
+      ],
+      "key": "/works/OL25434469W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-09-30T07:22:53.822250"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-12-31T00:16:06.557056"
+      }
+    },
+    {
+      "title": "Harry Potter",
+      "authors": [
+        {
+          "author": {
+            "key": "/authors/OL23919A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        }
+      ],
+      "key": "/works/OL26507664W",
+      "type": {
+        "key": "/type/work"
+      },
+      "description": {
+        "type": "/type/text",
+        "value": "Great!"
+      },
+      "subject_times": [
+        "1990s"
+      ],
+      "subject_places": [
+        "Hogwarts"
+      ],
+      "subject_people": [
+        "Harry Potter",
+        "Hermione Granger",
+        "Ron Weasley",
+        "Voldemort"
+      ],
+      "subtitle": "The Complete Collection",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-12-26T04:34:23.560673"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-12-26T04:36:13.798572"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "HARRY POTTER E LA CRAMPA DEUS SECRETS",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12023715
+      ],
+      "key": "/works/OL25435683W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-09-30T07:50:20.154036"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-12-24T10:04:36.318904"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Harry Potter House Gryffindor Edition Series 1-5 Books Collection Set",
+      "authors": [
+        {
+          "author": {
+            "key": "/authors/OL23919A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        }
+      ],
+      "covers": [
+        11564374
+      ],
+      "key": "/works/OL24799540W",
+      "latest_revision": 3,
+      "revision": 3,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-08-08T00:25:38.482382"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-12-24T08:40:42.939236"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Fantastic Beasts",
+      "authors": [
+        {
+          "author": {
+            "key": "/authors/OL23919A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        }
+      ],
+      "covers": [
+        12369734
+      ],
+      "key": "/works/OL26415007W",
+      "subtitle": "The Crimes of Grindelwald",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-11-13T22:05:16.421283"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-12-24T08:26:31.356097"
+      }
+    },
+    {
+      "description": "Harry Potter #1\r\n\r\nWhen mysterious letters start arriving on his doorstep, Harry Potter has never heard of Hogwarts School of Witchcraft and Wizardry.\r\n\r\nThey are swiftly confiscated by his aunt and uncle.\r\n\r\nThen, on Harry’s eleventh birthday, a strange man bursts in with some important news: Harry Potter is a wizard and has been awarded a place to study at Hogwarts.\r\n\r\nAnd so the first of the Harry Potter adventures is set to begin.\r\n([source][1])\r\n\r\n\r\n  [1]: https://www.jkrowling.com/book/harry-potter-philosophers-stone/",
+      "links": [
+        {
+          "title": "Harry Potter and the Philosopher's Stone - J.K. Rowling",
+          "url": "https://www.jkrowling.com/book/harry-potter-philosophers-stone/",
+          "type": {
+            "key": "/type/link"
+          }
+        },
+        {
+          "title": "Harry Potter and the Philosopher's Stone - Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Harry_Potter_and_the_Philosopher%27s_Stone",
+          "type": {
+            "key": "/type/link"
+          }
+        },
+        {
+          "title": "Harry Potter and the Philosopher's Stone by J.K. Rowling – review (theguardian.com)",
+          "url": "https://www.theguardian.com/childrens-books-site/2015/jul/29/harry-potter-and-the-philosophers-stone-j-k-rowling-review",
+          "type": {
+            "key": "/type/link"
+          }
+        },
+        {
+          "title": "Harry Potter and the Philosopher's Stone by J.K. Rowling - review (theguardian.com)",
+          "url": "https://www.theguardian.com/childrens-books-site/2015/mar/01/review-j-k-rowling-harry-potter-philosophers-stone",
+          "type": {
+            "key": "/type/link"
+          }
+        }
+      ],
+      "title": "Harry Potter and the Philosopher's Stone",
+      "covers": [
+        10521270,
+        8266542,
+        9383496,
+        10217621,
+        10484589,
+        10484588,
+        10515101,
+        1020319,
+        10469774,
+        10513095,
+        10485032,
+        10447552,
+        -1,
+        10864265,
+        7806094,
+        12376732,
+        10533160,
+        10533161,
+        10550239,
+        10705714
+      ],
+      "subject_places": [
+        "England",
+        "Hogwarts School of Witchcraft and Wizardry",
+        "4 Privet Drive",
+        "Diagon Alley",
+        "Leaky Cauldron",
+        "Gringotts Wizarding Bank",
+        "Forbidden Forest",
+        "King's Cross Station",
+        "Platform Nine and Three-quarters"
+      ],
+      "subject_people": [
+        "Harry Potter",
+        "Ron Weasley",
+        "Hermione Granger",
+        "Neville Longbottom",
+        "Rubeus Hagrid",
+        "Albus Dumbledore",
+        "Minerva McGonagall",
+        "Nicolas Flamel",
+        "Norbert",
+        "Sorting Hat",
+        "Severus Snape",
+        "Quirinus Quirrell",
+        "Petunia Dursley",
+        "Draco Malfoy",
+        "Argus Filch",
+        "Vernon Dursley",
+        "Dudley Dursley",
+        "Fred Weasley",
+        "George Weasley",
+        "Jorge",
+        "Ginny Weasley",
+        "Gina",
+        "Molly Weasley",
+        "Percy Weasley",
+        "Vincent Crabbe",
+        "Gregory Goyle",
+        "Lee Jordan",
+        "Scabbers",
+        "Hannah Abbott",
+        "Bloody Baron",
+        "Susan Bones",
+        "Terry Boot",
+        "Mandy Brocklehurst",
+        "Lavender Brown",
+        "Millicent Bulstrode",
+        "Nearly Headless Nick",
+        "Fat Friar",
+        "Fat Lady",
+        "Justin Finch-Fetchley",
+        "Seamus Finnigan",
+        "Morag MacDougal",
+        "Lily Moon",
+        "Pansy Parkinson",
+        "Padma Patil",
+        "Parvati Patil",
+        "Chapéu Seletor",
+        "Peeves",
+        "Dean Thomas",
+        "Lisa Turpin",
+        "Blaise Zabini",
+        "Lilá",
+        "Harry Potter (Fictitious character)",
+        "Hermine Granger",
+        "Ron Weasly"
+      ],
+      "key": "/works/OL82563W",
+      "authors": [
+        {
+          "author": {
+            "key": "/authors/OL23919A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        }
+      ],
+      "excerpts": [
+        {
+          "author": {
+            "key": "/people/seabelis"
+          },
+          "excerpt": "Mr. And Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much.",
+          "comment": "first sentence"
+        }
+      ],
+      "type": {
+        "key": "/type/work"
+      },
+      "subjects": [
+        "Ghosts",
+        "Monsters",
+        "Vampires",
+        "Witches",
+        "Challenges and Overcoming Obstacles",
+        "Magic and Supernatural",
+        "Cleverness",
+        "School Life",
+        "school stories",
+        "Wizards",
+        "Magic",
+        "MAGIA",
+        "MAGOS",
+        "Juvenile fiction",
+        "Fiction",
+        "NOVELAS INGLESAS",
+        "Schools",
+        "orphans",
+        "fantasy fiction",
+        "England in fiction",
+        "Witches in fiction",
+        "Wizards in fiction",
+        "Alchemy",
+        "New York Times bestseller",
+        "Juvenile literature",
+        "Magic in fiction",
+        "Open Library Staff Picks",
+        "Juvenile audience",
+        "Children's stories",
+        "Juvenile works",
+        "Schools in fiction",
+        "Fantasy",
+        "Hogwarts School of Witchcraft and Wizardry (Imaginary place)",
+        "Harry Potter (Fictitious character)",
+        "Ficción juvenil",
+        "Escuelas",
+        "Hogwarts School of Witchcraft and Wizardry (Imaginary organization)",
+        "Translations from English",
+        "Chinese fiction",
+        "Hermione Granger (Fictitious character)",
+        "Reading Level-Grade 9",
+        "Reading Level-Grade 11",
+        "Reading Level-Grade 10",
+        "Reading Level-Grade 12",
+        "Hogwarts school of witchcraft and wizardry (imaginary organization), fiction",
+        "Children's fiction",
+        "Schools, fiction",
+        "England, fiction",
+        "Potter, harry (fictitious character), fiction",
+        "Wizards, fiction",
+        "Magic, fiction",
+        "Fiction, fantasy, general",
+        "Large type books",
+        "Magier",
+        "Fabeltiere",
+        "Lehrling",
+        "Kinderbuch",
+        "Stein der Weisen",
+        "Ungeheuer",
+        "Junge",
+        "English language",
+        "Translating into Welsh",
+        "Modern history to 20th century: c 1700 to c 1900",
+        "Literary theory",
+        "English literature",
+        "Ron Weasley (Fictitious character)",
+        "Latin language materials",
+        "Romans, nouvelles, etc. pour la jeunesse",
+        "Poudlard, école de sorcellerie (Organisation imaginaire)",
+        "Sorciers",
+        "Sorcières",
+        "Magie",
+        "Internats",
+        "Adventure and adventurers, fiction",
+        "Action & Adventure",
+        "Fantasy & Magic",
+        "Social Themes",
+        "Friendship",
+        "Harry Potter (Fictional character)",
+        "Friendship, fiction",
+        "German language materials"
+      ],
+      "latest_revision": 103,
+      "revision": 103,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2009-10-17T07:07:29.461716"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-25T12:30:23.799637"
+      }
+    },
+    {
+      "title": "Harry Potter and the Order of the Pheonix",
+      "authors": [
+        {
+          "author": {
+            "key": "/authors/OL23919A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        }
+      ],
+      "key": "/works/OL26423190W",
+      "type": {
+        "key": "/type/work"
+      },
+      "latest_revision": 1,
+      "revision": 1,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-11-28T05:01:34.234004"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-28T05:01:34.234004"
+      }
+    },
+    {
+      "title": "Harry Potter e o Prisioneiro de Azkaban",
+      "covers": [
+        10226228
+      ],
+      "key": "/works/OL20893637W",
+      "authors": [
+        {
+          "author": {
+            "key": "/authors/OL23919A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        }
+      ],
+      "type": {
+        "key": "/type/work"
+      },
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2020-07-01T17:16:27.330637"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T12:05:16.734982"
+      }
+    },
+    {
+      "description": {
+        "type": "/type/text",
+        "value": "Come join JK Rowling with her new adventurous book. The Ickabog."
+      },
+      "title": "The Ickabog",
+      "covers": [
+        10328306,
+        10511990,
+        10513135,
+        11531795,
+        10524591,
+        10547320,
+        10547321,
+        10668316,
+        12274445
+      ],
+      "key": "/works/OL21156586W",
+      "authors": [
+        {
+          "author": {
+            "key": "/authors/OL23919A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL7459565A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL7599754A"
+          }
+        }
+      ],
+      "type": {
+        "key": "/type/work"
+      },
+      "subjects": [
+        "nyt:childrens-middle-grade-hardcover=2020-11-29",
+        "New York Times bestseller",
+        "New York Times reviewed",
+        "Children's fiction",
+        "Monsters, fiction",
+        "Friendship, fiction",
+        "Fantasy fiction",
+        "Kings, queens, rulers, etc., fiction",
+        "Fear, fiction",
+        "Animals, mythical, fiction"
+      ],
+      "links": [
+        {
+          "url": "https://www.nytimes.com/2020/12/05/books/review/rowling-the-ickabog.html",
+          "title": "New York Times review",
+          "type": {
+            "key": "/type/link"
+          }
+        }
+      ],
+      "latest_revision": 9,
+      "revision": 9,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2020-08-05T19:51:14.921405"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T11:57:34.213146"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Harry Potter und der Stein der Weisen : MinaLima-Ausgabe",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12366185
+      ],
+      "key": "/works/OL26413598W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-11-10T14:38:03.208450"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:44:27.901589"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Harry Potter ve Felsefe Tasi - Resimli Özel Baski",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12297739
+      ],
+      "key": "/works/OL26352663W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-11-03T09:16:04.858576"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:44:27.901589"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Os Contos De Beedle, O Bardo",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12369730
+      ],
+      "key": "/works/OL26415003W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-11-13T22:05:08.988890"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:44:27.901589"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Fantastik Canavarlar Nelerdir, Nerede Bulunurlar? Resimli",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12297952
+      ],
+      "key": "/works/OL26354087W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-11-03T09:34:03.235357"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:44:27.901589"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Harry Potter ve Ates Kadehi ; Resimli Özel Baski",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12298427
+      ],
+      "key": "/works/OL26356611W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-11-03T10:12:20.738944"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:44:27.901589"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Harry Potter ve Lanetli Çocuk - Birinci ve İkinci Bölüm",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12298214
+      ],
+      "key": "/works/OL26355336W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-11-03T09:53:14.911066"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:44:27.901589"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Harry Potter ve Melez Prens",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12296869
+      ],
+      "key": "/works/OL26347229W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-11-03T07:46:12.342160"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:44:27.901589"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Ozan Beedle'in Hikayeleri",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12297024
+      ],
+      "key": "/works/OL26349192W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-11-03T08:27:08.007782"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:44:27.901589"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Harry Potter und die Heiligtümer des Todes",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12366186
+      ],
+      "key": "/works/OL26413599W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-11-10T14:38:04.983306"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:44:27.901589"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Ozan Beedle'ın Hikayeleri",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12298096
+      ],
+      "key": "/works/OL26354889W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-11-03T09:44:40.844767"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:44:27.901589"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Harry Potter Seti - 7 Kitap Kutulu",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12274318
+      ],
+      "key": "/works/OL26272159W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-11-01T02:53:29.974157"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:44:27.901589"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Fantastik Canavarlar",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12274386
+      ],
+      "key": "/works/OL26272223W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-11-01T02:57:48.015035"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:44:27.901589"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Harry Potter and the Chamber of Secrets",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12347254
+      ],
+      "key": "/works/OL26398719W",
+      "subjects": [
+        "Juvenile fiction",
+        "Hogwarts School of Witchcraft and Wizardry (Imaginary organization)",
+        "Wizards",
+        "Children's stories"
+      ],
+      "latest_revision": 3,
+      "revision": 3,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-11-06T08:15:21.740723"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-01-30T05:28:22.034076"
+      }
+    },
+    {
+      "description": "Harry Potter #7\r\n\r\nHarry Potter is leaving Privet Drive for the last time. But as he climbs into the sidecar of Hagrid’s motorbike and they take to the skies, he knows Lord Voldemort and the Death Eaters will not be far behind.\r\n\r\nThe protective charm that has kept him safe until now is broken. But the Dark Lord is breathing fear into everything he loves. And he knows he can’t keep hiding.\r\n\r\nTo stop Voldemort, Harry knows he must find the remaining Horcruxes and destroy them.\r\n\r\nHe will have to face his enemy in one final battle.\r\n\r\n([source][1])\r\n\r\n\r\n----------\r\nSee also:\r\n\r\n - [Harry Potter and the Deathly Hallows: 2/2][2]\r\n\r\n\r\n  [1]: https://www.jkrowling.com/book/harry-potter-deathly-hallows/\r\n  [2]: https://openlibrary.org/works/OL17922343W/Harry_Potter_and_the_Deathly_Hallows_Chapters_20-36",
+      "links": [
+        {
+          "url": "https://www.jkrowling.com/book/harry-potter-deathly-hallows/",
+          "title": "Harry Potter and the Deathly Hallows - J.K. Rowling (jkrowling.com)",
+          "type": {
+            "key": "/type/link"
+          }
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Harry_Potter_and_the_Deathly_Hallows",
+          "title": "Harry Potter and the Deathly Hallows - Wikipedia",
+          "type": {
+            "key": "/type/link"
+          }
+        },
+        {
+          "title": "Harry Potter and the Deathly Hallows by JK Rowling review – a send-off fit for a wizard (theguardian.com)",
+          "url": "https://www.theguardian.com/books/2007/jul/28/booksforchildrenandteenagers.jkjoannekathleenrowling",
+          "type": {
+            "key": "/type/link"
+          }
+        },
+        {
+          "title": "The Boy Who Lived (nytimes.com)",
+          "url": "https://www.nytimes.com/2007/08/12/books/review/Hitchens-t.html",
+          "type": {
+            "key": "/type/link"
+          }
+        },
+        {
+          "title": "News JK Rowling reveals the heartbreaking inspiration for the Deathly Hallows symbol in Harry Potter (independent.co.uk)",
+          "url": "https://www.independent.co.uk/arts-entertainment/films/news/jk-rowling-deathly-hallows-symbol-harry-potter-inspiration-mason-a8025626.html",
+          "type": {
+            "key": "/type/link"
+          }
+        },
+        {
+          "url": "http://www.nytimes.com/2007/07/19/books/19potter.html",
+          "title": "New York Times review",
+          "type": {
+            "key": "/type/link"
+          }
+        },
+        {
+          "title": "New York Times review",
+          "url": "http://query.nytimes.com/gst/fullpage.html?res=9A02E6DF1630F931A2575BC0A9619C8B63",
+          "type": {
+            "key": "/type/link"
+          }
+        },
+        {
+          "url": "http://www.nytimes.com/2007/08/12/books/review/Hitchens-t.html",
+          "title": "New York Times review",
+          "type": {
+            "key": "/type/link"
+          }
+        }
+      ],
+      "title": "Harry Potter and the Deathly Hallows",
+      "covers": [
+        10110415,
+        10082428,
+        10500170,
+        -1,
+        11271656,
+        11271658,
+        11287615,
+        11759817,
+        12376638
+      ],
+      "subject_places": [
+        "England",
+        "Scottland",
+        "Ireland",
+        "Wales",
+        "Hogwarts School of Witchcraft and Wizardry",
+        "Godric's Hollow"
+      ],
+      "subjects": [
+        "the Elder Wand",
+        "children's books",
+        "dementors",
+        "good and evil",
+        "Juvenile literature",
+        "Juvenile works",
+        "Death",
+        "Fiction",
+        "Wizards",
+        "New York Times bestseller",
+        "nyt:series_books=2006-09-16",
+        "Schools",
+        "Magic",
+        "Magia",
+        "Ficción juvenil",
+        "Novela fantástica",
+        "Magos",
+        "Escuelas",
+        "Juvenile fiction",
+        "dark magic",
+        "Coming of age",
+        "heroics",
+        "fantasy",
+        "action",
+        "adventure",
+        "orphans",
+        "foster homes",
+        "young adult",
+        "children",
+        "children's literature",
+        "boarding school",
+        "wizardry",
+        "mystery",
+        "kids",
+        "witchcraft",
+        "war",
+        "Magie",
+        "Magiciens",
+        "Roman pour la jeunesse",
+        "Mort",
+        "Sorcellerie",
+        "Romans, nouvelles, etc. pour la jeunesse",
+        "Internats",
+        "Fantasy fiction",
+        "Roman fantastique",
+        "Ecoles",
+        "Boarding schools",
+        "Sorciers",
+        "Hogwarts School of Witchcraft and Wizardry (Imaginary place) -- Juvenile fiction",
+        "Hogwarts School of Witchcraft and Wizardry (Imaginary place)",
+        "Harry Potter (Fictitious character)",
+        "Potter, Harry (Fictitious character) -- Juvenile fiction",
+        "Wizards -- Fiction",
+        "Magic -- Fiction",
+        "Schools -- Fiction",
+        "Magos -- Ficción juvenil",
+        "Magia -- Ficción juvenil",
+        "Escuelas -- Ficción juvenil",
+        "England -- Fiction",
+        "Inglaterra -- Ficción juvenil",
+        "Hermione Granger (Fictitious character)",
+        "Hogwarts School of Witchcraft and Wizardry (Imaginary organization)",
+        "Ron Weasley (Fictitious character)",
+        "School stories",
+        "Family",
+        "Orphans & Foster Homes",
+        "Social Themes",
+        "Fantasy & Magic",
+        "Fictional Works",
+        "Bildungsromans",
+        "Witches",
+        "Friendship",
+        "Reading Level-Grade 9",
+        "Reading Level-Grade 11",
+        "Reading Level-Grade 10",
+        "Reading Level-Grade 12",
+        "Potter, harry (fictitious character), fiction",
+        "Wizards, fiction",
+        "Hogwarts school of witchcraft and wizardry (imaginary organization), fiction",
+        "England, fiction",
+        "Schools, fiction",
+        "Magic, fiction",
+        "Children's fiction",
+        "English literature",
+        "Fiction, fantasy, general",
+        "Méchanceté",
+        "Quête (Littérature)",
+        "Potter, Harry (Personnage fictif)",
+        "Large type books",
+        "New York Times reviewed"
+      ],
+      "subject_people": [
+        "Harry Potter",
+        "Gregorovitch",
+        "Greyback",
+        "Gellert Grindelwald",
+        "Griphook",
+        "Godric Gryffindor",
+        "Hagrid",
+        "Kreacher",
+        "Lord Voldemort",
+        "Luna Lovegood",
+        "Lupin",
+        "Muggle-borns",
+        "Neville Longbottom",
+        "Severus Snape",
+        "Fred Weasley",
+        "Ginny Weasley",
+        "Doge",
+        "Draco Malfoy",
+        "Ariana Dumbledore",
+        "Bathilda Bagshot",
+        "Bellatrix Lestrange",
+        "Mrs. Cattermole",
+        "The Dark Lord",
+        "Death Eaters",
+        "Aberforth",
+        "Voldemort",
+        "Albus Dumbledore",
+        "Ron Weasley",
+        "Hermione Granger",
+        "The Weasleys",
+        "The Potters",
+        "Hermine Granger",
+        "Ron Weasly"
+      ],
+      "key": "/works/OL82586W",
+      "authors": [
+        {
+          "author": {
+            "key": "/authors/OL23919A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        }
+      ],
+      "excerpts": [
+        {
+          "excerpt": "The two men appeared out of nowhere, a few yards apart in the narrow, moonlit lane.",
+          "comment": "first sentence",
+          "author": {
+            "key": "/people/seabelis"
+          }
+        }
+      ],
+      "type": {
+        "key": "/type/work"
+      },
+      "latest_revision": 99,
+      "revision": 99,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2009-10-17T07:07:29.461716"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:44:27.901589"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Harry Potter e a Camara Secreta - Ilustrado",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12370357
+      ],
+      "key": "/works/OL26415605W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-11-14T00:08:19.295741"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:44:27.901589"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Fantastik Canavarlar-Nelerdir Nerede Bulunurlar?",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12298193
+      ],
+      "key": "/works/OL26355243W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-11-03T09:51:55.043173"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:44:27.901589"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Harry Potter ve Azkaban Tutsagi 3-Resimli Özel Baski",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12298014
+      ],
+      "key": "/works/OL26354505W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-11-03T09:38:34.347160"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:44:27.901589"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Harry Potter und der Feuerkelch",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12366187
+      ],
+      "key": "/works/OL26413600W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-11-10T14:38:06.417753"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:44:27.901589"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Harry Potter Sihirli Yerler ve Karakterler Kartpostal Boyama Kitabı",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12274434
+      ],
+      "key": "/works/OL26272266W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-11-01T03:00:48.706719"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:44:27.901589"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Caixa Harry Potter - Edição Premium Exclusiva Amazon",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12373039
+      ],
+      "key": "/works/OL26417684W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-11-16T17:47:53.060725"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:44:27.901589"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Harry Potter ve Sirlar Odasi 2 - Resimli Özel Baski",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12297871
+      ],
+      "key": "/works/OL26353573W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-11-03T09:27:51.412204"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:44:27.901589"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Harry Potter ve Ölüm Yadigarları",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12296953
+      ],
+      "key": "/works/OL26348973W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-11-03T08:22:51.080965"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:44:27.901589"
+      }
+    },
+    {
+      "description": "After losing his leg to a land mine in Afghanistan, Cormoran Strike is barely scraping by as a private investigator. Strike is down to one client, and creditors are calling. He has also just broken up with his longtime girlfriend and is living in his office. Then John Bristow walks through his door with an amazing story: His sister, thelegendary supermodel Lula Landry, known to her friends as the Cuckoo, famously fell to her death a few months earlier. The police ruled it a suicide, but John refuses to believe that. The case plunges Strike into the world of multimillionaire beauties, rock-star boyfriends, and desperate designers, and it introduces him to every variety of pleasure, enticement, seduction, and delusion known to man.",
+      "covers": [
+        7261207,
+        8149474,
+        8513662,
+        11374417,
+        11416686,
+        11983515,
+        11983919,
+        12376715
+      ],
+      "key": "/works/OL16806416W",
+      "authors": [
+        {
+          "author": {
+            "key": "/authors/OL23919A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        }
+      ],
+      "title": "The Cuckoo's Calling",
+      "subjects": [
+        "private investigators",
+        "murder",
+        "investigation",
+        "veterans",
+        "Afghan War",
+        "fiction",
+        "Cormoran Strike",
+        "crime",
+        "London",
+        "England",
+        "mystery",
+        "detective",
+        "nyt:hardcover-fiction=2013-08-04",
+        "New York Times bestseller",
+        "New York Times reviewed",
+        "Private investigators, fiction",
+        "Crime, fiction",
+        "London (england), fiction",
+        "Fiction, mystery & detective, general",
+        "Veterans, fiction"
+      ],
+      "type": {
+        "key": "/type/work"
+      },
+      "subject_places": [
+        "England",
+        "London"
+      ],
+      "subject_people": [
+        "Cormoran Strike (Fictitious character)"
+      ],
+      "subject_times": [
+        "Contemporary"
+      ],
+      "links": [
+        {
+          "url": "http://www.nytimes.com/2013/07/18/books/in-j-k-rowlings-cuckoos-calling-model-dies-but-why.html",
+          "title": "New York Times review",
+          "type": {
+            "key": "/type/link"
+          }
+        }
+      ],
+      "latest_revision": 17,
+      "revision": 17,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2013-08-29T19:31:48.949325"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:33:13.892150"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Kötülük Kariyeri - Cormoran Strike 3; Bir Cormoran Strike Romani",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12219233
+      ],
+      "key": "/works/OL26220377W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-10-28T15:23:37.794880"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:32:52.926755"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Cormoran Strike Kutulu Özel Set",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12219245
+      ],
+      "key": "/works/OL26220389W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-10-28T15:24:23.104101"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:32:52.926755"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Strike Collection",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "key": "/works/OL25806383W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-10-08T02:40:13.439094"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:32:52.926755"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Branco Letal",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12369736
+      ],
+      "key": "/works/OL26415009W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-11-13T22:05:16.990141"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:32:52.926755"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Ipekböcegi",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12123801
+      ],
+      "key": "/works/OL26164736W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-10-19T12:02:56.651452"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:32:52.926755"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Sangue Revolto",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12369349
+      ],
+      "key": "/works/OL26414685W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-11-13T15:56:05.320660"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:32:52.926755"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Il richiamo del cuculo",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL9865970A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12092971
+      ],
+      "key": "/works/OL26138386W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-10-15T16:05:06.982564"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:32:52.926755"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Guguk Kusu",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12123715
+      ],
+      "key": "/works/OL26164653W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-10-19T12:00:12.971974"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T10:32:52.926755"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Wolanie kukulki",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        11138029
+      ],
+      "key": "/works/OL24511828W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-05-21T11:02:54.479823"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-22T08:40:04.289023"
+      }
+    },
+    {
+      "description": "Harry Potter #2\r\n\r\nThroughout the summer holidays after his first year at Hogwarts School of Witchcraft and Wizardry, Harry Potter has been receiving sinister warnings from a house-elf called Dobby.\r\n\r\nNow, back at school to start his second year, Harry hears unintelligible whispers echoing through the corridors.\r\n\r\nBefore long the attacks begin: students are found as if turned to stone.\r\n\r\nDobby’s predictions seem to be coming true.\r\n\r\n[Source][1]\r\n\r\n\r\n  [1]: https://www.jkrowling.com/book/harry-potter-chamber-secrets/",
+      "links": [
+        {
+          "title": "Author's book page",
+          "url": "https://www.jkrowling.com/book/harry-potter-chamber-secrets/",
+          "type": {
+            "key": "/type/link"
+          }
+        },
+        {
+          "title": "Wikipedia entry",
+          "url": "https://en.wikipedia.org/wiki/Harry_Potter_and_the_Chamber_of_Secrets",
+          "type": {
+            "key": "/type/link"
+          }
+        },
+        {
+          "url": "https://www.theguardian.com/childrens-books-site/2015/mar/02/review-j-k-rowling-harry-potter-chamber-secrets",
+          "title": "Harry Potter and the Chamber of Secrets by J.K. Rowling - review | Children's books | The Guardian",
+          "type": {
+            "key": "/type/link"
+          }
+        },
+        {
+          "title": "Harry Potter and the Chamber of Secrets by J.K. Rowling - review 2 | Children's books | The Guardian",
+          "url": "https://www.theguardian.com/childrens-books-site/2016/may/26/harry-potter-and-the-chamber-of-secrets-jk-rowling-review",
+          "type": {
+            "key": "/type/link"
+          }
+        }
+      ],
+      "title": "Harry Potter and the Chamber of Secrets",
+      "covers": [
+        8234423,
+        8237628,
+        8237644,
+        8392798,
+        8995302,
+        8762432,
+        8081272,
+        8353396,
+        10301720,
+        8938317,
+        10471286,
+        10413455,
+        10487260,
+        -1,
+        10535729,
+        10722535,
+        10722534,
+        11522289
+      ],
+      "subject_places": [
+        "England",
+        "London",
+        "Hogwarts School of Witchcraft and Wizardry",
+        "Inglaterra",
+        "Privet Drive"
+      ],
+      "subjects": [
+        "Fantasy fiction",
+        "school stories",
+        "Fiction",
+        "Fantasy",
+        "Nestlé Smarties Book Prize winner",
+        "Juvenile fiction",
+        "Wizards",
+        "Magic",
+        "Schools",
+        "Spanish language materials",
+        "Magia",
+        "Escuelas",
+        "Ficción juvenil",
+        "Novela fantástica",
+        "Hogwarts School of Witchcraft and Wizardry (Imaginary place)",
+        "Harry Potter (Fictitious character)",
+        "Wizards -- Juvenile fiction",
+        "Witches",
+        "Hogwarts School of Witchcraft and Wizardry (Imaginary organization)",
+        "Magos",
+        "Translations from English",
+        "Chinese fiction",
+        "Orphans",
+        "Aunts",
+        "Uncles",
+        "Cousins",
+        "Determination (Personality trait) in children",
+        "Friendship",
+        "Potter, Harry (Fictitious character)",
+        "Witches Fiction",
+        "Wizards Fiction",
+        "Schools Fiction",
+        "England Fiction",
+        "Magic -- Juvenile fiction",
+        "Hogwarts School of Witchcraft and Wizardry (Imaginary place) -- Juvenile fiction",
+        "Schools -- Juvenile fiction",
+        "Wizards -- Fiction",
+        "Magic -- Fiction",
+        "Schools -- Fiction",
+        "England -- Juvenile fiction",
+        "England -- Fiction",
+        "Fantasy & Magic",
+        "Action & Adventure",
+        "Witchcraft",
+        "Harry Potter (Fictional character)",
+        "Engels",
+        "Social Themes",
+        "Reading Level-Grade 11",
+        "Reading Level-Grade 12",
+        "Schools, fiction",
+        "England, fiction",
+        "Potter, harry (fictitious character), fiction",
+        "Hogwarts school of witchcraft and wizardry (imaginary organization), fiction",
+        "Wizards, fiction",
+        "Magic, fiction",
+        "Children's fiction",
+        "Adventure and adventurers, fiction",
+        "English literature",
+        "Fiction, fantasy, general",
+        "Large type books",
+        "Hermione Granger (Fictitious character)",
+        "Ron Weasley (Fictitious character)",
+        "Latin language materials",
+        "Children's stories",
+        "Magiciens",
+        "Romans, nouvelles, etc. pour la jeunesse",
+        "Nécromancie",
+        "Écoles",
+        "Potter, Harry (Personnage fictif)",
+        "Romans, nouvelles",
+        "Magie",
+        "Family",
+        "Orphans & Foster Homes",
+        "Magía",
+        "Novela juvenil",
+        "Juvenile",
+        "Children's stories, English",
+        "Sieg",
+        "Basilisk",
+        "Das Böse",
+        "Das Gute",
+        "Internat",
+        "Lebensgefahr",
+        "Lebensrettung",
+        "List",
+        "Magier",
+        "Jugendbuch",
+        "Kampf",
+        "Schule",
+        "Basilisk (Fabeltier)",
+        "Junge",
+        "Phönix",
+        "Deutschland Grenzschutzkommando Mitte Schule",
+        "Deutschland",
+        "Friendship, fiction"
+      ],
+      "subject_people": [
+        "Harry Potter",
+        "Hermione Granger",
+        "Ron Weasley",
+        "Albus Dumbledore",
+        "Hagrid",
+        "The Dursleys",
+        "Gilderoy Lockhart",
+        "Dobby",
+        "Moaning Myrtle",
+        "Ginny Weasley",
+        "Draco Malfoy",
+        "Hermine Granger",
+        "Ron Weasly"
+      ],
+      "key": "/works/OL82537W",
+      "authors": [
+        {
+          "author": {
+            "key": "/authors/OL23919A"
+          },
+          "type": {
+            "key": "/type/author_role"
+          }
+        }
+      ],
+      "excerpts": [
+        {
+          "excerpt": "Not for the first time, an argument had broken out over breakfast at number four, Privet Drive.",
+          "comment": "first sentence",
+          "author": {
+            "key": "/people/seabelis"
+          }
+        }
+      ],
+      "type": {
+        "key": "/type/work"
+      },
+      "latest_revision": 71,
+      "revision": 71,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2009-10-17T07:07:29.461716"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-12-30T17:20:48.640387"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Jack et la grande aventure du Cochon de Noël",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL7297119A"
+          }
+        },
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL3114120A"
+          }
+        }
+      ],
+      "covers": [
+        12107866
+      ],
+      "key": "/works/OL26150077W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-10-18T14:14:16.790106"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-21T18:12:41.096347"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "El cerdito de Navidad",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12090877
+      ],
+      "key": "/works/OL26136900W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-10-15T07:43:04.667263"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-21T18:12:41.096347"
+      }
+    },
+    {
+      "type": {
+        "key": "/type/work"
+      },
+      "title": "Harry Potter y el misterio del príncipe",
+      "authors": [
+        {
+          "type": {
+            "key": "/type/author_role"
+          },
+          "author": {
+            "key": "/authors/OL23919A"
+          }
+        }
+      ],
+      "covers": [
+        12368909
+      ],
+      "key": "/works/OL26414455W",
+      "latest_revision": 2,
+      "revision": 2,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2021-11-13T03:16:47.294153"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2021-11-21T18:12:41.096347"
+      }
+    }
+  ]
+}

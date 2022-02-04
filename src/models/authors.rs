@@ -1,7 +1,13 @@
+use crate::models::identifiers::OpenLibraryIdentifer;
 use crate::models::{Link, OpenLibraryModel, Resource};
+use crate::OpenLibraryError;
 use chrono::NaiveDateTime;
 use serde::{Deserialize, Serialize};
+use std::borrow::Cow;
 use std::collections::HashMap;
+use std::convert::TryFrom;
+use std::error::Error;
+use std::str::FromStr;
 use url::Url;
 
 #[derive(Debug, Deserialize, Eq, PartialEq, Serialize)]
@@ -55,6 +61,136 @@ pub struct AuthorDetails {
 }
 
 impl OpenLibraryModel for AuthorDetails {}
+
+#[derive(Deserialize, Debug, Eq, PartialEq, Serialize)]
+pub struct AuthorWorksRequest {
+    pub identifier: OpenLibraryIdentifer,
+    pub limit: Option<u32>,
+    pub offset: Option<u32>,
+}
+
+impl TryFrom<OpenLibraryIdentifer> for AuthorWorksRequest {
+    type Error = OpenLibraryError;
+
+    fn try_from(identifier: OpenLibraryIdentifer) -> Result<Self, OpenLibraryError> {
+        Ok(Self {
+            identifier,
+            limit: None,
+            offset: None,
+        })
+    }
+}
+
+impl TryFrom<Url> for AuthorWorksRequest {
+    type Error = OpenLibraryError;
+
+    fn try_from(value: Url) -> Result<Self, Self::Error> {
+        let path_segments = value
+            .path_segments()
+            .ok_or(OpenLibraryError::ParsingError {
+                reason: "foo".to_string(),
+            })?
+            .collect::<Vec<&str>>();
+
+        let path_index = path_segments.iter().position(|x| *x == "authors").ok_or(
+            OpenLibraryError::ParsingError {
+                reason: "foo".to_string(),
+            },
+        )?;
+
+        let query_parameters = value
+            .query_pairs()
+            .collect::<HashMap<Cow<'_, str>, Cow<'_, str>>>();
+
+        let result = *path_segments
+            .get(path_index + 1)
+            .ok_or(OpenLibraryError::ParsingError {
+                reason: "haha".to_string(),
+            })?;
+
+        let limit = match query_parameters.get("limit") {
+            Some(x) => Some(x.clone().into_owned().parse::<u32>().map_err(|e| {
+                OpenLibraryError::ParsingError {
+                    reason: e.to_string(),
+                }
+            })?),
+            None => None,
+        };
+
+        let offset = match query_parameters.get("offset") {
+            Some(z) => Some(z.clone().into_owned().parse::<u32>().map_err(|e| {
+                OpenLibraryError::ParsingError {
+                    reason: e.to_string(),
+                }
+            })?),
+            None => None,
+        };
+
+        Ok(Self {
+            identifier: OpenLibraryIdentifer::from_str(result)?,
+            limit: limit,
+            offset: offset,
+        })
+    }
+}
+
+#[test]
+pub fn test() -> Result<(), Box<dyn Error>> {
+    let result = Url::parse("https://www.google.com/authors/OL4452558A/works.json?limit=75")?;
+    let request_builder = AuthorWorksRequest::try_from(result)?;
+
+    println!("{:?}", request_builder);
+    assert_eq!(
+        request_builder,
+        AuthorWorksRequest {
+            identifier: OpenLibraryIdentifer::from_str("OL4452558A")?,
+            limit: Some(75),
+            offset: None
+        }
+    );
+
+    Ok(())
+}
+
+#[derive(Deserialize, Debug, Eq, PartialEq, Serialize)]
+pub struct AuthorWorksResponse {
+    //TODO: add links dictionary
+    pub size: u32,
+    #[serde(default)]
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub entries: Vec<AuthorWorks>,
+}
+
+impl OpenLibraryModel for AuthorWorksResponse {}
+
+#[derive(Deserialize, Debug, Eq, PartialEq, Serialize)]
+pub struct AuthorWorks {
+    // pub description: Option<String>, TODO: this can be a map or a string
+    pub title: String,
+    #[serde(default)]
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub covers: Vec<i32>,
+    #[serde(default)]
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub subject_places: Vec<String>,
+    #[serde(default)]
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub subjects: Vec<String>,
+    #[serde(default)]
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub subject_people: Vec<String>,
+    // pub key: Resource,
+    // pub authors:
+    #[serde(default)]
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub subject_times: Vec<String>,
+    pub latest_revision: u32,
+    pub revision: u32,
+    // pub created:
+    // pub last_modified
+}
+
+impl OpenLibraryModel for AuthorWorks {}
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct AuthorResponse {
