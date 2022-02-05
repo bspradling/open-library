@@ -1,7 +1,7 @@
 [package]
 name = "open-library"
 description = "A client to interact with the Open Library API"
-version = "0.6.1-alpha.0"
+version = "0.7.0"
 authors = ["Brett Spradling <brett@spradling.me>"]
 repository = "https://www.github.com/bspradling/open-library"
 readme = "README.md"
