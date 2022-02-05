@@ -1,5 +1,5 @@
-use crate::models::identifiers::OpenLibraryIdentifer;
-use crate::models::{Link, LinkName, OpenLibraryModel, Resource};
+use crate::models::identifiers::OpenLibraryIdentifier;
+use crate::models::{Link, LinkName, OpenLibraryModel, OpenLibraryResource};
 use crate::OpenLibraryError;
 use chrono::NaiveDateTime;
 use serde::de::Error;
@@ -38,7 +38,7 @@ pub struct AuthorLink {
     #[serde(with = "crate::format::keyed_value")]
     pub author_type: AuthorType,
     #[serde(with = "crate::format::keyed_value")]
-    pub author: Resource,
+    pub author: OpenLibraryResource,
 }
 
 #[derive(Debug, Eq, PartialEq)]
@@ -108,7 +108,7 @@ pub struct AuthorDetails {
     #[serde(default)]
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub source_records: Vec<String>, //TODO parse records
-    pub key: Resource,
+    pub key: OpenLibraryResource,
     #[serde(default)]
     #[serde(with = "crate::format::value")]
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -135,15 +135,15 @@ impl OpenLibraryModel for AuthorDetails {}
 
 #[derive(Deserialize, Debug, Eq, PartialEq, Serialize)]
 pub struct AuthorWorksRequest {
-    pub identifier: OpenLibraryIdentifer,
+    pub identifier: OpenLibraryIdentifier,
     pub limit: Option<u32>,
     pub offset: Option<u32>,
 }
 
-impl TryFrom<OpenLibraryIdentifer> for AuthorWorksRequest {
+impl TryFrom<OpenLibraryIdentifier> for AuthorWorksRequest {
     type Error = OpenLibraryError;
 
-    fn try_from(identifier: OpenLibraryIdentifer) -> Result<Self, OpenLibraryError> {
+    fn try_from(identifier: OpenLibraryIdentifier) -> Result<Self, OpenLibraryError> {
         Ok(Self {
             identifier,
             limit: None,
@@ -198,7 +198,7 @@ impl TryFrom<Url> for AuthorWorksRequest {
         };
 
         Ok(Self {
-            identifier: OpenLibraryIdentifer::from_str(result)?,
+            identifier: OpenLibraryIdentifier::from_str(result)?,
             limit: limit,
             offset: offset,
         })
@@ -237,7 +237,7 @@ pub struct AuthorWorks {
     #[serde(default)]
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub subject_people: Vec<String>,
-    pub key: Resource,
+    pub key: OpenLibraryResource,
     pub authors: Vec<AuthorLink>,
     #[serde(default)]
     #[serde(skip_serializing_if = "Vec::is_empty")]

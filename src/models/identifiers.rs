@@ -41,4 +41,4 @@ macro_rules! identifier {
 }
 
 identifier!(InternationalStandardBookNumber, "ISBN");
-identifier!(OpenLibraryIdentifer, "OLID");
+identifier!(OpenLibraryIdentifier, "OLID");

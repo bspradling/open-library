@@ -2,7 +2,7 @@ use crate::clients::handle;
 use crate::models::authors::{
     AuthorDetails, AuthorResponse, AuthorWorksRequest, AuthorWorksResponse,
 };
-use crate::models::identifiers::OpenLibraryIdentifer;
+use crate::models::identifiers::OpenLibraryIdentifier;
 use crate::OpenLibraryError;
 use reqwest::Client;
 use serde::{Deserialize, Serialize};
@@ -25,7 +25,7 @@ impl AuthorClient {
 
     pub async fn get(
         &self,
-        identifier: OpenLibraryIdentifer,
+        identifier: OpenLibraryIdentifier,
     ) -> Result<AuthorDetails, OpenLibraryError> {
         let url = self
             .host

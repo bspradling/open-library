@@ -1,5 +1,5 @@
 use crate::models::books::Book;
-use crate::models::identifiers::{Identifier, OpenLibraryIdentifer};
+use crate::models::identifiers::{Identifier, OpenLibraryIdentifier};
 use crate::OpenLibraryClient;
 use http::Method;
 use reqwest::Url;
@@ -17,7 +17,7 @@ async fn test_book_get_returns_success() -> Result<(), Box<dyn Error>> {
 
     let mock_response: Book = serde_json::from_str(include_str!("resources/edition.json"))?;
 
-    let olid = OpenLibraryIdentifer::from_str("OL7353617M")?;
+    let olid = OpenLibraryIdentifier::from_str("OL7353617M")?;
 
     Mock::given(method(Method::GET.as_str()))
         .and(path(format!("/books/{}.json", olid.value()).as_str()))
