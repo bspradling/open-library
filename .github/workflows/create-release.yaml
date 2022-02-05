@@ -28,4 +28,4 @@ jobs:
       - uses: actions-rs/cargo@v1
         with:
           command: release
-          args: ${{ github.event.inputs.level }} --execute
+          args: ${{ github.event.inputs.level }} --execute --no-confirm
