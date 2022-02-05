@@ -1,7 +1,7 @@
 use crate::clients::handle;
 use crate::models::books::{BibliographyKey, Book};
 use crate::models::identifiers::{
-    Identifier, InternationalStandardBookNumber, OpenLibraryIdentifer,
+    Identifier, InternationalStandardBookNumber, OpenLibraryIdentifier,
 };
 use crate::models::OpenLibraryModel;
 use crate::OpenLibraryError;
@@ -38,7 +38,7 @@ impl BooksClient {
         handle(self.client.get(url)).await
     }
 
-    pub async fn get(&self, identifier: OpenLibraryIdentifer) -> Result<Book, OpenLibraryError> {
+    pub async fn get(&self, identifier: OpenLibraryIdentifier) -> Result<Book, OpenLibraryError> {
         let url = self
             .host
             .join(format!("/books/{}.json", identifier.value()).as_str())?;

@@ -1,7 +1,7 @@
 use crate::models::authors::{
     AuthorDetails, AuthorResponse, AuthorWorksRequest, AuthorWorksResponse,
 };
-use crate::models::identifiers::OpenLibraryIdentifer;
+use crate::models::identifiers::OpenLibraryIdentifier;
 use std::convert::TryFrom;
 use std::error::Error;
 use std::str::FromStr;
@@ -39,7 +39,7 @@ pub async fn test_author_works_response_serde() -> Result<(), Box<dyn Error>> {
 
 #[test]
 pub fn test_author_works_from_identifier() -> Result<(), Box<dyn Error>> {
-    let expected_identifier = OpenLibraryIdentifer::from_str("OL4452558A")?;
+    let expected_identifier = OpenLibraryIdentifier::from_str("OL4452558A")?;
     let expected = AuthorWorksRequest {
         identifier: expected_identifier.clone(),
         limit: None,
@@ -59,7 +59,7 @@ pub fn test_author_works_from_url() -> Result<(), Box<dyn Error>> {
     assert_eq!(
         request_builder,
         AuthorWorksRequest {
-            identifier: OpenLibraryIdentifer::from_str("OL4452558A")?,
+            identifier: OpenLibraryIdentifier::from_str("OL4452558A")?,
             limit: Some(75),
             offset: None
         }

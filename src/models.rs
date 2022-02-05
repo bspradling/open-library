@@ -19,8 +19,6 @@ pub enum Resource {
 }
 
 pub trait OpenLibraryModel {}
-pub trait OpenLibraryIdentifierKey {}
-impl OpenLibraryIdentifierKey for Resource {}
 
 impl Display for Resource {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {

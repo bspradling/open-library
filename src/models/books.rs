@@ -1,4 +1,4 @@
-use crate::models::{Link, OpenLibraryIdentifierKey, OpenLibraryModel, Resource};
+use crate::models::{Link, OpenLibraryModel, Resource};
 use crate::OpenLibraryError;
 use serde::de::Error;
 use serde::{Deserialize, Deserializer, Serialize};
@@ -183,8 +183,6 @@ impl BookIdentifierKey {
         }
     }
 }
-
-impl OpenLibraryIdentifierKey for BookIdentifierKey {}
 
 impl Display for BookIdentifierKey {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {

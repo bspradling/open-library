@@ -1,5 +1,5 @@
 use crate::models::authors::AuthorWorksResponse;
-use crate::models::identifiers::OpenLibraryIdentifer;
+use crate::models::identifiers::OpenLibraryIdentifier;
 use crate::OpenLibraryClient;
 use http::Method;
 use reqwest::Url;
@@ -17,7 +17,7 @@ async fn test_author_get_works_returns_success() -> Result<(), Box<dyn Error>> {
 
     let expected: AuthorWorksResponse =
         serde_json::from_str(include_str!("resources/author_works.json"))?;
-    let olid = OpenLibraryIdentifer::from_str("OL23919A")?;
+    let olid = OpenLibraryIdentifier::from_str("OL23919A")?;
 
     Mock::given(method(Method::GET.as_str()))
         .and(path(format!("/authors/{}/works.json", olid).as_str()))

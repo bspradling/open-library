@@ -1,5 +1,5 @@
 use open_library::models::books::BibliographyKey;
-use open_library::models::identifiers::{InternationalStandardBookNumber, OpenLibraryIdentifer};
+use open_library::models::identifiers::{InternationalStandardBookNumber, OpenLibraryIdentifier};
 use open_library::{OpenLibraryAuthClient, OpenLibraryClient, OpenLibraryError};
 use std::error::Error;
 use std::str::FromStr;
@@ -8,7 +8,7 @@ use url::Url;
 #[tokio::test]
 async fn test_author_get() -> Result<(), Box<dyn Error>> {
     let client = OpenLibraryClient::builder().build()?;
-    let identifier = OpenLibraryIdentifer::from_str("OL4452558A")?;
+    let identifier = OpenLibraryIdentifier::from_str("OL4452558A")?;
     let author = client.author.get(identifier).await?;
 
     assert_eq!(author.name, "Gary Paulsen");
@@ -18,7 +18,7 @@ async fn test_author_get() -> Result<(), Box<dyn Error>> {
 #[tokio::test]
 async fn test_author_get_works() -> Result<(), Box<dyn Error>> {
     let client = OpenLibraryClient::builder().build()?;
-    let identifier = OpenLibraryIdentifer::from_str("OL4452558A")?;
+    let identifier = OpenLibraryIdentifier::from_str("OL4452558A")?;
     let works = client.author.get_works(identifier).await?;
 
     assert_eq!(works.entries.len(), 50);
@@ -60,7 +60,7 @@ async fn test_book_by_isbn() -> Result<(), Box<dyn Error>> {
 #[tokio::test]
 async fn test_book_get() -> Result<(), Box<dyn Error>> {
     let client = OpenLibraryClient::builder().build()?;
-    let olid = OpenLibraryIdentifer::from_str("OL8458764M")?;
+    let olid = OpenLibraryIdentifier::from_str("OL8458764M")?;
     let book = client.books.get(olid).await?;
 
     assert_eq!(book.title, "Hatchet");
@@ -86,7 +86,7 @@ async fn test_book_search() -> Result<(), Box<dyn Error>> {
 #[tokio::test]
 async fn test_works_get() -> Result<(), Box<dyn Error>> {
     let client = OpenLibraryClient::builder().build()?;
-    let works_id = OpenLibraryIdentifer::from_str("OL7353617M")?;
+    let works_id = OpenLibraryIdentifier::from_str("OL7353617M")?;
     let work = client.works.get(&works_id).await?;
 
     assert_eq!(work.title, "Fantastic Mr. Fox");

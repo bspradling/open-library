@@ -1,5 +1,5 @@
 use crate::clients::handle;
-use crate::models::identifiers::{Identifier, OpenLibraryIdentifer};
+use crate::models::identifiers::{Identifier, OpenLibraryIdentifier};
 use crate::models::works::Work;
 use crate::OpenLibraryError;
 use reqwest::{Client, Url};
@@ -18,7 +18,7 @@ impl WorksClient {
         }
     }
 
-    pub async fn get(&self, identifier: &OpenLibraryIdentifer) -> Result<Work, OpenLibraryError> {
+    pub async fn get(&self, identifier: &OpenLibraryIdentifier) -> Result<Work, OpenLibraryError> {
         let url = self
             .host
             .join(format!("/works/{}.json", identifier.value()).as_str())?;
