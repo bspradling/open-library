@@ -24,6 +24,7 @@ jobs:
         with:
           command: install
           args: cargo-release
+      - uses: actions/checkout@v2
       - uses: actions-rs/cargo@v1
         with:
           command: release
