@@ -1,12 +1,14 @@
 use crate::models::identifiers::OpenLibraryIdentifer;
-use crate::models::{Link, OpenLibraryModel, Resource};
+use crate::models::{Link, LinkName, OpenLibraryModel, Resource};
 use crate::OpenLibraryError;
 use chrono::NaiveDateTime;
-use serde::{Deserialize, Serialize};
+use serde::de::Error;
+use serde::{Deserialize, Deserializer, Serialize, Serializer};
 use std::borrow::Cow;
 use std::collections::HashMap;
 use std::convert::TryFrom;
-use std::error::Error;
+use std::fmt;
+use std::fmt::Display;
 use std::str::FromStr;
 use url::Url;
 
@@ -28,6 +30,75 @@ pub struct Author {
     pub work_count: i32,
     pub top_subjects: Vec<String>,
     pub _version_: u64,
+}
+
+#[derive(Debug, Deserialize, Eq, PartialEq, Serialize)]
+pub struct AuthorLink {
+    #[serde(rename = "type")]
+    #[serde(with = "crate::format::keyed_value")]
+    pub author_type: AuthorType,
+    #[serde(with = "crate::format::keyed_value")]
+    pub author: Resource,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub enum AuthorType {
+    AuthorRole,
+}
+
+impl Display for AuthorType {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        match self {
+            AuthorType::AuthorRole => write!(f, "author_role"),
+        }
+    }
+}
+
+impl FromStr for AuthorType {
+    type Err = OpenLibraryError;
+
+    fn from_str(value: &str) -> Result<Self, Self::Err> {
+        match value {
+            "author_role" => Ok(Self::AuthorRole),
+            _ => Err(OpenLibraryError::ParsingError {
+                reason: format!("Unable to parse string ({}) into an Author Type", &value),
+            }),
+        }
+    }
+}
+
+impl<'de> Deserialize<'de> for AuthorType {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: Deserializer<'de>,
+    {
+        let value: String = Deserialize::deserialize(deserializer).map_err(D::Error::custom)?;
+
+        let chunks = value
+            .split('/')
+            .filter(|str| !str.is_empty())
+            .collect::<Vec<&str>>();
+
+        match chunks.get(0) {
+            Some(&"type") => match chunks.get(1) {
+                Some(value) => Ok(AuthorType::from_str(*value).map_err(D::Error::custom)?),
+                None => Err(D::Error::custom("No Author Type was provided!")),
+            },
+            _ => Err(D::Error::custom(format!(
+                "Invalid format for Author Type: {}",
+                &value
+            ))),
+        }
+    }
+}
+
+impl Serialize for AuthorType {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: Serializer,
+    {
+        serializer.serialize_str(self.to_string().as_str())
+    }
 }
 
 #[derive(Debug, Deserialize, Eq, PartialEq, Serialize)]
@@ -136,7 +207,9 @@ impl TryFrom<Url> for AuthorWorksRequest {
 
 #[derive(Deserialize, Debug, Eq, PartialEq, Serialize)]
 pub struct AuthorWorksResponse {
-    //TODO: add links dictionary
+    #[serde(default)]
+    #[serde(skip_serializing_if = "HashMap::is_empty")]
+    pub links: HashMap<LinkName, String>,
     pub size: u32,
     #[serde(default)]
     #[serde(skip_serializing_if = "Vec::is_empty")]
@@ -161,8 +234,8 @@ pub struct AuthorWorks {
     #[serde(default)]
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub subject_people: Vec<String>,
-    // pub key: Resource,
-    // pub authors:
+    pub key: Resource,
+    pub authors: Vec<AuthorLink>,
     #[serde(default)]
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub subject_times: Vec<String>,
