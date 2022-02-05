@@ -220,7 +220,10 @@ impl OpenLibraryModel for AuthorWorksResponse {}
 
 #[derive(Deserialize, Debug, Eq, PartialEq, Serialize)]
 pub struct AuthorWorks {
-    // pub description: Option<String>, TODO: this can be a map or a string
+    #[serde(default)]
+    #[serde(deserialize_with = "string_or_value")]
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
     pub title: String,
     #[serde(default)]
     #[serde(skip_serializing_if = "Vec::is_empty")]
@@ -258,3 +261,37 @@ pub struct AuthorResponse {
 }
 
 impl OpenLibraryModel for AuthorResponse {}
+
+/*
+   Necessary because the `description` field within the AuthorWorks can either be a direct string
+   or an object containing a type/value.
+
+    Example:
+    "description": "The Eighth Story. Nineteen Years Later."
+
+    "description": {
+        "type": "/type/text",
+        "value": "Come join JK Rowling with her new adventurous book. The Ickabog."
+    }
+*/
+fn string_or_value<'de, D>(deserializer: D) -> Result<Option<String>, D::Error>
+where
+    D: Deserializer<'de>,
+{
+    #[derive(Deserialize)]
+    struct Value<T> {
+        value: T,
+    }
+
+    #[derive(Deserialize)]
+    #[serde(untagged)]
+    enum StrOrValue {
+        Str(String),
+        Value(Value<String>),
+    }
+
+    Ok(match StrOrValue::deserialize(deserializer)? {
+        StrOrValue::Str(v) => Some(v),
+        StrOrValue::Value(v) => Some(v.value),
+    })
+}
