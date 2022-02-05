@@ -42,7 +42,8 @@ impl AuthorClient {
             request
                 .try_into()
                 .map_err(|_e| OpenLibraryError::ParsingError {
-                    reason: "haha".to_string(),
+                    reason: format!("Unable to parse supplied object into a proper request object")
+                        .to_string(),
                 })?;
         let limit = parameters.limit.unwrap_or(50);
         let offset = parameters.offset.unwrap_or(0);

@@ -88,13 +88,13 @@ impl TryFrom<Url> for AuthorWorksRequest {
         let path_segments = value
             .path_segments()
             .ok_or(OpenLibraryError::ParsingError {
-                reason: "foo".to_string(),
+                reason: "Invalid URL supplied, no path segments found".to_string(),
             })?
             .collect::<Vec<&str>>();
 
         let path_index = path_segments.iter().position(|x| *x == "authors").ok_or(
             OpenLibraryError::ParsingError {
-                reason: "foo".to_string(),
+                reason: "Invalid URL supplied, unable to determine author identifier".to_string(),
             },
         )?;
 
@@ -105,7 +105,7 @@ impl TryFrom<Url> for AuthorWorksRequest {
         let result = *path_segments
             .get(path_index + 1)
             .ok_or(OpenLibraryError::ParsingError {
-                reason: "haha".to_string(),
+                reason: "Unable to find an author identifier within the URL path".to_string(),
             })?;
 
         let limit = match query_parameters.get("limit") {
@@ -132,24 +132,6 @@ impl TryFrom<Url> for AuthorWorksRequest {
             offset: offset,
         })
     }
-}
-
-#[test]
-pub fn test() -> Result<(), Box<dyn Error>> {
-    let result = Url::parse("https://www.google.com/authors/OL4452558A/works.json?limit=75")?;
-    let request_builder = AuthorWorksRequest::try_from(result)?;
-
-    println!("{:?}", request_builder);
-    assert_eq!(
-        request_builder,
-        AuthorWorksRequest {
-            identifier: OpenLibraryIdentifer::from_str("OL4452558A")?,
-            limit: Some(75),
-            offset: None
-        }
-    );
-
-    Ok(())
 }
 
 #[derive(Deserialize, Debug, Eq, PartialEq, Serialize)]
