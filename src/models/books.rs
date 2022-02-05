@@ -1,4 +1,4 @@
-use crate::models::{Link, OpenLibraryModel, Resource};
+use crate::models::{Link, OpenLibraryModel, OpenLibraryResource};
 use crate::OpenLibraryError;
 use serde::de::Error;
 use serde::{Deserialize, Deserializer, Serialize};
@@ -13,7 +13,7 @@ pub struct Book {
     #[serde(deserialize_with = "url_or_list")]
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub url: Vec<Url>,
-    pub key: Resource,
+    pub key: OpenLibraryResource,
     pub title: String,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub subtitle: Option<String>,
@@ -227,7 +227,7 @@ impl FromStr for BookIdentifierKey {
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct Author {
     #[serde(skip_serializing_if = "Option::is_none")]
-    key: Option<Resource>,
+    key: Option<OpenLibraryResource>,
     #[serde(skip_serializing_if = "Option::is_none")]
     name: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]

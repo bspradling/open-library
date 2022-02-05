@@ -1,6 +1,6 @@
 use crate::models::books::{Author, BookIdentifierKey, Classifications};
 use crate::models::identifiers::InternationalStandardBookNumber;
-use crate::models::{OpenLibraryModel, Resource};
+use crate::models::{OpenLibraryModel, OpenLibraryResource};
 use chrono::NaiveDate;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
@@ -14,7 +14,7 @@ pub struct Work {
     #[serde(rename = "isbn_10")]
     pub isbns_10: Vec<InternationalStandardBookNumber>,
     pub covers: Vec<u32>, //TODO Cover Id
-    pub key: Resource,
+    pub key: OpenLibraryResource,
     pub authors: Vec<Author>,
     pub ocaid: String,
     pub contributions: Vec<String>,
@@ -31,7 +31,7 @@ pub struct Work {
     #[serde(with = "crate::format::date_m_dd_yyyy")]
     pub publish_date: NaiveDate,
     #[serde(with = "crate::format::keyed_list")]
-    pub works: Vec<Resource>,
+    pub works: Vec<OpenLibraryResource>,
     #[serde(rename = "type")]
     #[serde(with = "crate::format::keyed_value")]
     pub works_type: String,

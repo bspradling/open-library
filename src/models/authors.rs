@@ -1,5 +1,5 @@
 use crate::models::identifiers::OpenLibraryIdentifier;
-use crate::models::{Link, LinkName, OpenLibraryModel, Resource};
+use crate::models::{Link, LinkName, OpenLibraryModel, OpenLibraryResource};
 use crate::OpenLibraryError;
 use chrono::NaiveDateTime;
 use serde::de::Error;
@@ -38,7 +38,7 @@ pub struct AuthorLink {
     #[serde(with = "crate::format::keyed_value")]
     pub author_type: AuthorType,
     #[serde(with = "crate::format::keyed_value")]
-    pub author: Resource,
+    pub author: OpenLibraryResource,
 }
 
 #[derive(Debug, Eq, PartialEq)]
@@ -108,7 +108,7 @@ pub struct AuthorDetails {
     #[serde(default)]
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub source_records: Vec<String>, //TODO parse records
-    pub key: Resource,
+    pub key: OpenLibraryResource,
     #[serde(default)]
     #[serde(with = "crate::format::value")]
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -237,7 +237,7 @@ pub struct AuthorWorks {
     #[serde(default)]
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub subject_people: Vec<String>,
-    pub key: Resource,
+    pub key: OpenLibraryResource,
     pub authors: Vec<AuthorLink>,
     #[serde(default)]
     #[serde(skip_serializing_if = "Vec::is_empty")]

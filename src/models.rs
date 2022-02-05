@@ -12,20 +12,18 @@ pub mod works;
 mod tests;
 
 #[derive(Clone, Debug, Eq, PartialEq)]
-pub enum Resource {
+pub enum OpenLibraryResource {
     Author(String),
     Book(String),
     Work(String),
 }
 
-pub trait OpenLibraryModel {}
-
-impl Display for Resource {
+impl Display for OpenLibraryResource {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         let x = match self {
-            Resource::Author(value) => format!("/authors/{}", value),
-            Resource::Book(value) => format!("/books/{}", value),
-            Resource::Work(value) => format!("/works/{}", value),
+            OpenLibraryResource::Author(value) => format!("/authors/{}", value),
+            OpenLibraryResource::Book(value) => format!("/books/{}", value),
+            OpenLibraryResource::Work(value) => format!("/works/{}", value),
         };
 
         write!(f, "{}", x)?;
@@ -33,7 +31,7 @@ impl Display for Resource {
     }
 }
 
-impl<'de> Deserialize<'de> for Resource {
+impl<'de> Deserialize<'de> for OpenLibraryResource {
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
     where
         D: Deserializer<'de>,
@@ -62,15 +60,15 @@ impl<'de> Deserialize<'de> for Resource {
         }?;
 
         match resource {
-            "authors" => Ok(Resource::Author(identifier.to_string())),
-            "books" => Ok(Resource::Book(identifier.to_string())),
-            "works" => Ok(Resource::Work(identifier.to_string())),
+            "authors" => Ok(OpenLibraryResource::Author(identifier.to_string())),
+            "books" => Ok(OpenLibraryResource::Book(identifier.to_string())),
+            "works" => Ok(OpenLibraryResource::Work(identifier.to_string())),
             _ => Err(D::Error::custom("Could not parse into Resource")),
         }
     }
 }
 
-impl Serialize for Resource {
+impl Serialize for OpenLibraryResource {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
         S: Serializer,
@@ -95,3 +93,5 @@ pub enum LinkName {
     Itself,
     Next,
 }
+
+pub trait OpenLibraryModel {}
