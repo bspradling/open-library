@@ -137,9 +137,9 @@ async fn test_want_to_read() -> Result<(), Box<dyn Error>> {
 
     let reading_log_entries = client.account.get_want_to_read(username).await?;
 
-    // assert_eq!(
-    //     reading_log_entries.get(0).unwrap().work.title,
-    //     "Atomic Habits"
-    // );
+    assert_eq!(
+        reading_log_entries.get(0).unwrap().work.title,
+        "Atomic Habits"
+    );
     Ok(())
 }
