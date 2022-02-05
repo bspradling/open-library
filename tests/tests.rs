@@ -3,6 +3,7 @@ use open_library::models::identifiers::{InternationalStandardBookNumber, OpenLib
 use open_library::{OpenLibraryAuthClient, OpenLibraryClient, OpenLibraryError};
 use std::error::Error;
 use std::str::FromStr;
+use url::Url;
 
 #[tokio::test]
 async fn test_author_get() -> Result<(), Box<dyn Error>> {
@@ -11,6 +12,29 @@ async fn test_author_get() -> Result<(), Box<dyn Error>> {
     let author = client.author.get(identifier).await?;
 
     assert_eq!(author.name, "Gary Paulsen");
+    Ok(())
+}
+
+#[tokio::test]
+async fn test_author_get_works() -> Result<(), Box<dyn Error>> {
+    let client = OpenLibraryClient::builder().build()?;
+    let identifier = OpenLibraryIdentifer::from_str("OL4452558A")?;
+    let works = client.author.get_works(identifier).await?;
+
+    assert_eq!(works.entries.len(), 50);
+    assert_eq!(works.size, 303);
+    Ok(())
+}
+
+#[tokio::test]
+// The OpenLibrary API returns back the `next` value as a URL which is intended to be used directly
+async fn test_author_get_works_from_url() -> Result<(), Box<dyn Error>> {
+    let client = OpenLibraryClient::builder().build()?;
+    let url =
+        Url::parse("https://www.openlibary.org/authors/OL4452558A/works.json?limit=25&offset=10")?;
+    let works = client.author.get_works(url).await?;
+
+    assert_eq!(works.entries.len(), 25);
     Ok(())
 }
 

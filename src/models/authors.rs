@@ -1,7 +1,15 @@
-use crate::models::{Link, OpenLibraryModel, Resource};
+use crate::models::identifiers::OpenLibraryIdentifer;
+use crate::models::{Link, LinkName, OpenLibraryModel, Resource};
+use crate::OpenLibraryError;
 use chrono::NaiveDateTime;
-use serde::{Deserialize, Serialize};
+use serde::de::Error;
+use serde::{Deserialize, Deserializer, Serialize, Serializer};
+use std::borrow::Cow;
 use std::collections::HashMap;
+use std::convert::TryFrom;
+use std::fmt;
+use std::fmt::Display;
+use std::str::FromStr;
 use url::Url;
 
 #[derive(Debug, Deserialize, Eq, PartialEq, Serialize)]
@@ -22,6 +30,75 @@ pub struct Author {
     pub work_count: i32,
     pub top_subjects: Vec<String>,
     pub _version_: u64,
+}
+
+#[derive(Debug, Deserialize, Eq, PartialEq, Serialize)]
+pub struct AuthorLink {
+    #[serde(rename = "type")]
+    #[serde(with = "crate::format::keyed_value")]
+    pub author_type: AuthorType,
+    #[serde(with = "crate::format::keyed_value")]
+    pub author: Resource,
+}
+
+#[derive(Debug, Eq, PartialEq)]
+pub enum AuthorType {
+    AuthorRole,
+}
+
+impl Display for AuthorType {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        match self {
+            AuthorType::AuthorRole => write!(f, "author_role"),
+        }
+    }
+}
+
+impl FromStr for AuthorType {
+    type Err = OpenLibraryError;
+
+    fn from_str(value: &str) -> Result<Self, Self::Err> {
+        match value {
+            "author_role" => Ok(Self::AuthorRole),
+            _ => Err(OpenLibraryError::ParsingError {
+                reason: format!("Unable to parse string ({}) into an Author Type", &value),
+            }),
+        }
+    }
+}
+
+impl<'de> Deserialize<'de> for AuthorType {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: Deserializer<'de>,
+    {
+        let value: String = Deserialize::deserialize(deserializer).map_err(D::Error::custom)?;
+
+        let chunks = value
+            .split('/')
+            .filter(|str| !str.is_empty())
+            .collect::<Vec<&str>>();
+
+        match chunks.get(0) {
+            Some(&"type") => match chunks.get(1) {
+                Some(value) => Ok(AuthorType::from_str(*value).map_err(D::Error::custom)?),
+                None => Err(D::Error::custom("No Author Type was provided!")),
+            },
+            _ => Err(D::Error::custom(format!(
+                "Invalid format for Author Type: {}",
+                &value
+            ))),
+        }
+    }
+}
+
+impl Serialize for AuthorType {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: Serializer,
+    {
+        serializer.serialize_str(self.to_string().as_str())
+    }
 }
 
 #[derive(Debug, Deserialize, Eq, PartialEq, Serialize)]
@@ -56,6 +133,123 @@ pub struct AuthorDetails {
 
 impl OpenLibraryModel for AuthorDetails {}
 
+#[derive(Deserialize, Debug, Eq, PartialEq, Serialize)]
+pub struct AuthorWorksRequest {
+    pub identifier: OpenLibraryIdentifer,
+    pub limit: Option<u32>,
+    pub offset: Option<u32>,
+}
+
+impl TryFrom<OpenLibraryIdentifer> for AuthorWorksRequest {
+    type Error = OpenLibraryError;
+
+    fn try_from(identifier: OpenLibraryIdentifer) -> Result<Self, OpenLibraryError> {
+        Ok(Self {
+            identifier,
+            limit: None,
+            offset: None,
+        })
+    }
+}
+
+impl TryFrom<Url> for AuthorWorksRequest {
+    type Error = OpenLibraryError;
+
+    fn try_from(value: Url) -> Result<Self, Self::Error> {
+        let path_segments = value
+            .path_segments()
+            .ok_or(OpenLibraryError::ParsingError {
+                reason: "Invalid URL supplied, no path segments found".to_string(),
+            })?
+            .collect::<Vec<&str>>();
+
+        let path_index = path_segments.iter().position(|x| *x == "authors").ok_or(
+            OpenLibraryError::ParsingError {
+                reason: "Invalid URL supplied, unable to determine author identifier".to_string(),
+            },
+        )?;
+
+        let query_parameters = value
+            .query_pairs()
+            .collect::<HashMap<Cow<'_, str>, Cow<'_, str>>>();
+
+        let result = *path_segments
+            .get(path_index + 1)
+            .ok_or(OpenLibraryError::ParsingError {
+                reason: "Unable to find an author identifier within the URL path".to_string(),
+            })?;
+
+        let limit = match query_parameters.get("limit") {
+            Some(x) => Some(x.clone().into_owned().parse::<u32>().map_err(|e| {
+                OpenLibraryError::ParsingError {
+                    reason: e.to_string(),
+                }
+            })?),
+            None => None,
+        };
+
+        let offset = match query_parameters.get("offset") {
+            Some(z) => Some(z.clone().into_owned().parse::<u32>().map_err(|e| {
+                OpenLibraryError::ParsingError {
+                    reason: e.to_string(),
+                }
+            })?),
+            None => None,
+        };
+
+        Ok(Self {
+            identifier: OpenLibraryIdentifer::from_str(result)?,
+            limit: limit,
+            offset: offset,
+        })
+    }
+}
+
+#[derive(Deserialize, Debug, Eq, PartialEq, Serialize)]
+pub struct AuthorWorksResponse {
+    #[serde(default)]
+    #[serde(skip_serializing_if = "HashMap::is_empty")]
+    pub links: HashMap<LinkName, String>,
+    pub size: u32,
+    #[serde(default)]
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub entries: Vec<AuthorWorks>,
+}
+
+impl OpenLibraryModel for AuthorWorksResponse {}
+
+#[derive(Deserialize, Debug, Eq, PartialEq, Serialize)]
+pub struct AuthorWorks {
+    #[serde(default)]
+    #[serde(deserialize_with = "string_or_value")]
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
+    pub title: String,
+    #[serde(default)]
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub covers: Vec<i32>,
+    #[serde(default)]
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub subject_places: Vec<String>,
+    #[serde(default)]
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub subjects: Vec<String>,
+    #[serde(default)]
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub subject_people: Vec<String>,
+    pub key: Resource,
+    pub authors: Vec<AuthorLink>,
+    #[serde(default)]
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub subject_times: Vec<String>,
+    pub latest_revision: u32,
+    pub revision: u32,
+    // pub created:
+    // pub last_modified
+}
+
+impl OpenLibraryModel for AuthorWorks {}
+
 #[derive(Debug, Deserialize, Serialize)]
 pub struct AuthorResponse {
     #[serde(rename = "numFound")]
@@ -67,3 +261,37 @@ pub struct AuthorResponse {
 }
 
 impl OpenLibraryModel for AuthorResponse {}
+
+/*
+   Necessary because the `description` field within the AuthorWorks can either be a direct string
+   or an object containing a type/value.
+
+    Example:
+    "description": "The Eighth Story. Nineteen Years Later."
+
+    "description": {
+        "type": "/type/text",
+        "value": "Come join JK Rowling with her new adventurous book. The Ickabog."
+    }
+*/
+fn string_or_value<'de, D>(deserializer: D) -> Result<Option<String>, D::Error>
+where
+    D: Deserializer<'de>,
+{
+    #[derive(Deserialize)]
+    struct Value<T> {
+        value: T,
+    }
+
+    #[derive(Deserialize)]
+    #[serde(untagged)]
+    enum StrOrValue {
+        Str(String),
+        Value(Value<String>),
+    }
+
+    Ok(match StrOrValue::deserialize(deserializer)? {
+        StrOrValue::Str(v) => Some(v),
+        StrOrValue::Value(v) => Some(v.value),
+    })
+}

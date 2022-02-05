@@ -17,7 +17,7 @@ pub enum Resource {
     Book(String),
     Work(String),
 }
-//
+
 pub trait OpenLibraryModel {}
 pub trait OpenLibraryIdentifierKey {}
 impl OpenLibraryIdentifierKey for Resource {}
@@ -87,4 +87,13 @@ pub struct Link {
     url: String,
     #[serde(skip_serializing_if = "String::is_empty")]
     title: String,
+}
+
+#[derive(Clone, Deserialize, Debug, Eq, Hash, PartialEq, Serialize)]
+#[serde(rename_all = "lowercase")]
+pub enum LinkName {
+    Author,
+    #[serde(rename = "self")]
+    Itself,
+    Next,
 }
