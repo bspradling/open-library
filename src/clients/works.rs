@@ -9,7 +9,7 @@ pub struct WorksClient {
     client: Client,
     host: Url,
 }
-
+~
 impl WorksClient {
     pub fn new(client: &Client, host: &Url) -> Self {
         Self {
@@ -18,13 +18,13 @@ impl WorksClient {
         }
     }
 
-    pub async fn get<'a, T: Into<&'a OpenLibraryIdentifier>>(
+    pub async fn get(
         &self,
-        identifier: T,
+        identifier: &OpenLibraryIdentifier,
     ) -> Result<Work, OpenLibraryError> {
         let url = self
             .host
-            .join(format!("/works/{}.json", identifier.into().value()).as_str())?;
+            .join(format!("/works/{}.json", identifier.value()).as_str())?;
 
         handle(self.client.get(url)).await
     }
