@@ -39,5 +39,5 @@ version = "2.2.2"
 features = ["serde"]
 
 [dev-dependencies]
-test-case = "1.2.0"
+test-case = "=1.2.1"
 wiremock = "0.5.6"

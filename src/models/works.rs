@@ -1,8 +1,8 @@
+use crate::format::KeyedValue;
+use crate::models::authors::{AuthorReference, AuthorType};
 use crate::models::{OpenLibraryModel, OpenLibraryResource};
 use chrono::NaiveDate;
-use serde::{Deserialize, Serialize, Deserializer};
-use crate::models::authors::{AuthorReference, AuthorType};
-use crate::format::KeyedValue;
+use serde::{Deserialize, Deserializer, Serialize};
 
 /// Represents a logical collection of similar Editions.
 // The fields present per Work varies by instance so to better understand the distribution a key
