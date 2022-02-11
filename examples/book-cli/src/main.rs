@@ -1,7 +1,7 @@
 use crate::arguments::Arguments;
 use anyhow::Result;
 use open_library::models::books::BibliographyKey::{ISBN, LCCN, OCLC, OLID};
-use open_library::models::books::{BibliographyKey, BookIdentifierKey};
+use open_library::models::books::{BibliographyKey};
 use open_library::OpenLibraryClient;
 use structopt::StructOpt;
 use tokio;
@@ -20,6 +20,6 @@ async fn main() -> Result<()> {
 
     let identifiers: Vec<BibliographyKey> = isbn.chain(oclc).chain(lccn).chain(olid).collect();
 
-    println!("{:?}", client.books.search(&identifiers).await?);
+    println!("{:?}", client.books.search(identifiers).await?);
     Ok(())
 }

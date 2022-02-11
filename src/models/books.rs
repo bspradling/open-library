@@ -224,14 +224,16 @@ impl FromStr for BookIdentifierKey {
     }
 }
 
+//TODO: this is a duplicate struct name
+// and also wrong
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct Author {
     #[serde(skip_serializing_if = "Option::is_none")]
-    key: Option<OpenLibraryResource>,
+    pub key: Option<OpenLibraryResource>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    name: Option<String>,
+    pub name: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    url: Option<String>,
+    pub url: Option<String>,
 }
 
 #[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
