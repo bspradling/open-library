@@ -1,7 +1,7 @@
+use crate::models::identifiers::OpenLibraryIdentifier;
 use serde::de::Error;
 use serde::{Deserialize, Deserializer, Serialize, Serializer};
 use std::fmt::{Display, Formatter};
-use crate::models::identifiers::OpenLibraryIdentifier;
 use std::str::FromStr;
 
 pub mod account;
@@ -20,14 +20,14 @@ pub enum OpenLibraryResource {
     Work(String),
 }
 
-
 impl OpenLibraryResource {
     pub fn value(&self) -> String {
         match self {
             OpenLibraryResource::Author(value) => value,
             OpenLibraryResource::Book(value) => value,
-            OpenLibraryResource::Work(value) => value
-        }.clone()
+            OpenLibraryResource::Work(value) => value,
+        }
+        .clone()
     }
 }
 

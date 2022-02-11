@@ -18,7 +18,10 @@ impl WorksClient {
         }
     }
 
-    pub async fn get<'a, T: Into<&'a OpenLibraryIdentifier>>(&self, identifier: T) -> Result<Work, OpenLibraryError> {
+    pub async fn get<'a, T: Into<&'a OpenLibraryIdentifier>>(
+        &self,
+        identifier: T,
+    ) -> Result<Work, OpenLibraryError> {
         let url = self
             .host
             .join(format!("/works/{}.json", identifier.into().value()).as_str())?;

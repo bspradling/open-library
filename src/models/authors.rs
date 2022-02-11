@@ -1,9 +1,11 @@
+use crate::format::KeyedValue;
 use crate::models::identifiers::OpenLibraryIdentifier;
+use crate::models::works::Work;
 use crate::models::{Link, LinkName, OpenLibraryModel, OpenLibraryResource};
 use crate::OpenLibraryError;
 use chrono::NaiveDateTime;
 use serde::de::Error;
-use serde::{Deserialize, Serialize, Deserializer, Serializer};
+use serde::{Deserialize, Deserializer, Serialize, Serializer};
 use std::borrow::Cow;
 use std::collections::HashMap;
 use std::convert::TryFrom;
@@ -11,8 +13,6 @@ use std::fmt;
 use std::fmt::Display;
 use std::str::FromStr;
 use url::Url;
-use crate::format::KeyedValue;
-use crate::models::works::Work;
 
 #[derive(Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct Author {
@@ -233,8 +233,8 @@ pub struct AuthorResponse {
 impl OpenLibraryModel for AuthorResponse {}
 
 fn deserialize_author_type<'de, D>(deserializer: D) -> Result<KeyedValue<AuthorType>, D::Error>
-    where
-        D: Deserializer<'de>,
+where
+    D: Deserializer<'de>,
 {
     #[derive(Deserialize)]
     #[serde(untagged)]

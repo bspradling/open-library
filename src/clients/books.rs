@@ -46,8 +46,10 @@ impl BooksClient {
         handle(self.client.get(url)).await
     }
 
-    pub async fn search<'a, T: Into<&'a Vec<BibliographyKey>>>(&self, identifiers: T) -> Result<BookSearchResponse, OpenLibraryError>
-    {
+    pub async fn search<'a, T: Into<&'a Vec<BibliographyKey>>>(
+        &self,
+        identifiers: T,
+    ) -> Result<BookSearchResponse, OpenLibraryError> {
         let ids_filter = identifiers
             .into()
             .iter()
