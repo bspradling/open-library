@@ -70,9 +70,9 @@ pub mod date_m_dd_yyyy {
     }
 }
 
-#[derive(Deserialize, Serialize)]
-struct KeyedValue<T> {
-    key: T,
+#[derive(Debug, Deserialize, Eq, PartialEq, Serialize)]
+pub struct KeyedValue<T> {
+    pub key: T,
 }
 
 pub mod keyed_value {
@@ -123,6 +123,7 @@ pub mod keyed_list {
     }
 }
 
+//TODO: convert into Tagged OpenLibraryTyped Enum
 pub mod value {
     use serde::{Deserialize, Deserializer, Serialize, Serializer};
 

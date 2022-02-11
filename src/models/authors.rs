@@ -3,7 +3,7 @@ use crate::models::{Link, LinkName, OpenLibraryModel, OpenLibraryResource};
 use crate::OpenLibraryError;
 use chrono::NaiveDateTime;
 use serde::de::Error;
-use serde::{Deserialize, Deserializer, Serialize, Serializer};
+use serde::{Deserialize, Serialize, Deserializer, Serializer};
 use std::borrow::Cow;
 use std::collections::HashMap;
 use std::convert::TryFrom;
@@ -11,6 +11,8 @@ use std::fmt;
 use std::fmt::Display;
 use std::str::FromStr;
 use url::Url;
+use crate::format::KeyedValue;
+use crate::models::works::Work;
 
 #[derive(Debug, Deserialize, Eq, PartialEq, Serialize)]
 pub struct Author {
@@ -33,12 +35,12 @@ pub struct Author {
 }
 
 #[derive(Debug, Deserialize, Eq, PartialEq, Serialize)]
-pub struct AuthorLink {
+pub struct AuthorReference {
     #[serde(rename = "type")]
-    #[serde(with = "crate::format::keyed_value")]
-    pub author_type: AuthorType,
-    #[serde(with = "crate::format::keyed_value")]
-    pub author: OpenLibraryResource,
+    #[serde(deserialize_with = "deserialize_author_type")]
+    pub author_type: KeyedValue<AuthorType>,
+    #[serde(rename = "author")]
+    pub identifier: KeyedValue<OpenLibraryResource>,
 }
 
 #[derive(Debug, Eq, PartialEq)]
@@ -49,7 +51,7 @@ pub enum AuthorType {
 impl Display for AuthorType {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         match self {
-            AuthorType::AuthorRole => write!(f, "author_role"),
+            AuthorType::AuthorRole => write!(f, "/type/author_role"),
         }
     }
 }
@@ -213,42 +215,10 @@ pub struct AuthorWorksResponse {
     pub size: u32,
     #[serde(default)]
     #[serde(skip_serializing_if = "Vec::is_empty")]
-    pub entries: Vec<AuthorWorks>,
+    pub entries: Vec<Work>,
 }
 
 impl OpenLibraryModel for AuthorWorksResponse {}
-
-#[derive(Deserialize, Debug, Eq, PartialEq, Serialize)]
-pub struct AuthorWorks {
-    #[serde(default)]
-    #[serde(deserialize_with = "string_or_value")]
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub description: Option<String>,
-    pub title: String,
-    #[serde(default)]
-    #[serde(skip_serializing_if = "Vec::is_empty")]
-    pub covers: Vec<i32>,
-    #[serde(default)]
-    #[serde(skip_serializing_if = "Vec::is_empty")]
-    pub subject_places: Vec<String>,
-    #[serde(default)]
-    #[serde(skip_serializing_if = "Vec::is_empty")]
-    pub subjects: Vec<String>,
-    #[serde(default)]
-    #[serde(skip_serializing_if = "Vec::is_empty")]
-    pub subject_people: Vec<String>,
-    pub key: OpenLibraryResource,
-    pub authors: Vec<AuthorLink>,
-    #[serde(default)]
-    #[serde(skip_serializing_if = "Vec::is_empty")]
-    pub subject_times: Vec<String>,
-    pub latest_revision: u32,
-    pub revision: u32,
-    // pub created:
-    // pub last_modified
-}
-
-impl OpenLibraryModel for AuthorWorks {}
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct AuthorResponse {
@@ -262,36 +232,19 @@ pub struct AuthorResponse {
 
 impl OpenLibraryModel for AuthorResponse {}
 
-/*
-   Necessary because the `description` field within the AuthorWorks can either be a direct string
-   or an object containing a type/value.
-
-    Example:
-    "description": "The Eighth Story. Nineteen Years Later."
-
-    "description": {
-        "type": "/type/text",
-        "value": "Come join JK Rowling with her new adventurous book. The Ickabog."
-    }
-*/
-fn string_or_value<'de, D>(deserializer: D) -> Result<Option<String>, D::Error>
-where
-    D: Deserializer<'de>,
+fn deserialize_author_type<'de, D>(deserializer: D) -> Result<KeyedValue<AuthorType>, D::Error>
+    where
+        D: Deserializer<'de>,
 {
     #[derive(Deserialize)]
-    struct Value<T> {
-        value: T,
-    }
-
-    #[derive(Deserialize)]
     #[serde(untagged)]
-    enum StrOrValue {
-        Str(String),
-        Value(Value<String>),
+    enum StringOrKeyedValue {
+        String(AuthorType),
+        KeyedValue(KeyedValue<AuthorType>),
     }
 
-    Ok(match StrOrValue::deserialize(deserializer)? {
-        StrOrValue::Str(v) => Some(v),
-        StrOrValue::Value(v) => Some(v.value),
+    Ok(match StringOrKeyedValue::deserialize(deserializer)? {
+        StringOrKeyedValue::String(v) => KeyedValue { key: v },
+        StringOrKeyedValue::KeyedValue(v) => v,
     })
 }

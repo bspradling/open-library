@@ -1,7 +1,7 @@
 use crate::arguments::Arguments;
 use anyhow::Result;
 use open_library::models::books::BibliographyKey::{ISBN, LCCN, OCLC, OLID};
-use open_library::models::books::{BibliographyKey, BookIdentifierKey};
+use open_library::models::books::{BibliographyKey};
 use open_library::OpenLibraryClient;
 use structopt::StructOpt;
 use tokio;

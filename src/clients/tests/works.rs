@@ -31,3 +31,5 @@ async fn test_works_get_returns_success() -> Result<(), Box<dyn Error>> {
     assert_eq!(actual, mock_response);
     Ok(())
 }
+
+//TODO write a test for the different options for field values (Author Type)

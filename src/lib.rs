@@ -65,6 +65,7 @@ pub struct OpenLibraryAuthClient {
 }
 
 impl OpenLibraryAuthClient {
+    //TODO: this is odd to consume with having to know to pass in None to get production url
     pub fn new(host: Option<Url>) -> Result<OpenLibraryAuthClient, OpenLibraryError> {
         let client = ClientBuilder::new()
             .build()

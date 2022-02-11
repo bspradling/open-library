@@ -1,49 +1,32 @@
-use crate::models::books::{Author, BookIdentifierKey, Classifications};
-use crate::models::identifiers::InternationalStandardBookNumber;
 use crate::models::{OpenLibraryModel, OpenLibraryResource};
 use chrono::NaiveDate;
-use serde::{Deserialize, Serialize};
-use std::collections::HashMap;
+use serde::{Deserialize, Serialize, Deserializer};
+use crate::models::authors::{AuthorReference, AuthorType};
+use crate::format::KeyedValue;
 
+/// Represents a logical collection of similar Editions.
+// The fields present per Work varies by instance so to better understand the distribution a key
+// frequency distribution was created with 10 million records. This client won't support anything
+// over 20% until a reason to do so presents itself. For a detailed view of field frequencies, view
+// `models` directory README.
 #[derive(Deserialize, Debug, Eq, PartialEq, Serialize)]
 pub struct Work {
-    #[serde(default)]
-    #[serde(skip_serializing_if = "Vec::is_empty")]
-    pub publishers: Vec<String>,
-    pub number_of_pages: u32,
-    #[serde(rename = "isbn_10")]
-    pub isbns_10: Vec<InternationalStandardBookNumber>,
-    pub covers: Vec<u32>, //TODO Cover Id
-    pub key: OpenLibraryResource,
-    pub authors: Vec<Author>,
-    pub ocaid: String,
-    pub contributions: Vec<String>,
-    #[serde(with = "crate::format::keyed_list")]
-    pub languages: Vec<String>,
-    pub classifications: Classifications,
-    pub source_records: Vec<String>, //TODO Parse these?
     pub title: String,
     #[serde(default)]
-    pub identifiers: HashMap<BookIdentifierKey, Vec<String>>,
-    #[serde(rename = "isbn_13")]
-    pub isbns_13: Vec<InternationalStandardBookNumber>,
-    pub local_id: Vec<String>, //TODO Parse?
-    #[serde(with = "crate::format::date_m_dd_yyyy")]
-    pub publish_date: NaiveDate,
-    #[serde(with = "crate::format::keyed_list")]
-    pub works: Vec<OpenLibraryResource>,
-    #[serde(rename = "type")]
-    #[serde(with = "crate::format::keyed_value")]
-    pub works_type: String,
-    pub first_sentence: FirstSentence,
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub covers: Vec<i32>,
+    #[serde(default)]
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub subject_places: Vec<String>,
+    #[serde(default)]
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub subjects: Vec<String>,
+    pub key: OpenLibraryResource,
+    pub authors: Vec<AuthorReference>,
     pub latest_revision: u32,
-}
-
-#[derive(Deserialize, Debug, Eq, PartialEq, Serialize)]
-pub struct FirstSentence {
-    #[serde(rename = "type")]
-    pub sentence_type: String,
-    pub value: String,
+    pub revision: u32,
+    // pub created: TODO need to support
+    // pub last_modified TODO need to support
 }
 
 impl OpenLibraryModel for Work {}

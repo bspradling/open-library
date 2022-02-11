@@ -36,7 +36,7 @@ async fn test_book_search_returns_success() -> Result<(), Box<dyn Error>> {
         .mount(&server)
         .await;
 
-    let actual = client.books.search(identifiers).await?;
+    let actual = client.books.search(&identifiers).await?;
 
     assert_eq!(actual.keys().len(), 3);
     Ok(())
@@ -65,7 +65,7 @@ async fn test_book_search_returns_failure_when_request_fails() -> Result<(), Box
         .mount(&server)
         .await;
 
-    let actual = client.books.search(identifiers).await;
+    let actual = client.books.search(&identifiers).await;
     let error = actual.expect_err("Expected Book Search call to return an error but it didn't!");
     match &error {
         OpenLibraryError::ApiError {
